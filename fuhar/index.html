@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test Interactivo Autocorregible</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- React y ReactDOM desde CDN -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!-- Babel para permitir JSX en navegadores -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="topbar-static" style="padding:18px 18px 0;"><a class="back-home" href="../index.html" style="color:#fff;text-decoration:none;font-family:Arial,sans-serif;">← Volver al portal</a></div>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const preguntas = [{enunciado: '* ¿Cuál es el modelo en el que se basan la gran mayoría de los ordenadores actuales?', opciones: ['Arquitectura Harvard', 'Arquitectura Von Neumann', 'Arquitectura RISC pura', 'Arquitectura de flujo de datos'], correcta: 1, cita: '[cite: 6, 150]'}, {enunciado: '* ¿Qué diferencia fundamental tiene la arquitectura Harvard respecto a la Von Neumann?', opciones: ['Usa una sola memoria para datos e instrucciones', 'Tiene memoria y buses separados para datos e instrucciones', 'Es más sencilla y económica de implementar', 'No permite el acceso simultáneo a datos e instrucciones'], correcta: 1, cita: '[cite: 410]'}, {enunciado: '* En la arquitectura Von Neumann, ¿qué sucede con el acceso a datos e instrucciones?', opciones: ['Se puede acceder a ambos simultáneamente', 'La CPU no puede acceder a ambos al mismo tiempo al compartir el bus', 'No utiliza buses para la memoria', 'Solo permite leer instrucciones, no datos'], correcta: 1, cita: '[cite: 410]'}, {enunciado: '* ¿Cuáles son los tres tipos de buses del sistema?', opciones: ['Entrada, Salida y Almacenamiento', 'Datos, Direcciones y Control', 'USB, PCIe y SATA', 'Instrucciones, Registros y Reloj'], correcta: 1, cita: '[cite: 41, 42, 43, 163, 164, 165]'}, {enunciado: '* ¿Qué bus indica la posición exacta de memoria a la que se quiere acceder?', opciones: ['Bus de datos', 'Bus de control', 'Bus de direcciones', 'Bus de sistema'], correcta: 2, cita: '[cite: 42, 164]'}, {enunciado: '* ¿En qué tres partes principales se divide la CPU?', opciones: ['RAM, Disco Duro y Placa Base', 'Registros, ALU y Unidad de Control (con reloj)', 'Chipset, BIOS y Zócalo', 'Fuente, Buses y Ventiladores'], correcta: 1, cita: '[cite: 28, 29, 30, 31, 151, 152, 153]'}, {enunciado: '* ¿Cuál es la función de la Unidad Aritmético-Lógica (ALU)?', opciones: ['Coordinar todas las operaciones del sistema', 'Realizar operaciones matemáticas y lógicas', 'Almacenar datos de forma temporal', 'Controlar la velocidad del bus'], correcta: 1, cita: '[cite: 30, 31, 153]'}, {enunciado: '* Ordena de MAYOR velocidad a MENOR velocidad la jerarquía de memoria:', opciones: ['RAM > Caché > Registros > SSD', 'Registros > Caché > RAM > Almacenamiento (SSD/HDD)', 'Almacenamiento > RAM > Caché > Registros', 'Caché > Registros > RAM > Disco Duro'], correcta: 1, cita: '[cite: 50, 51, 52, 53, 54, 578]'}, {enunciado: '* ¿Qué nivel de memoria es el más caro por bit pero el más rápido?', opciones: ['Memoria RAM', 'Memoria Caché', 'Registros de la CPU', 'Discos SSD'], correcta: 2, cita: '[cite: 51, 73, 576]'}, {enunciado: "* ¿Cuál es el valor decimal del número binario '1010'?", opciones: ['8', '10', '12', '15'], correcta: 1}, {enunciado: '* ¿Cómo se representa el número decimal 15 en binario de 4 bits?', opciones: ['1000', '1110', '1111', '1011'], correcta: 2}, {enunciado: '* ¿Qué binario corresponde al decimal 5?', opciones: ['0101', '0011', '1100', '0111'], correcta: 0}, {enunciado: '* ¿Qué binario corresponde al decimal 7?', opciones: ['1010', '0111', '0110', '1001'], correcta: 1}, {enunciado: '* ¿Qué software gestiona el hardware, el sistema de archivos y los periféricos?', opciones: ['La BIOS', 'El Sistema Operativo (SO)', 'Los Drivers', 'El Software de Aplicación'], correcta: 1, cita: '[cite: 4, 391]'}, {enunciado: '* ¿Cuáles son los tres pasos del ciclo de instrucción?', opciones: ['Leer, Escribir, Borrar', 'Fetch (recoger), Decode (decodificar), Execute (ejecutar)', 'Input, Process, Output', 'Cargar, Procesar, Guardar'], correcta: 1, cita: '[cite: 530]'}, {enunciado: '* ¿Cómo se llama el proceso de fabricación para imprimir circuitos en obleas de silicio?', opciones: ['Serigrafía', 'Litografía (medida en nanómetros)', 'Soldadura láser', 'Impresión 3D'], correcta: 1, cita: '[cite: 532, 539]'}, {enunciado: '* ¿Qué ventaja tiene una litografía más pequeña (ej. de 10nm a 7nm)?', opciones: ['El procesador es más grande', 'Permite CPUs más potentes y eficientes energéticamente', 'Requiere más ventiladores', 'Solo sirve para abaratar costes'], correcta: 1, cita: '[cite: 533, 540]'}, {enunciado: '* ¿Qué elemento de la placa base determina la marca de procesador compatible?', opciones: ['Ranuras DIMM', 'Zócalo (CPU Socket)', 'Conector ATX', 'Bus PCIe'], correcta: 1, cita: '[cite: 420, 450]'}, {enunciado: '* ¿Cuál es la función del Chipset en la placa base?', opciones: ['Almacenar el sistema operativo', 'Gestionar el tráfico de datos entre CPU, memoria y periféricos', 'Realizar el chequeo POST', 'Dar energía a los ventiladores'], correcta: 1, cita: '[cite: 426, 427, 437]'}, {enunciado: '* ¿Para qué sirve el conector ATX de 24 pines?', opciones: ['Alimentar solo a la CPU', 'Alimentar la tarjeta gráfica', 'Suministrar energía general a la placa base', 'Conectar el disco duro'], correcta: 2, cita: '[cite: 646]'}, {enunciado: '* ¿Qué conector suministra energía específica al procesador (cerca del zócalo)?', opciones: ['ATX de 24 pines', 'EPS/ATX de 4 u 8 pines', 'PCIe de 6 pines', 'SATA de energía'], correcta: 1, cita: '[cite: 646]'}, {enunciado: '* ¿Qué conector se usa habitualmente para dar energía extra a las tarjetas gráficas?', opciones: ['ATX de 24 pines', 'PCIe de 6 u 8 pines', 'Molex', 'SATA'], correcta: 1, cita: '[cite: 646]'}, {enunciado: '* ¿Qué es el proceso POST realizado por la BIOS/UEFI?', opciones: ['Un método de overclocking', 'Chequeo inicial de hardware crítico al arrancar', 'Instalación de drivers', 'Borrado de la RAM'], correcta: 1, cita: '[cite: 458, 480, 493]'}, {enunciado: '* ¿Qué ventaja principal ofrece UEFI sobre la BIOS tradicional?', opciones: ['No necesita electricidad', 'Interfaz gráfica con ratón, arranque más rápido y Secure Boot', 'Permite usar solo Linux', 'Es un chip de mayor tamaño'], correcta: 1, cita: '[cite: 461, 462, 463, 495, 496]'}, {enunciado: '* ¿Qué función de seguridad impide el arranque de software malicioso durante el inicio?', opciones: ['Overclocking', 'Secure Boot (Arranque Seguro)', 'Pila CMOS', 'Flashear BIOS'], correcta: 1, cita: '[cite: 468, 496]'}, {enunciado: '* Si el POST falla al encender el PC, ¿cómo suele avisar el sistema?', opciones: ['Abre el explorador de archivos', 'Emite pitidos de error y detiene el arranque', 'Se apaga la luz de la habitación', 'Inicia Windows en modo seguro'], correcta: 1, cita: '[cite: 482]'}, {enunciado: '* ¿Qué postula la Ley de Moore?', opciones: ['Que el software será cada vez más pesado', 'Que los transistores en un microprocesador se duplican cada 2 años', 'Que los discos duros desaparecerán', 'Que el precio de los ordenadores subirá siempre'], correcta: 1, cita: '[cite: 531, 538]'}, {enunciado: '* ¿Qué arquitectura utiliza instrucciones complejas (x86 de Intel/AMD)?', opciones: ['RISC', 'CISC', 'Harvard', 'Nativa'], correcta: 1, cita: '[cite: 564, 565, 579]'}, {enunciado: '* ¿Qué arquitectura usa instrucciones simples y optimizadas (ARM)?', opciones: ['CISC', 'RISC', 'Von Neumann', 'Caché L1'], correcta: 1, cita: '[cite: 570, 571, 580]'}, {enunciado: '* ¿Cuál es la característica principal de la memoria RAM?', opciones: ['Es persistente', 'Es volátil (se borra al apagar)', 'Es el nivel más lento', 'Solo sirve para video'], correcta: 1, cita: '[cite: 32, 33, 154, 155]'}, {enunciado: '* ¿A qué voltaje opera normalmente la memoria DDR4?', opciones: ['1.5V', '1.2V', '1.1V', '12V'], correcta: 1, cita: '[cite: 593]'}, {enunciado: '* ¿Qué técnica permite duplicar el ancho de banda de la RAM usando dos módulos?', opciones: ['Single Channel', 'Dual Channel', 'Overclocking', 'Hyper-threading'], correcta: 1, cita: '[cite: 285, 605]'}, {enunciado: '* ¿Cuál es la principal amenaza al montar un PC?', opciones: ['El calor', 'Electricidad estática (ESD)', 'El ruido', 'El brillo'], correcta: 1, cita: '[cite: 626, 628]'}, {enunciado: '* ¿Cuál es el orden lógico de montaje recomendado?', opciones: ['Caja -> Fuente -> Placa -> RAM', 'CPU -> RAM -> Refrigeración -> Instalación en caja', 'Gráfica -> Disco -> CPU -> RAM', 'Placa -> Fuente -> CPU -> RAM'], correcta: 1, cita: '[cite: 630, 641]'}, {enunciado: '* ¿Cómo se debe aplicar la pasta térmica en la CPU?', opciones: ['Cubriendo toda la superficie', 'Una pequeña gota (tamaño guisante)', 'Debajo de la CPU', 'No se debe poner'], correcta: 1, cita: '[cite: 644]'}, {enunciado: '* ¿Cómo se deben apretar los tornillos del disipador de la CPU?', opciones: ['En línea', 'En patrón de cruz para distribuir presión', 'Al máximo posible hasta romper', 'Solo dos tornillos'], correcta: 1, cita: '[cite: 645]'}, {enunciado: '* ¿Qué componente está diseñado para procesar gráficos masivamente en paralelo?', opciones: ['CPU', 'GPU', 'RAM', 'SSD'], correcta: 1, cita: '[cite: 653, 667]'}, {enunciado: '* ¿Cuál es el estándar de bus actual para tarjetas gráficas y SSDs rápidos?', opciones: ['PCI', 'AGP', 'PCI Express (PCIe)', 'USB'], correcta: 2, cita: '[cite: 424, 651, 655, 656, 721]'}, {enunciado: '¿Qué dispositivo permite añadir funciones extras (red, sonido) a la placa?', opciones: ['DIMM', 'Tarjeta de expansión', 'Microorden', 'Periférico de entrada'], correcta: 1, cita: '[cite: 423, 651, 652]'}, {enunciado: '¿Qué periférico es de entrada/salida a la vez?', opciones: ['Teclado', 'Impresora multifunción', 'Monitor estándar', 'Ratón'], correcta: 1, cita: '[cite: 676]'}, {enunciado: '¿Qué protocolo busca unificar datos, vídeo y energía por un puerto USB-C?', opciones: ['Ethernet', 'HDMI', 'Thunderbolt', 'NVMe'], correcta: 2, cita: '[cite: 685]'}, {enunciado: '¿Cuál es la diferencia fundamental entre un HDD y un SSD?', opciones: ['HDD es electrónico y SSD mecánico', 'HDD tiene platos giratorios y SSD memoria flash', 'SSD solo funciona en laptops', 'HDD es más rápido'], correcta: 1, cita: '[cite: 39, 161, 692, 694]'}, {enunciado: '¿Qué interfaz permite a los SSD velocidades de miles de MB/s?', opciones: ['SATA III', 'PATA', 'NVMe (sobre bus PCIe)', 'Molex'], correcta: 2, cita: '[cite: 425, 684, 698, 729]'}, {enunciado: '¿Qué nivel de RAID ofrece redundancia completa (Mirroring)?', opciones: ['RAID 0', 'RAID 1', 'RAID 5', 'RAID 10'], correcta: 1, cita: '[cite: 741, 742]'}, {enunciado: '¿Qué es un NAS (Network Attached Storage)?', opciones: ['Un cable', 'Servidor de archivos conectado a la red', 'Tarjeta gráfica', 'Software de edición'], correcta: 1, cita: '[cite: 748, 749]'}, {enunciado: '¿Qué caracteriza a un servidor departamental?', opciones: ['Uso individual', 'Diseñado para estar encendido 24/7/365', 'No usa RAM', 'Es más barato que un PC'], correcta: 1, cita: '[cite: 762]'}, {enunciado: '¿Qué memoria de servidor corrige errores en tiempo real?', opciones: ['RAM estándar', 'Memoria ECC', 'Caché L1', 'SSD'], correcta: 1, cita: '[cite: 764]'}, {enunciado: '¿Qué equipo proporciona energía inmediata ante un corte?', opciones: ['Transformador', 'SAI / UPS', 'Generador diésel', 'Regleta'], correcta: 1, cita: '[cite: 792]'}, {enunciado: '¿Qué es un bare-metal restore?', opciones: ['Limpiar la placa', 'Restaurar un sistema desde cero en un disco vacío', 'Cambiar la caja', 'Borrar datos'], correcta: 1, cita: '[cite: 806]'}, {enunciado: '¿Qué significa P2V?', opciones: ['Pasar a virus', 'Convertir equipo físico en máquina virtual', 'Pasar a video', 'Protocolo de velocidad'], correcta: 1, cita: '[cite: 808, 809]'}, {enunciado: '¿Qué mantenimiento evita fallos antes de que ocurran?', opciones: ['Correctivo', 'Preventivo', 'Predictivo', 'Backup'], correcta: 1, cita: '[cite: 829, 830]'}, {enunciado: '¿Qué modelo de nube ofrece infraestructura básica (VM, almacenamiento)?', opciones: ['SaaS', 'PaaS', 'IaaS', 'On-premise'], correcta: 2, cita: '[cite: 841, 842]'}, {enunciado: '¿Qué es Gmail o Microsoft 365 en modelos de nube?', opciones: ['IaaS', 'PaaS', 'SaaS', 'Serverless'], correcta: 2, cita: '[cite: 851, 855]'}, {enunciado: '¿Qué significa el modelo de responsabilidad compartida?', opciones: ['Proveedor hace todo', 'Cliente hace todo', 'Proveedor asegura la infraestructura y el cliente su contenido', 'Se comparte el hardware'], correcta: 2, cita: '[cite: 863, 864]'}, {enunciado: '* ¿Qué binario corresponde al decimal 10?', opciones: ['1010', '1100', '0101', '1111'], correcta: 0}, {enunciado: '* ¿Qué binario corresponde al decimal 8?', opciones: ['1000', '0111', '1111', '0001'], correcta: 0}, {enunciado: '* ¿Cuál es la jerarquía de memoria de MÁS rápida a MÁS lenta?', opciones: ['Registros > Caché L1 > Caché L2 > Caché L3 > RAM > SSD', 'SSD > RAM > Caché > Registros', 'RAM > Registros > Caché > HDD', 'Registros > RAM > Caché > SSD'], correcta: 0, cita: '[cite: 578]'}, {enunciado: '* ¿Qué componente de la CPU marca el ritmo de ejecución?', opciones: ['Unidad de Control', 'ALU', 'Reloj del sistema', 'Bus'], correcta: 2, cita: '[cite: 17, 45, 117]'}, {enunciado: '* ¿Qué determina el rendimiento de una CPU además de los GHz?', opciones: ['Color de caja', 'Arquitectura, núcleos e instrucciones por ciclo (IPC)', 'Tamaño del monitor', 'Velocidad de ratón'], correcta: 1, cita: '[cite: 542]'}, {enunciado: '* ¿Para qué sirve poner contraseña en la BIOS/UEFI?', opciones: ['WiFi rápido', 'Restringir acceso a configuración del hardware', 'Proteger archivos Word', 'No sirve para nada'], correcta: 1, cita: '[cite: 472, 519]'}];
+      const TOTAL_PREGUNTAS = Math.min(30, preguntas.length);
+
+      function mezclarArray(lista) {
+        const copia = [...lista];
+        for (let i = copia.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copia[i], copia[j]] = [copia[j], copia[i]];
+        }
+        return copia;
+      }
+
+      function generarTestAleatorio() {
+        return mezclarArray(preguntas).slice(0, TOTAL_PREGUNTAS);
+      }
+
+      function TestInteractivo() {
+        const [testActual, setTestActual] = React.useState(() => generarTestAleatorio());
+        const [respuestas, setRespuestas] = React.useState(() =>
+          Array(TOTAL_PREGUNTAS).fill(null),
+        );
+        const [corregido, setCorregido] = React.useState(false);
+
+        const seleccionar = (pIndex, rIndex) => {
+          const copia = [...respuestas];
+          copia[pIndex] = rIndex;
+          setRespuestas(copia);
+        };
+
+        const reiniciarTest = () => {
+          setTestActual(generarTestAleatorio());
+          setRespuestas(Array(TOTAL_PREGUNTAS).fill(null));
+          setCorregido(false);
+        };
+
+        const puntaje = respuestas.reduce((acc, r, i) => {
+          if (r === testActual[i].correcta) return acc + 1;
+          return acc;
+        }, 0);
+
+        return (
+          <div className="test-container">
+            <h1 className="test-title">🎮 Test Interactivo Autocorregible</h1>
+
+            {testActual.map((p, i) => (
+              <div key={i} className="card">
+                <h2 className="question-title">
+                  {i + 1}. {p.enunciado}
+                </h2>
+
+                {p.opciones.map((op, j) => {
+                  const seleccionado = respuestas[i] === j;
+                  const esCorrecta = p.correcta === j;
+
+                  let clases = "answer-btn";
+                  if (seleccionado) clases += " answer-selected";
+                  if (corregido && seleccionado && !esCorrecta)
+                    clases += " answer-wrong";
+                  if (corregido && esCorrecta) clases += " answer-correct";
+
+                  return (
+                    <button
+                      key={j}
+                      onClick={() => seleccionar(i, j)}
+                      className={clases}
+                    >
+                      {op}
+                    </button>
+                  );
+                })}
+              </div>
+            ))}
+
+            <div className="result-section">
+              <div className="actions">
+                <button
+                  className="btn-correct"
+                  onClick={() => setCorregido(true)}
+                >
+                  Corregir
+                </button>
+                <button
+                  className="btn-reset"
+                  onClick={reiniciarTest}
+                >
+                  Reiniciar test
+                </button>
+              </div>
+
+              {corregido && (
+                <p className="result-text">
+                  Resultado: {puntaje} / {testActual.length}
+                </p>
+              )}
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <TestInteractivo />,
+      );
+    </script>
+    <footer>
+      <p>Creado por Olga M. Moreno Martín</p>
+    </footer>
+  </body>
+</html>
