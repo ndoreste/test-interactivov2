@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <title>Planificación y Administración de Redes · Test Interactivo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      const preguntas = [{
+      const preguntas = [
+        {
           enunciado:
             "¿Cuál es la capa del modelo OSI responsable de enrutar paquetes entre redes?",
           opciones: ["Enlace de datos", "Red", "Transporte", "Aplicación"],
@@ -2226,7 +2233,12 @@
             "Reiniciar HSRP",
           ],
           correcta: 1,
-        },];
+        },
+      ];
+
+      const primeras = preguntas.slice(0, 130);
+      const ultimas = preguntas.slice(130);
+
       const TOTAL_PREGUNTAS = Math.min(30, preguntas.length);
 
       function mezclarArray(lista) {
@@ -2239,16 +2251,29 @@
       }
 
       function obtenerTestAleatorio() {
-        return mezclarArray(preguntas).slice(0, TOTAL_PREGUNTAS);
+        const primerasMezcladas = mezclarArray([...primeras]).slice(0, 24);
+        const ultimasMezcladas = mezclarArray([...ultimas]).slice(0, 6);
+
+        return mezclarArray([...primerasMezcladas, ...ultimasMezcladas]);
       }
 
       function TestInteractivo() {
-        const [preguntasMostradas, setPreguntasMostradas] = React.useState(() => obtenerTestAleatorio());
-        const [respuestas, setRespuestas] = React.useState(() => Array(TOTAL_PREGUNTAS).fill(null));
+        const [preguntasMostradas, setPreguntasMostradas] = React.useState(() =>
+          obtenerTestAleatorio(),
+        );
+        const [respuestas, setRespuestas] = React.useState(() =>
+          Array(TOTAL_PREGUNTAS).fill(null),
+        );
         const [corregido, setCorregido] = React.useState(false);
         const respondidas = respuestas.filter((r) => r !== null).length;
-        const puntaje = respuestas.reduce((acc, r, i) => r === preguntasMostradas[i]?.correcta ? acc + 1 : acc, 0);
-        const porcentaje = preguntasMostradas.length ? Math.round((puntaje / preguntasMostradas.length) * 100) : 0;
+        const puntaje = respuestas.reduce(
+          (acc, r, i) =>
+            r === preguntasMostradas[i]?.correcta ? acc + 1 : acc,
+          0,
+        );
+        const porcentaje = preguntasMostradas.length
+          ? Math.round((puntaje / preguntasMostradas.length) * 100)
+          : 0;
         const seleccionar = (pIndex, rIndex) => {
           const copia = [...respuestas];
           copia[pIndex] = rIndex;
@@ -2259,37 +2284,60 @@
           setPreguntasMostradas(nuevoTest);
           setRespuestas(Array(nuevoTest.length).fill(null));
           setCorregido(false);
-          window.scrollTo({top:0, behavior:'smooth'});
+          window.scrollTo({ top: 0, behavior: "smooth" });
         };
         return (
           <div className="page-shell">
             <div className="test-container">
               <div className="topbar">
-                <a href="../index.html" className="back-link">← Volver al portal</a>
+                <a href="../index.html" className="back-link">
+                  ← Volver al portal
+                </a>
               </div>
-              <section className="hero" style={{padding:'28px 24px'}}>
-                <span className="badge">📡 Planificación y Administración de Redes</span>
-                <h1 className="test-title">Planificación y Administración de Redes</h1>
-                <p className="lead">Test interactivo autocorregible con 30 preguntas aleatorias por intento. Al reiniciar, el sistema vuelve a barajar y genera un test distinto.</p>
+              <section className="hero" style={{ padding: "28px 24px" }}>
+                <span className="badge">
+                  📡 Planificación y Administración de Redes
+                </span>
+                <h1 className="test-title">
+                  Planificación y Administración de Redes
+                </h1>
+                <p className="lead">
+                  Test interactivo autocorregible con 30 preguntas aleatorias
+                  por intento. Al reiniciar, el sistema vuelve a barajar y
+                  genera un test distinto.
+                </p>
                 <div className="stats">
-                  <div className="stat"><b>{preguntasMostradas.length}</b>Preguntas</div>
-                  <div className="stat"><b>{respondidas}</b>Respondidas</div>
-                  <div className="stat"><b>{corregido ? puntaje : '—'}</b>Aciertos</div>
+                  <div className="stat">
+                    <b>{preguntasMostradas.length}</b>Preguntas
+                  </div>
+                  <div className="stat">
+                    <b>{respondidas}</b>Respondidas
+                  </div>
+                  <div className="stat">
+                    <b>{corregido ? puntaje : "—"}</b>Aciertos
+                  </div>
                 </div>
               </section>
-              <div style={{height:'18px'}} />
+              <div style={{ height: "18px" }} />
               {preguntasMostradas.map((p, i) => (
                 <div key={i} className="card">
-                  <h2 className="question-title">{i + 1}. {p.enunciado}</h2>
+                  <h2 className="question-title">
+                    {i + 1}. {p.enunciado}
+                  </h2>
                   {p.opciones.map((op, j) => {
                     const seleccionado = respuestas[i] === j;
                     const esCorrecta = p.correcta === j;
-                    let clases = 'answer-btn';
-                    if (seleccionado) clases += ' answer-selected';
-                    if (corregido && seleccionado && !esCorrecta) clases += ' answer-wrong';
-                    if (corregido && esCorrecta) clases += ' answer-correct';
+                    let clases = "answer-btn";
+                    if (seleccionado) clases += " answer-selected";
+                    if (corregido && seleccionado && !esCorrecta)
+                      clases += " answer-wrong";
+                    if (corregido && esCorrecta) clases += " answer-correct";
                     return (
-                      <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                      <button
+                        key={j}
+                        onClick={() => seleccionar(i, j)}
+                        className={clases}
+                      >
                         {op}
                       </button>
                     );
@@ -2298,23 +2346,43 @@
               ))}
               <div className="result-section">
                 <div className="actions">
-                  <button className="btn-correct" onClick={() => setCorregido(true)}>Corregir test</button>
-                  <button className="btn-reset" onClick={reiniciar}>Reiniciar</button>
+                  <button
+                    className="btn-correct"
+                    onClick={() => setCorregido(true)}
+                  >
+                    Corregir test
+                  </button>
+                  <button className="btn-reset" onClick={reiniciar}>
+                    Reiniciar
+                  </button>
                 </div>
                 {corregido && (
                   <>
-                    <p className="result-text">Resultado: {puntaje} / {preguntasMostradas.length} ({porcentaje}%)</p>
-                    <p className="result-sub">Has respondido {respondidas} de {preguntasMostradas.length} preguntas.</p>
-                    <div className="progress"><span style={{width: `${porcentaje}%`}}></span></div>
+                    <p className="result-text">
+                      Resultado: {puntaje} / {preguntasMostradas.length} (
+                      {porcentaje}%)
+                    </p>
+                    <p className="result-sub">
+                      Has respondido {respondidas} de{" "}
+                      {preguntasMostradas.length} preguntas.
+                    </p>
+                    <div className="progress">
+                      <span style={{ width: `${porcentaje}%` }}></span>
+                    </div>
                   </>
                 )}
               </div>
-              <footer>Creado a partir de tus preguntas y preparado para publicación en GitHub Pages.</footer>
+              <footer>
+                Creado a partir de tus preguntas y preparado para publicación en
+                GitHub Pages.
+              </footer>
             </div>
           </div>
         );
       }
-      ReactDOM.createRoot(document.getElementById('root')).render(<TestInteractivo />);
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <TestInteractivo />,
+      );
     </script>
   </body>
 </html>
