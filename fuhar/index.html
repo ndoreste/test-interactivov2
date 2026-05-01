@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <title>Fundamentos de Hardware · Test Interactivo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      const preguntas = [{
+      const preguntas = [
+        {
           enunciado:
             "* ¿Cuál es el modelo en el que se basan la gran mayoría de los ordenadores actuales?",
           opciones: [
@@ -597,7 +604,315 @@
           ],
           correcta: 1,
           cita: "[cite: 472, 519]",
-        },];
+        },
+
+        // --- Preguntas añadidas desde el DOCX de simulacro ---
+        {
+          enunciado:
+            '* ¿Qué compone la "Unidad central de proceso" o procesador (CPU - Control processing Unit)?:',
+          opciones: [
+            "El conjunto de Unidad de control (CU), la unidad aritmeticológica (ALU) y periféricos.",
+            "El conjunto de Unidad de control (CU), la unidad aritmeticológica (ALU) y registros.",
+            "La UC y los registros.",
+            "El conjunto de Unidad de control (CU), la unidad aritmeticológica (ALU) y memoria principal (RAM).",
+          ],
+          correcta: 1,
+          cita: "DOCX simulacro hardware · pregunta 1",
+        },
+        {
+          enunciado:
+            "* ¿Qué componentes permiten al ordenador comunicarse correctamente con los periféricos controlando su velocidad y transmisión de datos?",
+          opciones: [
+            "Los controladores.",
+            "El bus del sistema.",
+            "La memoria caché.",
+            "El firmware.",
+          ],
+          correcta: 0,
+          cita: "DOCX simulacro hardware · pregunta 2",
+        },
+        {
+          enunciado:
+            "* ¿Qué función realiza la Unidad de Control (UC) dentro de la CPU?:",
+          opciones: [
+            "Ejecuta las operaciones aritméticas y lógicas.",
+            "Controla el flujo de instrucciones y coordina las operaciones del sistema.",
+            "Almacena los resultados de los cálculos.",
+            "Gestiona el almacenamiento de datos a largo plazo.",
+          ],
+          correcta: 1,
+          cita: "DOCX simulacro hardware · pregunta 3",
+        },
+        {
+          enunciado: "* El firmware se define como:",
+          opciones: [
+            "Un hardware que controla al software.",
+            "Un software integrado en un hardware, almacenado en una memoria especial.",
+            "Un programa que se ejecuta en la memoria RAM.",
+            "Un periférico encargado de la entrada de datos.",
+          ],
+          correcta: 1,
+          cita: "DOCX simulacro hardware · pregunta 4",
+        },
+        {
+          enunciado:
+            "* Diferencias entre memoria RAM, ROM, caché y memoria virtual",
+          opciones: [
+            "RAM: solo guarda fotos; ROM: ejecuta juegos; Caché: tipo de procesador; Memoria virtual: memoria masiva, discos duros.",
+            "RAM: permanente; ROM: temporal; Caché: almacena archivos grandes; Memoria virtual: igual que RAM física.",
+            "RAM: temporal y volátil; ROM: permanente; Caché: memoria rápida cercana al procesador; Memoria virtual: extensión de RAM en disco duro.",
+            "RAM: igual al disco duro; ROM: memoria de la tarjeta gráfica; Caché: extensión de RAM en disco duro; Memoria virtual: permanente.",
+          ],
+          correcta: 2,
+          cita: "DOCX simulacro hardware · pregunta 5",
+        },
+        {
+          enunciado:
+            "* De acuerdo con la Jerarquía de la Memoria (atendiendo a capacidad, velocidad y coste), ¿cuál de los siguientes componentes ocupa el primer puesto (mayor velocidad y coste)?:",
+          opciones: [
+            "Disco Magnético",
+            "Memoria principal",
+            "Memoria Cache",
+            "Registro internos del procesador",
+          ],
+          correcta: 3,
+          cita: "DOCX simulacro hardware · pregunta 6",
+        },
+        {
+          enunciado: '* Definición del término "Informática"?:',
+          opciones: [
+            "Ciencia que estudia el hardware",
+            "Ciencia que estudia el tratamiento racional y automático de la información",
+            "Ciencia que estudia los programas de usuario",
+            "Tecnología de los ordenadores",
+          ],
+          correcta: 1,
+          cita: "DOCX simulacro hardware · pregunta 7",
+        },
+        {
+          enunciado:
+            "* ¿Qué caracteriza a las arquitecturas Von Neumann y Harvard?",
+          opciones: [
+            "Von Neumann emplea una única memoria tanto para datos como para instrucciones. Harvard Utiliza diferentes memorias para los programas y los datos.",
+            "Von Neumann separa físicamente los datos y las instrucciones. Harvard Utiliza diferentes memorias para los programas y los datos.",
+            "Harvard emplea una única memoria tanto para datos como para instrucciones. Von Neumann Utiliza diferentes memorias para los programas y los datos.",
+            "Está basada en sistemas ópticos de almacenamiento.",
+          ],
+          correcta: 0,
+          cita: "DOCX simulacro hardware · pregunta 9",
+        },
+        {
+          enunciado:
+            "* El tipo de bus que transmite la información por el mismo hilo es...",
+          opciones: ["Paralelo.", "Continuador.", "Señalizador.", "Serie."],
+          correcta: 3,
+          cita: "DOCX simulacro hardware · pregunta 10",
+        },
+        {
+          enunciado:
+            "* ¿Qué tipos de memoria necesita ser actualizada (refresco) constantemente para no perder la información?",
+          opciones: ["SRAM", "ROM", "DRAM", "DDRAM"],
+          correcta: 2,
+          cita: "DOCX simulacro hardware · pregunta 11",
+        },
+        {
+          enunciado:
+            "* ¿Qué función tiene el registro de instrucción en la CPU?:",
+          opciones: [
+            "Contiene la instrucción que se está ejecutando.",
+            "Almacena los resultados de la ALU.",
+            "Controla la velocidad del reloj.",
+            "Contiene la dirección de la siguiente instrucción.",
+          ],
+          correcta: 0,
+          cita: "DOCX simulacro hardware · pregunta 12",
+        },
+        {
+          enunciado:
+            "* Periféricos de salida-Resolución. ¿Qué indica la resolución de un monitor?:",
+          opciones: [
+            "La cantidad de colores que puede mostrar.",
+            "El número de puntos o píxeles que puede representar en horizontal por vertical.",
+            "La velocidad con que se actualiza la imagen.",
+            "El brillo máximo que alcanza la pantalla.",
+          ],
+          correcta: 1,
+          cita: "DOCX simulacro hardware · pregunta 13",
+        },
+        {
+          enunciado:
+            "* De los siguientes periféricos señala cual pertenece al almacenamiento de información:",
+          opciones: [
+            "Lector de banda magnética (ej.: de tarjetas de crédito).",
+            "Disco magnético.",
+            "Detector de barras impresas.",
+            "Ratón.",
+          ],
+          correcta: 1,
+          cita: "DOCX simulacro hardware · pregunta 15",
+        },
+        {
+          enunciado:
+            "* ¿Cuál es la jerarquía correcta para el uso de la memoria en relación con lo cerca que están de la CPU?",
+          opciones: [
+            "Memoria Caché - Memoria Principal – Disco Magnético - Registros Internos del procesador.",
+            "Memoria Principal - Memoria Caché – Disco Magnético - Registros Internos del procesador.",
+            "Registros Internos del procesador - Memoria Caché - Memoria Principal – Disco Magnético.",
+            "Memoria Principal – Registros Internos del procesador – Memoria Caché - Disco Magnético.",
+          ],
+          correcta: 2,
+          cita: "DOCX simulacro hardware · pregunta 16",
+        },
+        {
+          enunciado: "* ¿Qué determina la velocidad del procesador?:",
+          opciones: [
+            "La frecuencia del reloj.",
+            "La velocidad en que la ALU ejecuta las instrucciones.",
+            "La capacidad del disco duro.",
+            "El número de registros internos de memoria.",
+          ],
+          correcta: 0,
+          cita: "DOCX simulacro hardware · pregunta 17",
+        },
+        {
+          enunciado: "* ¿Qué es el SOFTWARE?:",
+          opciones: [
+            "Elementos tangibles del ordenador.",
+            "Conjunto de programas e instrucciones que controlan el hardware.",
+            "Conectores eléctricos del sistema.",
+            "El procesador del ordenador.",
+          ],
+          correcta: 1,
+          cita: "DOCX simulacro hardware · pregunta 18",
+        },
+        {
+          enunciado:
+            "* ¿Qué tipo de software actúa como intermediario entre el hardware y los programas del usuario?",
+          opciones: [
+            "Firmware.",
+            "Sistema operativo.",
+            "Controlador de dispositivo.",
+            "Son correctas b) y c).",
+          ],
+          correcta: 3,
+          cita: "DOCX simulacro hardware · pregunta 19",
+        },
+        {
+          enunciado: "* ¿Que mide el ancho de banda?",
+          opciones: [
+            "La velocidad del Bus de control.",
+            "La frecuencia del procesador.",
+            "La capacidad del disco duro.",
+            "La cantidad de información transferida por segundo.",
+          ],
+          correcta: 3,
+          cita: "DOCX simulacro hardware · pregunta 20",
+        },
+        {
+          enunciado:
+            "* ¿Qué característica define a un dispositivo de acceso directo como un disco duro?",
+          opciones: [
+            "Es necesario recorrer todos los datos anteriores para acceder al deseado.",
+            "Permite acceder a una posición concreta de datos sin recorrer los anteriores.",
+            "Solo puede ser leído, no escrito.",
+            "El valor almacenado se borra cuando pierde deja de ser alimentado por energía.",
+          ],
+          correcta: 1,
+          cita: "DOCX simulacro hardware · pregunta 21",
+        },
+        {
+          enunciado:
+            "* ¿Qué tipo de memoria se utiliza principalmente para almacenar la configuración del BIOS, manteniéndose gracias a una pila?",
+          opciones: ["ROM", "EPROM", "CMOS", "DRAM"],
+          correcta: 2,
+          cita: "DOCX simulacro hardware · pregunta 22",
+        },
+        {
+          enunciado:
+            "* En un sistema informático, ¿cómo puede transmitirse la información a través de los buses?",
+          opciones: [
+            "Solo en serie.",
+            "Solo en paralelo.",
+            "En serie o en paralelo, dependiendo del tipo de bus.",
+            "Ninguna es correcta",
+          ],
+          correcta: 2,
+          cita: "DOCX simulacro hardware · pregunta 23",
+        },
+        {
+          enunciado: "* El DVD-ROM es:",
+          opciones: [
+            "Método de almacenamiento de sólo lectura de alta capacidad.",
+            "Método que permite leer los CR-ROM estándar.",
+            "Método que permite grabar, borrar y regrabar los datos alcanzando capacidades de más de 4'7GB.",
+            "Todas son correctas.",
+          ],
+          correcta: 0,
+          cita: "DOCX simulacro hardware · pregunta 24",
+        },
+        {
+          enunciado:
+            "* ¿Qué tipo de memoria se actualiza dos veces por cada impulso de reloj?",
+          opciones: ["DRAM", "SRAM", "DDRAM", "SDRAM"],
+          correcta: 2,
+          cita: "DOCX simulacro hardware · pregunta 25",
+        },
+        {
+          enunciado:
+            "* ¿Qué tipos de buses hay en la arquitectura Von Neumann?",
+          opciones: [
+            "Bus de datos, bus de operaciones y bus de datos.",
+            "Bus de datos y bus de control.",
+            "Bus de datos, bus de control y bus de direcciones.",
+            "Bus de control y bus de operaciones.",
+          ],
+          correcta: 2,
+          cita: "DOCX simulacro hardware · pregunta 26",
+        },
+        {
+          enunciado: "* ¿Como se mide el tiempo de ciclo de un ordenador?",
+          opciones: [
+            "En minutos",
+            "En nanosegundos",
+            "En segundos",
+            "En milisegundos",
+          ],
+          correcta: 1,
+          cita: "DOCX simulacro hardware · pregunta 27",
+        },
+        {
+          enunciado:
+            "* ¿Cuál NO es una función del controlador de periféricos?",
+          opciones: [
+            "Sincronizar la transmisión",
+            "Controlar el periférico",
+            "Ejecutar instrucciones de programa",
+            "Detectar errores",
+          ],
+          correcta: 2,
+          cita: "DOCX simulacro hardware · pregunta 28",
+        },
+        {
+          enunciado:
+            "* ¿Qué tipo de software gestiona los recursos hardware para que puedan utilizarlo los programas del usuario?",
+          opciones: [
+            "Firmware.",
+            "Sistema operativo.",
+            "Controlador de dispositivo.",
+            "Son correctas b) y c).",
+          ],
+          correcta: 3,
+          cita: "DOCX simulacro hardware · pregunta 29",
+        },
+        {
+          enunciado:
+            "* ¿Qué tipo de direccionamiento utiliza los datos directamente incluidos en la instrucción, sin necesidad de acceder a memoria?:",
+          opciones: ["Directo", "Indirecto", "Inmediato", "Relativo"],
+          correcta: 2,
+          cita: "DOCX simulacro hardware · pregunta 30",
+        },
+      ];
+
       const TOTAL_PREGUNTAS = Math.min(30, preguntas.length);
 
       function mezclarArray(lista) {
@@ -614,53 +929,85 @@
       }
 
       function TestInteractivo() {
-        const [preguntasMostradas, setPreguntasMostradas] = React.useState(() => obtenerTestAleatorio());
-        const [respuestas, setRespuestas] = React.useState(() => Array(TOTAL_PREGUNTAS).fill(null));
+        const [preguntasMostradas, setPreguntasMostradas] = React.useState(() =>
+          obtenerTestAleatorio(),
+        );
+        const [respuestas, setRespuestas] = React.useState(() =>
+          Array(TOTAL_PREGUNTAS).fill(null),
+        );
         const [corregido, setCorregido] = React.useState(false);
         const respondidas = respuestas.filter((r) => r !== null).length;
-        const puntaje = respuestas.reduce((acc, r, i) => r === preguntasMostradas[i]?.correcta ? acc + 1 : acc, 0);
-        const porcentaje = preguntasMostradas.length ? Math.round((puntaje / preguntasMostradas.length) * 100) : 0;
+        const puntaje = respuestas.reduce(
+          (acc, r, i) =>
+            r === preguntasMostradas[i]?.correcta ? acc + 1 : acc,
+          0,
+        );
+        const porcentaje = preguntasMostradas.length
+          ? Math.round((puntaje / preguntasMostradas.length) * 100)
+          : 0;
+
         const seleccionar = (pIndex, rIndex) => {
           const copia = [...respuestas];
           copia[pIndex] = rIndex;
           setRespuestas(copia);
         };
+
         const reiniciar = () => {
           const nuevoTest = obtenerTestAleatorio();
           setPreguntasMostradas(nuevoTest);
           setRespuestas(Array(nuevoTest.length).fill(null));
           setCorregido(false);
-          window.scrollTo({top:0, behavior:'smooth'});
+          window.scrollTo({ top: 0, behavior: "smooth" });
         };
+
         return (
           <div className="page-shell">
             <div className="test-container">
               <div className="topbar">
-                <a href="../index.html" className="back-link">← Volver al portal</a>
+                <a href="../index.html" className="back-link">
+                  ← Volver al portal
+                </a>
               </div>
-              <section className="hero" style={{padding:'28px 24px'}}>
+              <section className="hero" style={{ padding: "28px 24px" }}>
                 <span className="badge">🖥️ Fundamentos de Hardware</span>
                 <h1 className="test-title">Fundamentos de Hardware</h1>
-                <p className="lead">Test interactivo autocorregible con 30 preguntas aleatorias por intento. Al reiniciar, el sistema vuelve a barajar y genera un test distinto.</p>
+                <p className="lead">
+                  Test interactivo autocorregible con 30 preguntas aleatorias
+                  por intento. Al reiniciar, el sistema vuelve a barajar y
+                  genera un test distinto.
+                </p>
                 <div className="stats">
-                  <div className="stat"><b>{preguntasMostradas.length}</b>Preguntas</div>
-                  <div className="stat"><b>{respondidas}</b>Respondidas</div>
-                  <div className="stat"><b>{corregido ? puntaje : '—'}</b>Aciertos</div>
+                  <div className="stat">
+                    <b>{preguntasMostradas.length}</b>Preguntas
+                  </div>
+                  <div className="stat">
+                    <b>{respondidas}</b>Respondidas
+                  </div>
+                  <div className="stat">
+                    <b>{corregido ? puntaje : "—"}</b>Aciertos
+                  </div>
                 </div>
               </section>
-              <div style={{height:'18px'}} />
+              <div style={{ height: "18px" }} />
               {preguntasMostradas.map((p, i) => (
                 <div key={i} className="card">
-                  <h2 className="question-title">{i + 1}. {p.enunciado}</h2>
+                  <h2 className="question-title">
+                    {i + 1}. {p.enunciado}
+                  </h2>
                   {p.opciones.map((op, j) => {
                     const seleccionado = respuestas[i] === j;
                     const esCorrecta = p.correcta === j;
-                    let clases = 'answer-btn';
-                    if (seleccionado) clases += ' answer-selected';
-                    if (corregido && seleccionado && !esCorrecta) clases += ' answer-wrong';
-                    if (corregido && esCorrecta) clases += ' answer-correct';
+                    let clases = "answer-btn";
+                    if (seleccionado) clases += " answer-selected";
+                    if (corregido && seleccionado && !esCorrecta)
+                      clases += " answer-wrong";
+                    if (corregido && esCorrecta) clases += " answer-correct";
                     return (
-                      <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                      <button
+                        key={j}
+                        onClick={() => seleccionar(i, j)}
+                        className={clases}
+                      >
                         {op}
                       </button>
                     );
@@ -669,23 +1016,44 @@
               ))}
               <div className="result-section">
                 <div className="actions">
-                  <button className="btn-correct" onClick={() => setCorregido(true)}>Corregir test</button>
-                  <button className="btn-reset" onClick={reiniciar}>Reiniciar</button>
+                  <button
+                    className="btn-correct"
+                    onClick={() => setCorregido(true)}
+                  >
+                    Corregir test
+                  </button>
+                  <button className="btn-reset" onClick={reiniciar}>
+                    Reiniciar
+                  </button>
                 </div>
                 {corregido && (
                   <>
-                    <p className="result-text">Resultado: {puntaje} / {preguntasMostradas.length} ({porcentaje}%)</p>
-                    <p className="result-sub">Has respondido {respondidas} de {preguntasMostradas.length} preguntas.</p>
-                    <div className="progress"><span style={{width: `${porcentaje}%`}}></span></div>
+                    <p className="result-text">
+                      Resultado: {puntaje} / {preguntasMostradas.length} (
+                      {porcentaje}%)
+                    </p>
+                    <p className="result-sub">
+                      Has respondido {respondidas} de{" "}
+                      {preguntasMostradas.length} preguntas.
+                    </p>
+                    <div className="progress">
+                      <span style={{ width: `${porcentaje}%` }}></span>
+                    </div>
                   </>
                 )}
               </div>
-              <footer>Creado a partir de tus preguntas y preparado para publicación en GitHub Pages.</footer>
+              <footer>
+                Creado a partir de tus preguntas y preparado para publicación en
+                GitHub Pages.
+              </footer>
             </div>
           </div>
         );
       }
-      ReactDOM.createRoot(document.getElementById('root')).render(<TestInteractivo />);
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <TestInteractivo />,
+      );
     </script>
   </body>
 </html>
