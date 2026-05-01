@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fundamentos de Computación en la Nube · Test Interactivo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const preguntas = [
+        {
+                "enunciado": "Una empresa quiere migrar sus servidores desde una infraestructura on-premise a la nube. ¿Cuál es la principal ventaja de este cambio?",
+                "opciones": [
+                        "Garantizar la capacidad de cómputo sobredimensionada de forma permanente.",
+                        "Mantener el control del hardware y su mantenimiento.",
+                        "Incrementar los costes fijos asociados a la infraestructura tecnológica.",
+                        "Ajustar los recursos de cómputo según la demanda del negocio."
+                ],
+                "correcta": 3
+        },
+        {
+                "enunciado": "¿Cuál de las siguientes opciones NO es una característica propia de la computación en la nube?",
+                "opciones": [
+                        "Autoservicio bajo demanda para gestionar recursos",
+                        "Acceso a los servicios a través de internet",
+                        "Solo se facturan los recursos utilizados",
+                        "Aprovisionamiento definido de antemano"
+                ],
+                "correcta": 3
+        },
+        {
+                "enunciado": "¿Cuál es la principal diferencia entre los modelos SaaS, PaaS e IaaS en computación en la nube?",
+                "opciones": [
+                        "El grado de responsabilidad que asume el proveedor en el mantenimiento del hardware físico",
+                        "El nivel de control y gestión que tiene el usuario sobre la infraestructura y el software",
+                        "El tipo de licenciamiento del sistema operativo utilizado",
+                        "El rendimiento de las aplicaciones desplegadas"
+                ],
+                "correcta": 1
+        },
+        {
+                "enunciado": "¿Cuál de los siguientes ejemplos NO está correctamente asociado a su modelo de servicio en la nube?",
+                "opciones": [
+                        "Amazon AWS como ejemplo de IaaS",
+                        "Google Drive como ejemplo de SaaS",
+                        "Microsoft Azure como ejemplo de IaaS",
+                        "WordPress instalado como ejemplo de SaaS"
+                ],
+                "correcta": 3
+        },
+        {
+                "enunciado": "En un modelo IaaS (Infrastructure as a Service), ¿qué componentes son responsabilidad del usuario?",
+                "opciones": [
+                        "Aplicaciones, datos, sistema operativo y middleware",
+                        "Aplicaciones y datos",
+                        "Servidores físicos y red",
+                        "Virtualización y almacenamiento"
+                ],
+                "correcta": 0
+        },
+        {
+                "enunciado": "¿Cuál es la principal diferencia entre una nube pública, una nube privada y una nube híbrida?",
+                "opciones": [
+                        "El tipo de sistema operativo que utilizan",
+                        "Quién es el propietario y cómo se comparten los recursos",
+                        "El número de usuarios que pueden acceder",
+                        "El lenguaje de programación de las aplicaciones"
+                ],
+                "correcta": 1
+        },
+        {
+                "enunciado": "¿En qué situación tiene más sentido utilizar una estrategia multicloud?",
+                "opciones": [
+                        "Cuando una empresa quiere consolidar la infraestructura y reducir el número de servidores físicos.",
+                        "Cuando se utilizan servicios de un único proveedor para simplificar la gestión",
+                        "Cuando se combinan servicios de varios proveedores para evitar dependencia de uno solo",
+                        "Cuando se requiere una alta disponibilidad dentro de una misma región utilizando múltiples cuentas o proyectos de un único proveedor cloud"
+                ],
+                "correcta": 2
+        },
+        {
+                "enunciado": "¿Cuál de las siguientes opciones es correcta?",
+                "opciones": [
+                        "Una región está formada por varias Availability Zones independientes entre sí",
+                        "Una Availability Zone contiene varias regiones dentro de ella",
+                        "Una región está en un único centro de datos físico",
+                        "Las regiones y las Availability Zones son exactamente lo mismo"
+                ],
+                "correcta": 0
+        },
+        {
+                "enunciado": "Una empresa que maneja datos personales quiere desplegar su aplicación en AWS. ¿Qué criterio puede ser determinante a la hora de elegir una región?",
+                "opciones": [
+                        "El tipo de hardware utilizado en los centros de datos",
+                        "La legislación y normativas de protección de datos aplicables en esa región",
+                        "El número de cuentas de usuario creadas en AWS",
+                        "La interfaz de la consola de AWS en ese país"
+                ],
+                "correcta": 1
+        },
+        {
+                "enunciado": "¿Por qué es importante elegir correctamente la región en la nube donde se despliega una aplicación?",
+                "opciones": [
+                        "Porque mejora la latencia al estar cerca de los usuarios, ayuda a cumplir normativas legales y puede optimizar disponibilidad y costes",
+                        "Porque garantiza automáticamente la seguridad total de los datos y elimina la necesidad de copias de seguridad",
+                        "Porque permite usar cualquier región sin impacto en rendimiento, costes o cumplimiento legal",
+                        "Ninguna de las anteriores"
+                ],
+                "correcta": 0
+        },
+        {
+                "enunciado": "¿Cuál de las siguientes asociaciones entre un servicio de AWS y su función es correcta?",
+                "opciones": [
+                        "EC2: almacenamiento de objetos para guardar archivos",
+                        "S3: servicio de bases de datos relacionales gestionadas",
+                        "VPC: red privada donde se despliegan los recursos en la nube",
+                        "IAM: servicio para crear máquinas virtuales"
+                ],
+                "correcta": 2
+        },
+        {
+                "enunciado": "¿Qué es el Free Tier de AWS y por qué es importante conocerlo?",
+                "opciones": [
+                        "Un conjunto de servicios gratuitos disponibles para los usuarios sin límites.",
+                        "Un periodo de prueba con límites de uso gratuitos que ayudan a aprender y evitar costes inesperados",
+                        "Un servicio que bloquea automáticamente cualquier gasto en la cuenta inesperado",
+                        "Una herramienta exclusiva para empresas grandes que a partir de un determinado gasto pueden optar a ventajas exclusivas."
+                ],
+                "correcta": 1
+        },
+        {
+                "enunciado": "¿Cuál es el objetivo principal de la Calculadora de precios de AWS?",
+                "opciones": [
+                        "Monitorizar el consumo real y generar facturas mensuales",
+                        "Crear y desplegar recursos directamente en AWS",
+                        "Estimar el coste de distintos servicios antes de desplegarlos y comparar configuraciones",
+                        "Aplicar automáticamente descuentos por uso prolongado"
+                ],
+                "correcta": 2
+        },
+        {
+                "enunciado": "¿Cuál de las siguientes limitaciones de la Calculadora de precios de AWS es correcta?",
+                "opciones": [
+                        "No figuran todos los servicios en la calculadora, lo que genera problemas en los presupuestos creados por la calculadora.",
+                        "No permite estimar más de un servicio a la vez",
+                        "La estimación puede no ser exacta, por lo que a veces es mejor empezar con un uso real y revisar la factura",
+                        "Solo puede usarse con cuentas de pago"
+                ],
+                "correcta": 2
+        },
+        {
+                "enunciado": "Al realizar una estimación en la AWS Pricing Calculator, ¿qué combinación de factores suele tener un impacto más alto en el coste final?",
+                "opciones": [
+                        "Tipo de servicio, tamaño del recurso, horas de uso y región seleccionada",
+                        "Número de usuarios IAM, políticas de permisos y grupos asignados",
+                        "Zona de disponibilidad elegida, nombre del recurso y etiquetas aplicadas",
+                        "Ninguna de las anteriores"
+                ],
+                "correcta": 0
+        },
+        {
+                "enunciado": "¿Qué es Amazon EC2 dentro de los servicios de AWS?",
+                "opciones": [
+                        "Un servicio para crear y gestionar máquinas virtuales bajo demanda",
+                        "Un sistema de almacenamiento de archivos distribuido",
+                        "Un servicio de bases de datos gestionadas",
+                        "Un servicio de computación serverless, es decir, donde no es necesario levantar servidores."
+                ],
+                "correcta": 0
+        },
+        {
+                "enunciado": "¿Cuál es la función principal de Amazon S3?",
+                "opciones": [
+                        "Ejecutar aplicaciones sin necesidad de servidores",
+                        "Crear redes privadas virtuales en la nube",
+                        "Proporcionar almacenamiento de objetos escalable",
+                        "Gestionar usuarios y permisos"
+                ],
+                "correcta": 2
+        },
+        {
+                "enunciado": "¿Qué es un usuario de IAM en AWS?",
+                "opciones": [
+                        "Un recurso que define permisos sobre otros servicios",
+                        "Una persona o aplicación que puede autenticarse en una cuenta de AWS",
+                        "Un conjunto de permisos reutilizables",
+                        "Un mecanismo para conectar cuentas entre regiones"
+                ],
+                "correcta": 1
+        },
+        {
+                "enunciado": "¿Qué es una política de IAM y en qué formato están escritas normalmente?",
+                "opciones": [
+                        "Un conjunto de reglas de red escritas en YAML",
+                        "Un usuario especial con permisos administrativos",
+                        "Un documento que define permisos sobre recursos y que está escrito en formato JSON",
+                        "Un rol que se asigna automáticamente a los servicios de AWS"
+                ],
+                "correcta": 2
+        },
+        {
+                "enunciado": "En la cuenta de AWS que se presenta en el dibujo ¿Qué acciones podrá realizar el usuario user-2?",
+                "opciones": [
+                        "Iniciar y detener instancias EC2",
+                        "Ver información de las instancias EC2, pero no modificarlas",
+                        "Acceder a buckets de Amazon S3",
+                        "Administrar usuarios y grupos de IAM"
+                ],
+                "correcta": 1
+        },
+        {
+                "enunciado": "Un usuario pertenece simultáneamente a los grupos EC2-Admin y S3-Support. Según las políticas mostradas en el laboratorio, ¿qué acciones podrá realizar este usuario?",
+                "opciones": [
+                        "Solo podrá ver información de EC2 y S3, sin realizar cambios",
+                        "Podrá iniciar y detener instancias EC2 y leer objetos en Amazon S3",
+                        "Podrá administrar completamente EC2, S3 e IAM",
+                        "Ninguna de las anteriores"
+                ],
+                "correcta": 1
+        },
+        {
+                "enunciado": "Dada una dirección IPv4 como 192.0.2.0, ¿cuál de las siguientes afirmaciones es correcta?",
+                "opciones": [
+                        "Cada número decimal de la dirección IPv4 se representa usando 4 bits",
+                        "Cada uno de los cuatro bloques de la dirección IPv4 se representa con 8 bits",
+                        "La dirección IPv4 completa se representa usando 16 bits",
+                        "El valor decimal máximo que puede tomar uno de los bloques es 512"
+                ],
+                "correcta": 1
+        },
+        {
+                "enunciado": "¿Por qué fue necesario introducir el protocolo IPv6 frente a IPv4?",
+                "opciones": [
+                        "Porque IPv6 utiliza un formato de direcciones más legible que IPv4.",
+                        "Porque IPv4 no permite el uso de direcciones en formato hexadecimal.",
+                        "Porque el número de direcciones disponibles en IPv4 es insuficiente.",
+                        "Porque IPv6 sustituye completamente a los protocolos de enrutamiento."
+                ],
+                "correcta": 2
+        },
+        {
+                "enunciado": "¿Qué rango de direcciones IP representa la red 192.168.1.0/24?",
+                "opciones": [
+                        "Desde 192.168.1.0 hasta 192.168.1.255",
+                        "Desde 192.168.1.1 hasta 192.168.1.24",
+                        "Desde 192.168.0.0 hasta 192.168.255.255",
+                        "Desde 192.168.1.0 hasta 192.168.1.24"
+                ],
+                "correcta": 0
+        },
+        {
+                "enunciado": "¿Cuál de las siguientes opciones describe correctamente una función de una puerta de enlace a Internet (Internet Gateway) en una VPC?",
+                "opciones": [
+                        "Permitir la comunicación privada entre subredes dentro de la misma VPC sin acceso a Internet.",
+                        "Proporcionar acceso a Internet únicamente para instancias que no tienen direcciones IP públicas.",
+                        "Actuar como destino en las tablas de enrutamiento para el tráfico que debe salir a Internet.",
+                        "Ninguna de las anteriores."
+                ],
+                "correcta": 2
+        },
+        {
+                "enunciado": "¿Qué significa permitir tráfico desde 0.0.0.0/0 en una regla de un grupo de seguridad de AWS?",
+                "opciones": [
+                        "Que solo se permite tráfico desde la red interna de la VPC",
+                        "Que se permite tráfico desde cualquier dirección IP",
+                        "Que únicamente se permite tráfico desde direcciones privadas",
+                        "Que se restringe el acceso a una única subred concreta"
+                ],
+                "correcta": 1
+        },
+        {
+                "enunciado": "¿Cuál de las siguientes afirmaciones es correcta sobre los Security Groups y las Network ACL (NACL) en AWS?",
+                "opciones": [
+                        "Las Network ACL se aplican a nivel de instancia y los Security Groups a nivel de subred.",
+                        "Los Security Groups se aplican a nivel de instancia y las Network ACL a nivel de subred.",
+                        "Los Security Groups y las Network ACL se aplican exactamente al mismo nivel."
+                ],
+                "correcta": 1
+        }
+];
+
+      const TOTAL_PREGUNTAS = Math.min(30, preguntas.length);
+
+      function mezclarArray(lista) {
+        const copia = [...lista];
+        for (let i = copia.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copia[i], copia[j]] = [copia[j], copia[i]];
+        }
+        return copia;
+      }
+
+      function obtenerTestAleatorio() {
+        return mezclarArray(preguntas).slice(0, TOTAL_PREGUNTAS);
+      }
+
+      function TestInteractivo() {
+        const [preguntasMostradas, setPreguntasMostradas] = React.useState(() =>
+          obtenerTestAleatorio(),
+        );
+        const [respuestas, setRespuestas] = React.useState(() =>
+          Array(TOTAL_PREGUNTAS).fill(null),
+        );
+        const [corregido, setCorregido] = React.useState(false);
+
+        const respondidas = respuestas.filter((r) => r !== null).length;
+
+        const puntaje = respuestas.reduce(
+          (acc, r, i) =>
+            r === preguntasMostradas[i]?.correcta ? acc + 1 : acc,
+          0,
+        );
+
+        const porcentaje = preguntasMostradas.length
+          ? Math.round((puntaje / preguntasMostradas.length) * 100)
+          : 0;
+
+        const seleccionar = (pIndex, rIndex) => {
+          const copia = [...respuestas];
+          copia[pIndex] = rIndex;
+          setRespuestas(copia);
+        };
+
+        const reiniciar = () => {
+          const nuevoTest = obtenerTestAleatorio();
+          setPreguntasMostradas(nuevoTest);
+          setRespuestas(Array(nuevoTest.length).fill(null));
+          setCorregido(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        return (
+          <div className="page-shell">
+            <div className="test-container">
+              <div className="topbar">
+                <a href="../index.html" className="back-link">
+                  ← Volver al portal
+                </a>
+              </div>
+
+              <section className="hero" style={{ padding: "28px 24px" }}>
+                <span className="badge">☁️ Fundamentos de Computación en la Nube</span>
+                <h1 className="test-title">Fundamentos de Computación en la Nube</h1>
+                <p className="lead">
+                  Test interactivo autocorregible con preguntas aleatorias por intento.
+                  Al reiniciar, el sistema vuelve a barajar y genera un test distinto.
+                </p>
+
+                <div className="stats">
+                  <div className="stat">
+                    <b>{preguntasMostradas.length}</b>Preguntas
+                  </div>
+                  <div className="stat">
+                    <b>{respondidas}</b>Respondidas
+                  </div>
+                  <div className="stat">
+                    <b>{corregido ? puntaje : "—"}</b>Aciertos
+                  </div>
+                </div>
+              </section>
+
+              <div style={{ height: "18px" }} />
+
+              {preguntasMostradas.map((p, i) => (
+                <div key={i} className="card">
+                  <h2 className="question-title">
+                    {i + 1}. {p.enunciado}
+                  </h2>
+
+                  {p.opciones.map((op, j) => {
+                    const seleccionado = respuestas[i] === j;
+                    const esCorrecta = p.correcta === j;
+                    let clases = "answer-btn";
+
+                    if (seleccionado) clases += " answer-selected";
+                    if (corregido && seleccionado && !esCorrecta)
+                      clases += " answer-wrong";
+                    if (corregido && esCorrecta) clases += " answer-correct";
+
+                    return (
+                      <button
+                        key={j}
+                        onClick={() => seleccionar(i, j)}
+                        className={clases}
+                      >
+                        {op}
+                      </button>
+                    );
+                  })}
+                </div>
+              ))}
+
+              <div className="result-section">
+                <div className="actions">
+                  <button
+                    className="btn-correct"
+                    onClick={() => setCorregido(true)}
+                  >
+                    Corregir test
+                  </button>
+
+                  <button className="btn-reset" onClick={reiniciar}>
+                    Reiniciar
+                  </button>
+                </div>
+
+                {corregido && (
+                  <>
+                    <p className="result-text">
+                      Resultado: {puntaje} / {preguntasMostradas.length} (
+                      {porcentaje}%)
+                    </p>
+                    <p className="result-sub">
+                      Has respondido {respondidas} de {preguntasMostradas.length} preguntas.
+                    </p>
+                    <div className="progress">
+                      <span style={{ width: `${porcentaje}%` }}></span>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              <footer>
+                Creado a partir de tus preguntas y preparado para publicación en GitHub Pages.
+              </footer>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <TestInteractivo />,
+      );
+    </script>
+  </body>
+</html>
