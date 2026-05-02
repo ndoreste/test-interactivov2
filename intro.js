@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Si la intro ya se mostró en esta sesión, no se vuelve a ejecutar
+  if (sessionStorage.getItem("introShown")) return;
+
+  // Marcamos la intro como mostrada
+  sessionStorage.setItem("introShown", "true");
+
   // Crear overlay de la intro
   const overlay = document.createElement("div");
   overlay.className = "intro-overlay";
