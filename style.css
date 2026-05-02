@@ -432,8 +432,3 @@ footer {
     letter-spacing: 0.22em;
   }
 }
-
-p {
-  max-width: 600px;
-  margin: 0 auto;
-}
