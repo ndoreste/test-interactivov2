@@ -4,295 +4,562 @@
     <meta charset="UTF-8" />
     <title>Fundamentos de Computación en la Nube · Test Interactivo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <link rel="stylesheet" href="../style.css" />
   </head>
+
   <body>
     <div id="root"></div>
 
     <script type="text/babel">
       const preguntas = [
         {
-                "enunciado": "Una empresa quiere migrar sus servidores desde una infraestructura on-premise a la nube. ¿Cuál es la principal ventaja de este cambio?",
-                "opciones": [
-                        "Garantizar la capacidad de cómputo sobredimensionada de forma permanente.",
-                        "Mantener el control del hardware y su mantenimiento.",
-                        "Incrementar los costes fijos asociados a la infraestructura tecnológica.",
-                        "Ajustar los recursos de cómputo según la demanda del negocio."
-                ],
-                "correcta": 3
+          enunciado:
+            "Una empresa quiere migrar sus servidores desde una infraestructura on-premise a la nube. ¿Cuál es la principal ventaja de este cambio?",
+          opciones: [
+            "Garantizar la capacidad de cómputo sobredimensionada de forma permanente.",
+            "Mantener el control del hardware y su mantenimiento.",
+            "Incrementar los costes fijos asociados a la infraestructura tecnológica.",
+            "Ajustar los recursos de cómputo según la demanda del negocio.",
+          ],
+          correcta: 3,
         },
         {
-                "enunciado": "¿Cuál de las siguientes opciones NO es una característica propia de la computación en la nube?",
-                "opciones": [
-                        "Autoservicio bajo demanda para gestionar recursos",
-                        "Acceso a los servicios a través de internet",
-                        "Solo se facturan los recursos utilizados",
-                        "Aprovisionamiento definido de antemano"
-                ],
-                "correcta": 3
+          enunciado:
+            "¿Cuál de las siguientes opciones NO es una característica propia de la computación en la nube?",
+          opciones: [
+            "Autoservicio bajo demanda para gestionar recursos",
+            "Acceso a los servicios a través de internet",
+            "Solo se facturan los recursos utilizados",
+            "Aprovisionamiento definido de antemano",
+          ],
+          correcta: 3,
         },
         {
-                "enunciado": "¿Cuál es la principal diferencia entre los modelos SaaS, PaaS e IaaS en computación en la nube?",
-                "opciones": [
-                        "El grado de responsabilidad que asume el proveedor en el mantenimiento del hardware físico",
-                        "El nivel de control y gestión que tiene el usuario sobre la infraestructura y el software",
-                        "El tipo de licenciamiento del sistema operativo utilizado",
-                        "El rendimiento de las aplicaciones desplegadas"
-                ],
-                "correcta": 1
+          enunciado:
+            "¿Cuál es la principal diferencia entre los modelos SaaS, PaaS e IaaS en computación en la nube?",
+          opciones: [
+            "El grado de responsabilidad que asume el proveedor en el mantenimiento del hardware físico",
+            "El nivel de control y gestión que tiene el usuario sobre la infraestructura y el software",
+            "El tipo de licenciamiento del sistema operativo utilizado",
+            "El rendimiento de las aplicaciones desplegadas",
+          ],
+          correcta: 1,
         },
         {
-                "enunciado": "¿Cuál de los siguientes ejemplos NO está correctamente asociado a su modelo de servicio en la nube?",
-                "opciones": [
-                        "Amazon AWS como ejemplo de IaaS",
-                        "Google Drive como ejemplo de SaaS",
-                        "Microsoft Azure como ejemplo de IaaS",
-                        "WordPress instalado como ejemplo de SaaS"
-                ],
-                "correcta": 3
+          enunciado:
+            "¿Cuál de los siguientes ejemplos NO está correctamente asociado a su modelo de servicio en la nube?",
+          opciones: [
+            "Amazon AWS como ejemplo de IaaS",
+            "Google Drive como ejemplo de SaaS",
+            "Microsoft Azure como ejemplo de IaaS",
+            "WordPress instalado como ejemplo de SaaS",
+          ],
+          correcta: 3,
         },
         {
-                "enunciado": "En un modelo IaaS (Infrastructure as a Service), ¿qué componentes son responsabilidad del usuario?",
-                "opciones": [
-                        "Aplicaciones, datos, sistema operativo y middleware",
-                        "Aplicaciones y datos",
-                        "Servidores físicos y red",
-                        "Virtualización y almacenamiento"
-                ],
-                "correcta": 0
+          enunciado:
+            "En un modelo IaaS (Infrastructure as a Service), ¿qué componentes son responsabilidad del usuario?",
+          opciones: [
+            "Aplicaciones, datos, sistema operativo y middleware",
+            "Aplicaciones y datos",
+            "Servidores físicos y red",
+            "Virtualización y almacenamiento",
+          ],
+          correcta: 0,
         },
         {
-                "enunciado": "¿Cuál es la principal diferencia entre una nube pública, una nube privada y una nube híbrida?",
-                "opciones": [
-                        "El tipo de sistema operativo que utilizan",
-                        "Quién es el propietario y cómo se comparten los recursos",
-                        "El número de usuarios que pueden acceder",
-                        "El lenguaje de programación de las aplicaciones"
-                ],
-                "correcta": 1
+          enunciado:
+            "¿Cuál es la principal diferencia entre una nube pública, una nube privada y una nube híbrida?",
+          opciones: [
+            "El tipo de sistema operativo que utilizan",
+            "Quién es el propietario y cómo se comparten los recursos",
+            "El número de usuarios que pueden acceder",
+            "El lenguaje de programación de las aplicaciones",
+          ],
+          correcta: 1,
         },
         {
-                "enunciado": "¿En qué situación tiene más sentido utilizar una estrategia multicloud?",
-                "opciones": [
-                        "Cuando una empresa quiere consolidar la infraestructura y reducir el número de servidores físicos.",
-                        "Cuando se utilizan servicios de un único proveedor para simplificar la gestión",
-                        "Cuando se combinan servicios de varios proveedores para evitar dependencia de uno solo",
-                        "Cuando se requiere una alta disponibilidad dentro de una misma región utilizando múltiples cuentas o proyectos de un único proveedor cloud"
-                ],
-                "correcta": 2
+          enunciado:
+            "¿En qué situación tiene más sentido utilizar una estrategia multicloud?",
+          opciones: [
+            "Cuando una empresa quiere consolidar la infraestructura y reducir el número de servidores físicos.",
+            "Cuando se utilizan servicios de un único proveedor para simplificar la gestión",
+            "Cuando se combinan servicios de varios proveedores para evitar dependencia de uno solo",
+            "Cuando se requiere una alta disponibilidad dentro de una misma región utilizando múltiples cuentas o proyectos de un único proveedor cloud",
+          ],
+          correcta: 2,
         },
         {
-                "enunciado": "¿Cuál de las siguientes opciones es correcta?",
-                "opciones": [
-                        "Una región está formada por varias Availability Zones independientes entre sí",
-                        "Una Availability Zone contiene varias regiones dentro de ella",
-                        "Una región está en un único centro de datos físico",
-                        "Las regiones y las Availability Zones son exactamente lo mismo"
-                ],
-                "correcta": 0
+          enunciado: "¿Cuál de las siguientes opciones es correcta?",
+          opciones: [
+            "Una región está formada por varias Availability Zones independientes entre sí",
+            "Una Availability Zone contiene varias regiones dentro de ella",
+            "Una región está en un único centro de datos físico",
+            "Las regiones y las Availability Zones son exactamente lo mismo",
+          ],
+          correcta: 0,
         },
         {
-                "enunciado": "Una empresa que maneja datos personales quiere desplegar su aplicación en AWS. ¿Qué criterio puede ser determinante a la hora de elegir una región?",
-                "opciones": [
-                        "El tipo de hardware utilizado en los centros de datos",
-                        "La legislación y normativas de protección de datos aplicables en esa región",
-                        "El número de cuentas de usuario creadas en AWS",
-                        "La interfaz de la consola de AWS en ese país"
-                ],
-                "correcta": 1
+          enunciado:
+            "Una empresa que maneja datos personales quiere desplegar su aplicación en AWS. ¿Qué criterio puede ser determinante a la hora de elegir una región?",
+          opciones: [
+            "El tipo de hardware utilizado en los centros de datos",
+            "La legislación y normativas de protección de datos aplicables en esa región",
+            "El número de cuentas de usuario creadas en AWS",
+            "La interfaz de la consola de AWS en ese país",
+          ],
+          correcta: 1,
         },
         {
-                "enunciado": "¿Por qué es importante elegir correctamente la región en la nube donde se despliega una aplicación?",
-                "opciones": [
-                        "Porque mejora la latencia al estar cerca de los usuarios, ayuda a cumplir normativas legales y puede optimizar disponibilidad y costes",
-                        "Porque garantiza automáticamente la seguridad total de los datos y elimina la necesidad de copias de seguridad",
-                        "Porque permite usar cualquier región sin impacto en rendimiento, costes o cumplimiento legal",
-                        "Ninguna de las anteriores"
-                ],
-                "correcta": 0
+          enunciado:
+            "¿Por qué es importante elegir correctamente la región en la nube donde se despliega una aplicación?",
+          opciones: [
+            "Porque mejora la latencia al estar cerca de los usuarios, ayuda a cumplir normativas legales y puede optimizar disponibilidad y costes",
+            "Porque garantiza automáticamente la seguridad total de los datos y elimina la necesidad de copias de seguridad",
+            "Porque permite usar cualquier región sin impacto en rendimiento, costes o cumplimiento legal",
+            "Ninguna de las anteriores",
+          ],
+          correcta: 0,
         },
         {
-                "enunciado": "¿Cuál de las siguientes asociaciones entre un servicio de AWS y su función es correcta?",
-                "opciones": [
-                        "EC2: almacenamiento de objetos para guardar archivos",
-                        "S3: servicio de bases de datos relacionales gestionadas",
-                        "VPC: red privada donde se despliegan los recursos en la nube",
-                        "IAM: servicio para crear máquinas virtuales"
-                ],
-                "correcta": 2
+          enunciado:
+            "¿Cuál de las siguientes asociaciones entre un servicio de AWS y su función es correcta?",
+          opciones: [
+            "EC2: almacenamiento de objetos para guardar archivos",
+            "S3: servicio de bases de datos relacionales gestionadas",
+            "VPC: red privada donde se despliegan los recursos en la nube",
+            "IAM: servicio para crear máquinas virtuales",
+          ],
+          correcta: 2,
         },
         {
-                "enunciado": "¿Qué es el Free Tier de AWS y por qué es importante conocerlo?",
-                "opciones": [
-                        "Un conjunto de servicios gratuitos disponibles para los usuarios sin límites.",
-                        "Un periodo de prueba con límites de uso gratuitos que ayudan a aprender y evitar costes inesperados",
-                        "Un servicio que bloquea automáticamente cualquier gasto en la cuenta inesperado",
-                        "Una herramienta exclusiva para empresas grandes que a partir de un determinado gasto pueden optar a ventajas exclusivas."
-                ],
-                "correcta": 1
+          enunciado:
+            "¿Qué es el Free Tier de AWS y por qué es importante conocerlo?",
+          opciones: [
+            "Un conjunto de servicios gratuitos disponibles para los usuarios sin límites.",
+            "Un periodo de prueba con límites de uso gratuitos que ayudan a aprender y evitar costes inesperados",
+            "Un servicio que bloquea automáticamente cualquier gasto en la cuenta inesperado",
+            "Una herramienta exclusiva para empresas grandes que a partir de un determinado gasto pueden optar a ventajas exclusivas.",
+          ],
+          correcta: 1,
         },
         {
-                "enunciado": "¿Cuál es el objetivo principal de la Calculadora de precios de AWS?",
-                "opciones": [
-                        "Monitorizar el consumo real y generar facturas mensuales",
-                        "Crear y desplegar recursos directamente en AWS",
-                        "Estimar el coste de distintos servicios antes de desplegarlos y comparar configuraciones",
-                        "Aplicar automáticamente descuentos por uso prolongado"
-                ],
-                "correcta": 2
+          enunciado:
+            "¿Cuál es el objetivo principal de la Calculadora de precios de AWS?",
+          opciones: [
+            "Monitorizar el consumo real y generar facturas mensuales",
+            "Crear y desplegar recursos directamente en AWS",
+            "Estimar el coste de distintos servicios antes de desplegarlos y comparar configuraciones",
+            "Aplicar automáticamente descuentos por uso prolongado",
+          ],
+          correcta: 2,
         },
         {
-                "enunciado": "¿Cuál de las siguientes limitaciones de la Calculadora de precios de AWS es correcta?",
-                "opciones": [
-                        "No figuran todos los servicios en la calculadora, lo que genera problemas en los presupuestos creados por la calculadora.",
-                        "No permite estimar más de un servicio a la vez",
-                        "La estimación puede no ser exacta, por lo que a veces es mejor empezar con un uso real y revisar la factura",
-                        "Solo puede usarse con cuentas de pago"
-                ],
-                "correcta": 2
+          enunciado:
+            "¿Cuál de las siguientes limitaciones de la Calculadora de precios de AWS es correcta?",
+          opciones: [
+            "No figuran todos los servicios en la calculadora, lo que genera problemas en los presupuestos creados por la calculadora.",
+            "No permite estimar más de un servicio a la vez",
+            "La estimación puede no ser exacta, por lo que a veces es mejor empezar con un uso real y revisar la factura",
+            "Solo puede usarse con cuentas de pago",
+          ],
+          correcta: 2,
         },
         {
-                "enunciado": "Al realizar una estimación en la AWS Pricing Calculator, ¿qué combinación de factores suele tener un impacto más alto en el coste final?",
-                "opciones": [
-                        "Tipo de servicio, tamaño del recurso, horas de uso y región seleccionada",
-                        "Número de usuarios IAM, políticas de permisos y grupos asignados",
-                        "Zona de disponibilidad elegida, nombre del recurso y etiquetas aplicadas",
-                        "Ninguna de las anteriores"
-                ],
-                "correcta": 0
+          enunciado:
+            "Al realizar una estimación en la AWS Pricing Calculator, ¿qué combinación de factores suele tener un impacto más alto en el coste final?",
+          opciones: [
+            "Tipo de servicio, tamaño del recurso, horas de uso y región seleccionada",
+            "Número de usuarios IAM, políticas de permisos y grupos asignados",
+            "Zona de disponibilidad elegida, nombre del recurso y etiquetas aplicadas",
+            "Ninguna de las anteriores",
+          ],
+          correcta: 0,
         },
         {
-                "enunciado": "¿Qué es Amazon EC2 dentro de los servicios de AWS?",
-                "opciones": [
-                        "Un servicio para crear y gestionar máquinas virtuales bajo demanda",
-                        "Un sistema de almacenamiento de archivos distribuido",
-                        "Un servicio de bases de datos gestionadas",
-                        "Un servicio de computación serverless, es decir, donde no es necesario levantar servidores."
-                ],
-                "correcta": 0
+          enunciado: "¿Qué es Amazon EC2 dentro de los servicios de AWS?",
+          opciones: [
+            "Un servicio para crear y gestionar máquinas virtuales bajo demanda",
+            "Un sistema de almacenamiento de archivos distribuido",
+            "Un servicio de bases de datos gestionadas",
+            "Un servicio de computación serverless, es decir, donde no es necesario levantar servidores.",
+          ],
+          correcta: 0,
         },
         {
-                "enunciado": "¿Cuál es la función principal de Amazon S3?",
-                "opciones": [
-                        "Ejecutar aplicaciones sin necesidad de servidores",
-                        "Crear redes privadas virtuales en la nube",
-                        "Proporcionar almacenamiento de objetos escalable",
-                        "Gestionar usuarios y permisos"
-                ],
-                "correcta": 2
+          enunciado: "¿Cuál es la función principal de Amazon S3?",
+          opciones: [
+            "Ejecutar aplicaciones sin necesidad de servidores",
+            "Crear redes privadas virtuales en la nube",
+            "Proporcionar almacenamiento de objetos escalable",
+            "Gestionar usuarios y permisos",
+          ],
+          correcta: 2,
         },
         {
-                "enunciado": "¿Qué es un usuario de IAM en AWS?",
-                "opciones": [
-                        "Un recurso que define permisos sobre otros servicios",
-                        "Una persona o aplicación que puede autenticarse en una cuenta de AWS",
-                        "Un conjunto de permisos reutilizables",
-                        "Un mecanismo para conectar cuentas entre regiones"
-                ],
-                "correcta": 1
+          enunciado: "¿Qué es un usuario de IAM en AWS?",
+          opciones: [
+            "Un recurso que define permisos sobre otros servicios",
+            "Una persona o aplicación que puede autenticarse en una cuenta de AWS",
+            "Un conjunto de permisos reutilizables",
+            "Un mecanismo para conectar cuentas entre regiones",
+          ],
+          correcta: 1,
         },
         {
-                "enunciado": "¿Qué es una política de IAM y en qué formato están escritas normalmente?",
-                "opciones": [
-                        "Un conjunto de reglas de red escritas en YAML",
-                        "Un usuario especial con permisos administrativos",
-                        "Un documento que define permisos sobre recursos y que está escrito en formato JSON",
-                        "Un rol que se asigna automáticamente a los servicios de AWS"
-                ],
-                "correcta": 2
+          enunciado:
+            "¿Qué es una política de IAM y en qué formato están escritas normalmente?",
+          opciones: [
+            "Un conjunto de reglas de red escritas en YAML",
+            "Un usuario especial con permisos administrativos",
+            "Un documento que define permisos sobre recursos y que está escrito en formato JSON",
+            "Un rol que se asigna automáticamente a los servicios de AWS",
+          ],
+          correcta: 2,
         },
         {
-                "enunciado": "En la cuenta de AWS que se presenta en el dibujo ¿Qué acciones podrá realizar el usuario user-2?",
-                "opciones": [
-                        "Iniciar y detener instancias EC2",
-                        "Ver información de las instancias EC2, pero no modificarlas",
-                        "Acceder a buckets de Amazon S3",
-                        "Administrar usuarios y grupos de IAM"
-                ],
-                "correcta": 1
+          enunciado:
+            "En la cuenta de AWS que se presenta en el dibujo ¿Qué acciones podrá realizar el usuario user-2?",
+          opciones: [
+            "Iniciar y detener instancias EC2",
+            "Ver información de las instancias EC2, pero no modificarlas",
+            "Acceder a buckets de Amazon S3",
+            "Administrar usuarios y grupos de IAM",
+          ],
+          correcta: 1,
         },
         {
-                "enunciado": "Un usuario pertenece simultáneamente a los grupos EC2-Admin y S3-Support. Según las políticas mostradas en el laboratorio, ¿qué acciones podrá realizar este usuario?",
-                "opciones": [
-                        "Solo podrá ver información de EC2 y S3, sin realizar cambios",
-                        "Podrá iniciar y detener instancias EC2 y leer objetos en Amazon S3",
-                        "Podrá administrar completamente EC2, S3 e IAM",
-                        "Ninguna de las anteriores"
-                ],
-                "correcta": 1
+          enunciado:
+            "Un usuario pertenece simultáneamente a los grupos EC2-Admin y S3-Support. Según las políticas mostradas en el laboratorio, ¿qué acciones podrá realizar este usuario?",
+          opciones: [
+            "Solo podrá ver información de EC2 y S3, sin realizar cambios",
+            "Podrá iniciar y detener instancias EC2 y leer objetos en Amazon S3",
+            "Podrá administrar completamente EC2, S3 e IAM",
+            "Ninguna de las anteriores",
+          ],
+          correcta: 1,
         },
         {
-                "enunciado": "Dada una dirección IPv4 como 192.0.2.0, ¿cuál de las siguientes afirmaciones es correcta?",
-                "opciones": [
-                        "Cada número decimal de la dirección IPv4 se representa usando 4 bits",
-                        "Cada uno de los cuatro bloques de la dirección IPv4 se representa con 8 bits",
-                        "La dirección IPv4 completa se representa usando 16 bits",
-                        "El valor decimal máximo que puede tomar uno de los bloques es 512"
-                ],
-                "correcta": 1
+          enunciado:
+            "Dada una dirección IPv4 como 192.0.2.0, ¿cuál de las siguientes afirmaciones es correcta?",
+          opciones: [
+            "Cada número decimal de la dirección IPv4 se representa usando 4 bits",
+            "Cada uno de los cuatro bloques de la dirección IPv4 se representa con 8 bits",
+            "La dirección IPv4 completa se representa usando 16 bits",
+            "El valor decimal máximo que puede tomar uno de los bloques es 512",
+          ],
+          correcta: 1,
         },
         {
-                "enunciado": "¿Por qué fue necesario introducir el protocolo IPv6 frente a IPv4?",
-                "opciones": [
-                        "Porque IPv6 utiliza un formato de direcciones más legible que IPv4.",
-                        "Porque IPv4 no permite el uso de direcciones en formato hexadecimal.",
-                        "Porque el número de direcciones disponibles en IPv4 es insuficiente.",
-                        "Porque IPv6 sustituye completamente a los protocolos de enrutamiento."
-                ],
-                "correcta": 2
+          enunciado:
+            "¿Por qué fue necesario introducir el protocolo IPv6 frente a IPv4?",
+          opciones: [
+            "Porque IPv6 utiliza un formato de direcciones más legible que IPv4.",
+            "Porque IPv4 no permite el uso de direcciones en formato hexadecimal.",
+            "Porque el número de direcciones disponibles en IPv4 es insuficiente.",
+            "Porque IPv6 sustituye completamente a los protocolos de enrutamiento.",
+          ],
+          correcta: 2,
         },
         {
-                "enunciado": "¿Qué rango de direcciones IP representa la red 192.168.1.0/24?",
-                "opciones": [
-                        "Desde 192.168.1.0 hasta 192.168.1.255",
-                        "Desde 192.168.1.1 hasta 192.168.1.24",
-                        "Desde 192.168.0.0 hasta 192.168.255.255",
-                        "Desde 192.168.1.0 hasta 192.168.1.24"
-                ],
-                "correcta": 0
+          enunciado:
+            "¿Qué rango de direcciones IP representa la red 192.168.1.0/24?",
+          opciones: [
+            "Desde 192.168.1.0 hasta 192.168.1.255",
+            "Desde 192.168.1.1 hasta 192.168.1.24",
+            "Desde 192.168.0.0 hasta 192.168.255.255",
+            "Desde 192.168.1.0 hasta 192.168.1.24",
+          ],
+          correcta: 0,
         },
         {
-                "enunciado": "¿Cuál de las siguientes opciones describe correctamente una función de una puerta de enlace a Internet (Internet Gateway) en una VPC?",
-                "opciones": [
-                        "Permitir la comunicación privada entre subredes dentro de la misma VPC sin acceso a Internet.",
-                        "Proporcionar acceso a Internet únicamente para instancias que no tienen direcciones IP públicas.",
-                        "Actuar como destino en las tablas de enrutamiento para el tráfico que debe salir a Internet.",
-                        "Ninguna de las anteriores."
-                ],
-                "correcta": 2
+          enunciado:
+            "¿Cuál de las siguientes opciones describe correctamente una función de una puerta de enlace a Internet (Internet Gateway) en una VPC?",
+          opciones: [
+            "Permitir la comunicación privada entre subredes dentro de la misma VPC sin acceso a Internet.",
+            "Proporcionar acceso a Internet únicamente para instancias que no tienen direcciones IP públicas.",
+            "Actuar como destino en las tablas de enrutamiento para el tráfico que debe salir a Internet.",
+            "Ninguna de las anteriores.",
+          ],
+          correcta: 2,
         },
         {
-                "enunciado": "¿Qué significa permitir tráfico desde 0.0.0.0/0 en una regla de un grupo de seguridad de AWS?",
-                "opciones": [
-                        "Que solo se permite tráfico desde la red interna de la VPC",
-                        "Que se permite tráfico desde cualquier dirección IP",
-                        "Que únicamente se permite tráfico desde direcciones privadas",
-                        "Que se restringe el acceso a una única subred concreta"
-                ],
-                "correcta": 1
+          enunciado:
+            "¿Qué significa permitir tráfico desde 0.0.0.0/0 en una regla de un grupo de seguridad de AWS?",
+          opciones: [
+            "Que solo se permite tráfico desde la red interna de la VPC",
+            "Que se permite tráfico desde cualquier dirección IP",
+            "Que únicamente se permite tráfico desde direcciones privadas",
+            "Que se restringe el acceso a una única subred concreta",
+          ],
+          correcta: 1,
         },
         {
-                "enunciado": "¿Cuál de las siguientes afirmaciones es correcta sobre los Security Groups y las Network ACL (NACL) en AWS?",
-                "opciones": [
-                        "Las Network ACL se aplican a nivel de instancia y los Security Groups a nivel de subred.",
-                        "Los Security Groups se aplican a nivel de instancia y las Network ACL a nivel de subred.",
-                        "Los Security Groups y las Network ACL se aplican exactamente al mismo nivel."
-                ],
-                "correcta": 1
-        }
-];
+          enunciado:
+            "¿Cuál de las siguientes afirmaciones es correcta sobre los Security Groups y las Network ACL (NACL) en AWS?",
+          opciones: [
+            "Las Network ACL se aplican a nivel de instancia y los Security Groups a nivel de subred.",
+            "Los Security Groups se aplican a nivel de instancia y las Network ACL a nivel de subred.",
+            "Los Security Groups y las Network ACL se aplican exactamente al mismo nivel.",
+          ],
+          correcta: 1,
+        },
+
+        {
+          enunciado:
+            "¿Qué es una región en AWS y cuál es la diferencia entre una región y una Availability Zone?",
+          opciones: [
+            "Una región es una ubicación geográfica con varias zonas de disponibilidad; una Availability Zone es una ubicación aislada dentro de esa región.",
+            "Una región es un único centro de datos y una Availability Zone es un país completo.",
+            "Una región solo se usa para facturación y una Availability Zone solo se usa para IAM.",
+            "Una región y una Availability Zone son exactamente lo mismo.",
+          ],
+          correcta: 0,
+        },
+        {
+          enunciado:
+            "¿Qué criterios me van a llevar a decidir elegir una región u otra?",
+          opciones: [
+            "Solo el nombre de la región en la consola.",
+            "Únicamente el color asignado a los recursos en AWS.",
+            "Latencia/proximidad a usuarios, cumplimiento normativo o residencia de datos, disponibilidad de servicios y costes.",
+            "Solo la cantidad de usuarios IAM creados en la cuenta.",
+          ],
+          correcta: 2,
+        },
+        {
+          enunciado:
+            "¿Qué tres factores son los fundamentales para determinar el coste de AWS?",
+          opciones: [
+            "Número de usuarios de LinkedIn, número de regiones y número de certificados.",
+            "Sistema operativo, navegador web y editor de texto.",
+            "IAM, grupos de seguridad y ACL de red.",
+            "Cómputo, almacenamiento y transferencia de datos saliente.",
+          ],
+          correcta: 3,
+        },
+        {
+          enunciado: "¿Qué es EC2 y qué es S3?",
+          opciones: [
+            "EC2 es un servicio de bases de datos relacionales y S3 es un servicio de DNS.",
+            "EC2 permite ejecutar instancias/servidores virtuales; S3 es almacenamiento de objetos en buckets.",
+            "EC2 es un servicio de correo electrónico y S3 es un balanceador de carga.",
+            "EC2 y S3 son únicamente herramientas de facturación.",
+          ],
+          correcta: 1,
+        },
+        {
+          enunciado:
+            "¿Qué es una política de IAM y en qué formato están escritas?",
+          opciones: [
+            "Un documento que define a qué recursos se puede acceder y el nivel de acceso; se escribe en formato JSON.",
+            "Una imagen de máquina utilizada para lanzar instancias EC2; se escribe en YAML obligatorio.",
+            "Un firewall de subred; se escribe en binario.",
+            "Un bucket de almacenamiento; se escribe en CSV.",
+          ],
+          correcta: 0,
+        },
+        {
+          enunciado:
+            "¿Quién es el responsable de gestionar la seguridad de mi aplicación y de los datos que utiliza?",
+          opciones: [
+            "AWS siempre gestiona por completo la seguridad de la aplicación y de los datos del cliente.",
+            "El servicio Route 53, porque resuelve nombres DNS.",
+            "La región elegida, sin intervención del cliente.",
+            "El cliente, porque en el modelo de responsabilidad compartida gestiona la seguridad “en” la nube: datos, aplicaciones, identidad y accesos.",
+          ],
+          correcta: 3,
+        },
+        {
+          enunciado: "¿Cuántas IPs hay disponibles para la red 192.168.1.0/24?",
+          opciones: [
+            "16 direcciones IP.",
+            "24 direcciones IP.",
+            "256 direcciones IP en total, porque quedan 8 bits para hosts.",
+            "65.536 direcciones IP.",
+          ],
+          correcta: 2,
+        },
+        {
+          enunciado: "¿Para qué sirve la tabla de enrutamiento en la red?",
+          opciones: [
+            "Para almacenar objetos dentro de buckets.",
+            "Para decidir a qué destino u objetivo se envía el tráfico de red según la ruta configurada.",
+            "Para crear usuarios IAM automáticamente.",
+            "Para elegir el tipo de instancia EC2 en función de la memoria.",
+          ],
+          correcta: 1,
+        },
+        {
+          enunciado:
+            "¿Cuál es la diferencia entre un grupo de seguridad y una ACL en relación a la seguridad de la VPC?",
+          opciones: [
+            "El grupo de seguridad actúa a nivel de instancia, solo tiene reglas de permiso y es con estado; la ACL actúa a nivel de subred, permite reglas de permiso y denegación y es sin estado.",
+            "El grupo de seguridad actúa a nivel de región y la ACL actúa a nivel de cuenta.",
+            "No hay diferencia: ambos funcionan igual y siempre se evalúan por orden numérico.",
+            "La ACL solo sirve para S3 y el grupo de seguridad solo sirve para facturación.",
+          ],
+          correcta: 0,
+        },
+        {
+          enunciado:
+            "¿Qué significa que en mi grupo de seguridad permita la entrada al puerto 80 a 0.0.0.0/0?",
+          opciones: [
+            "Que solo se permite SSH desde mi red privada.",
+            "Que se bloquea todo el tráfico web entrante.",
+            "Que solo se permite tráfico HTTPS al puerto 443.",
+            "Que se permite tráfico HTTP entrante desde cualquier dirección IPv4.",
+          ],
+          correcta: 3,
+        },
+        {
+          enunciado: "¿Qué es AWS CloudFront y qué ventajas nos ofrece?",
+          opciones: [
+            "Un servicio para crear usuarios IAM con privilegios de administrador.",
+            "Un tipo de volumen EBS magnético.",
+            "Una red de entrega de contenido que usa cachés distribuidas para entregar contenido desde ubicaciones cercanas al usuario, reduciendo latencia y mejorando rendimiento y escalado.",
+            "Un motor de base de datos relacional compatible con MySQL.",
+          ],
+          correcta: 2,
+        },
+        {
+          enunciado:
+            "¿Qué es una AMI? ¿Para qué se utiliza en la creación de instancias EC2?",
+          opciones: [
+            "Una tabla de enrutamiento que traduce dominios a direcciones IP.",
+            "Una plantilla o imagen de máquina de Amazon que se usa para crear una instancia EC2 e incluye el sistema operativo y, a menudo, software preinstalado.",
+            "Una lista de control de acceso de red para subredes públicas.",
+            "Un servicio de almacenamiento de objetos para copias de seguridad.",
+          ],
+          correcta: 1,
+        },
+        {
+          enunciado:
+            "¿Qué ocurre si la instancia se detiene y se vuelve a iniciar?",
+          opciones: [
+            "Se conserva el almacenamiento EBS asociado, pero la IP pública puede cambiar si no se usa una IP elástica.",
+            "Se eliminan obligatoriamente todos los volúmenes EBS.",
+            "La instancia se convierte automáticamente en una base de datos RDS.",
+            "No se puede volver a iniciar una instancia detenida.",
+          ],
+          correcta: 0,
+        },
+        {
+          enunciado:
+            "EC2: ¿se puede cambiar el tipo de una instancia que está arrancada?",
+          opciones: [
+            "Sí, se cambia siempre en caliente sin detener la instancia.",
+            "Solo se puede cambiar si la instancia está en S3.",
+            "No directamente: primero se detiene la instancia, luego se cambia el tipo y después se vuelve a iniciar.",
+            "No se puede cambiar nunca el tipo de instancia.",
+          ],
+          correcta: 2,
+        },
+        {
+          enunciado:
+            "EC2: ¿qué ocurre con los discos asociados a una instancia, EBS Elastic Block Storage, cuando se para el servidor?",
+          opciones: [
+            "Los volúmenes EBS se eliminan siempre al detener la instancia.",
+            "Los volúmenes EBS persisten y los datos siguen ahí al volver a iniciar la instancia.",
+            "Los volúmenes EBS se convierten automáticamente en buckets S3.",
+            "Los volúmenes EBS solo existen mientras la CPU está al 100%.",
+          ],
+          correcta: 1,
+        },
+        {
+          enunciado: "¿Para qué sirve una IP elástica?",
+          opciones: [
+            "Para cifrar automáticamente todos los buckets de S3.",
+            "Para crear una base de datos Multi-AZ.",
+            "Para sustituir una política de IAM.",
+            "Para tener una dirección IPv4 pública estática que se puede asociar a una instancia o interfaz y mantenerla aunque se detenga y arranque la instancia.",
+          ],
+          correcta: 3,
+        },
+        {
+          enunciado:
+            "¿A través de qué protocolo nos conectamos a servidores Windows?",
+          opciones: ["RDP.", "SSH únicamente.", "SMTP.", "DNS."],
+          correcta: 0,
+        },
+        {
+          enunciado:
+            "¿Cómo hago para añadir un nuevo disco duro a un servidor Windows?",
+          opciones: [
+            "Creando un registro A en Route 53.",
+            "Cambiando la región de la cuenta de AWS.",
+            "Creando un volumen de Amazon EBS, adjuntándolo a la instancia y después inicializándolo/formateándolo desde Windows.",
+            "Eliminando el grupo de seguridad de la instancia.",
+          ],
+          correcta: 2,
+        },
+        {
+          enunciado:
+            "¿Cuándo tiene sentido utilizar S3 y cuándo EBS para el almacenamiento?",
+          opciones: [
+            "S3 solo sirve para ejecutar CPU y EBS solo sirve para DNS.",
+            "S3 tiene sentido para objetos, copias de seguridad, medios y contenido estático; EBS tiene sentido como almacenamiento de bloque adjunto a EC2, por ejemplo para volúmenes raíz, sistemas de archivos o bases de datos.",
+            "EBS se usa para buckets globales y S3 para discos de arranque de Windows.",
+            "Ambos se usan exactamente igual y no hay diferencias prácticas.",
+          ],
+          correcta: 1,
+        },
+        {
+          enunciado:
+            "¿S3 es un servicio global o está en una zona de disponibilidad?",
+          opciones: [
+            "Está siempre dentro de una sola zona de disponibilidad concreta.",
+            "Solo existe dentro de una instancia EC2.",
+            "Solo está disponible si se crea una VPC privada.",
+            "No está limitado a una única zona de disponibilidad; los buckets se crean en una región y S3 replica los datos para ofrecer alta durabilidad.",
+          ],
+          correcta: 3,
+        },
+        {
+          enunciado:
+            "¿Qué diferencias hay entre utilizar Amazon RDS y utilizar EC2 con una base de datos?",
+          opciones: [
+            "Con EC2 el usuario administra más tareas como sistema operativo, parches, backups y alta disponibilidad; con RDS muchas de esas tareas están gestionadas por el servicio.",
+            "RDS obliga a instalar manualmente el sistema operativo de la base de datos.",
+            "EC2 no permite instalar bases de datos.",
+            "RDS solo sirve para almacenar objetos como S3.",
+          ],
+          correcta: 0,
+        },
+        {
+          enunciado:
+            "¿Qué ventajas tiene la configuración de Amazon RDS Multi-AZ?",
+          opciones: [
+            "Permite usar RDS como CDN para contenido estático.",
+            "Reduce la seguridad porque elimina la VPC.",
+            "Aumenta la alta disponibilidad y la tolerancia a fallos mediante una instancia en espera en otra zona de disponibilidad con replicación síncrona y conmutación por error.",
+            "Sustituye a las políticas de IAM en toda la cuenta.",
+          ],
+          correcta: 2,
+        },
+      ];
 
       const TOTAL_PREGUNTAS = Math.min(30, preguntas.length);
 
       function mezclarArray(lista) {
         const copia = [...lista];
+
         for (let i = copia.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [copia[i], copia[j]] = [copia[j], copia[i]];
         }
+
         return copia;
       }
 
@@ -304,9 +571,11 @@
         const [preguntasMostradas, setPreguntasMostradas] = React.useState(() =>
           obtenerTestAleatorio(),
         );
+
         const [respuestas, setRespuestas] = React.useState(() =>
           Array(TOTAL_PREGUNTAS).fill(null),
         );
+
         const [corregido, setCorregido] = React.useState(false);
 
         const respondidas = respuestas.filter((r) => r !== null).length;
@@ -345,20 +614,29 @@
               </div>
 
               <section className="hero" style={{ padding: "28px 24px" }}>
-                <span className="badge">☁️ Fundamentos de Computación en la Nube</span>
-                <h1 className="test-title">Fundamentos de Computación en la Nube</h1>
+                <span className="badge">
+                  ☁️ Fundamentos de Computación en la Nube
+                </span>
+
+                <h1 className="test-title">
+                  Fundamentos de Computación en la Nube
+                </h1>
+
                 <p className="lead">
-                  Test interactivo autocorregible con preguntas aleatorias por intento.
-                  Al reiniciar, el sistema vuelve a barajar y genera un test distinto.
+                  Test interactivo autocorregible con preguntas aleatorias por
+                  intento. Al reiniciar, el sistema vuelve a barajar y genera un
+                  test distinto.
                 </p>
 
                 <div className="stats">
                   <div className="stat">
                     <b>{preguntasMostradas.length}</b>Preguntas
                   </div>
+
                   <div className="stat">
                     <b>{respondidas}</b>Respondidas
                   </div>
+
                   <div className="stat">
                     <b>{corregido ? puntaje : "—"}</b>Aciertos
                   </div>
@@ -379,9 +657,14 @@
                     let clases = "answer-btn";
 
                     if (seleccionado) clases += " answer-selected";
-                    if (corregido && seleccionado && !esCorrecta)
+
+                    if (corregido && seleccionado && !esCorrecta) {
                       clases += " answer-wrong";
-                    if (corregido && esCorrecta) clases += " answer-correct";
+                    }
+
+                    if (corregido && esCorrecta) {
+                      clases += " answer-correct";
+                    }
 
                     return (
                       <button
@@ -416,9 +699,12 @@
                       Resultado: {puntaje} / {preguntasMostradas.length} (
                       {porcentaje}%)
                     </p>
+
                     <p className="result-sub">
-                      Has respondido {respondidas} de {preguntasMostradas.length} preguntas.
+                      Has respondido {respondidas} de{" "}
+                      {preguntasMostradas.length} preguntas.
                     </p>
+
                     <div className="progress">
                       <span style={{ width: `${porcentaje}%` }}></span>
                     </div>
@@ -427,7 +713,8 @@
               </div>
 
               <footer>
-                Creado a partir de tus preguntas y preparado para publicación en GitHub Pages.
+                Creado a partir de tus preguntas y preparado para publicación en
+                GitHub Pages.
               </footer>
             </div>
           </div>
