@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <title>Lenguaje de Marcas · Test Interactivo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      const preguntas = [{
+      const preguntas = [
+        {
           enunciado: "¿Qué indica exactamente <!DOCTYPE html> en HTML5?",
           opciones: [
             "La versión concreta del navegador",
@@ -1175,7 +1182,521 @@
             "** comentario **",
           ],
           correcta: 2,
-        },];
+        },
+
+
+      /* PREGUNTAS AÑADIDAS DESDE PDF */
+      {
+        enunciado: "¿Qué etiqueta indica el idioma principal del documento HTML?",
+        opciones: [
+          "<lang>",
+          "<meta lang=\"...\">",
+          "<html lang=\"...\">",
+          "<body lang=\"...\">",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "¿Qué etiqueta se usa para enlazar un archivo CSS externo?",
+        opciones: [
+          "<link>",
+          "<script>",
+          "<meta>",
+          "<cite>",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "¿Qué atributo es obligatorio en la etiqueta <img> para accesibilidad?",
+        opciones: [
+          "title",
+          "alt",
+          "caption",
+          "srcset",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué etiqueta representa un contenido independiente que podría distribuirse por separado (por ejemplo, un post)?",
+        opciones: [
+          "<section>",
+          "<article>",
+          "<aside>",
+          "<div>",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué etiqueta se usa para crear un salto de línea?",
+        opciones: [
+          "<hr>",
+          "<br>",
+          "<line>",
+          "<lb>",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué atributo de <a> indica la URL de destino?",
+        opciones: [
+          "ref",
+          "src",
+          "href",
+          "link",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "¿Qué etiqueta agrupa opciones dentro de un <select> en categorías?",
+        opciones: [
+          "<option-group>",
+          "<group>",
+          "<optgroup>",
+          "<fieldset>",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "En formularios, ¿qué atributo evita que un campo se edite pero sí se envíe?",
+        opciones: [
+          "disabled",
+          "readonly",
+          "hidden",
+          "locked",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué etiqueta define el encabezado de una tabla?",
+        opciones: [
+          "<thead>",
+          "<head>",
+          "<th>",
+          "<header>",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "¿Qué etiqueta se usa para texto con énfasis semántico (importancia) por defecto en cursiva?",
+        opciones: [
+          "<b>",
+          "<strong>",
+          "<i>",
+          "<em>",
+        ],
+        correcta: 3,
+      },
+      {
+        enunciado: "¿Qué etiqueta se usa para definir la navegación principal de una página?",
+        opciones: [
+          "<navigate>",
+          "<nav>",
+          "<menu>",
+          "<header>",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué atributo de <script> permite que el script se cargue sin bloquear el parseo y se ejecute al terminar de descargar?",
+        opciones: [
+          "async",
+          "defer",
+          "preload",
+          "module",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué etiqueta se usa para insertar un vídeo en HTML5?",
+        opciones: [
+          "<media>",
+          "<video>",
+          "<movie>",
+          "<iframe>",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué atributo en un <input> obliga a que el usuario rellene el campo antes de enviar el formulario?",
+        opciones: [
+          "validate",
+          "required",
+          "mustfill",
+          "checked",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué etiqueta indica una sección de contenido tangencial (barra lateral, notas, publicidad)?",
+        opciones: [
+          "<aside>",
+          "<section>",
+          "<article>",
+          "<summary>",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "¿Qué tipo de <input> está pensado para seleccionar un correo electrónico con validación básica?",
+        opciones: [
+          "type=\"mail\"",
+          "type=\"email\"",
+          "type=\"text-email\"",
+          "type=\"correo\"",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué etiqueta se usa para indicar el contenido principal único del documento?",
+        opciones: [
+          "<main>",
+          "<content>",
+          "<primary>",
+          "<body>",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "¿Qué atributo es necesario mantener idéntico para crear radio buttons enlazados?",
+        opciones: [
+          "id",
+          "name",
+          "for",
+          "label",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "En Grid, ¿qué propiedad define el número y tamaño de columnas?",
+        opciones: [
+          "grid-columns",
+          "grid-template-columns",
+          "columns-template",
+          "grid-column-size",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué función permite repetir columnas de forma compacta en Grid?",
+        opciones: [
+          "repeat()",
+          "clone()",
+          "loop()",
+          "range()",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "¿Qué propiedad en Flexbox alinea elementos en el eje principal?",
+        opciones: [
+          "align-items",
+          "justify-content",
+          "align-content",
+          "place-items",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué propiedad en Flexbox permite que los elementos salten de línea?",
+        opciones: [
+          "flex-flow: column;",
+          "flex-wrap: wrap;",
+          "flex-break: auto;",
+          "wrap: flex;",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué valor de align-items centra en el eje transversal?",
+        opciones: [
+          "center",
+          "middle",
+          "baseline",
+          "space-between",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "¿Qué propiedad abreviada combina flex-direction y flex-wrap?",
+        opciones: [
+          "flex",
+          "flexbox",
+          "flex-flow",
+          "flow-flex",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "¿Qué selector usamos en CSS cuando queremos dar estilo a un enlace que estamos pulsando?",
+        opciones: [
+          "a:active",
+          "a:hover",
+          "a:huver",
+          "a:visited",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "¿Qué valor de font-variant pone el texto en versalitas?",
+        opciones: [
+          "capitalize",
+          "uppercase",
+          "lowercase",
+          "small-caps",
+        ],
+        correcta: 3,
+      },
+      {
+        enunciado: "¿Qué valor de text-transform pone el texto en mayúsculas?",
+        opciones: [
+          "capitalize",
+          "uppercase",
+          "lowercase",
+          "inherit",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué valor de visibilidad oculta un elemento en vista Y espacio?",
+        opciones: [
+          "display: none — no se ve ni ocupa espacio",
+          "visibility: hidden — no se ve pero ocupa espacio",
+          "collapse",
+          "invisible",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué propiedad controla la transparencia de un elemento (y sus hijos)?",
+        opciones: [
+          "opacity",
+          "alpha",
+          "visibility",
+          "transparent",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "¿Qué selector selecciona un elemento con id 'caja'?",
+        opciones: [
+          ".caja",
+          "#caja",
+          "caja",
+          "*caja",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué propiedad añade sombra a una caja (elemento)?",
+        opciones: [
+          "text-shadow",
+          "box-shadow",
+          "shadow-box",
+          "border-shadow",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué propiedad define el tamaño de la fuente?",
+        opciones: [
+          "font-style",
+          "font-size",
+          "text-size",
+          "width",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué valor de box-sizing hace que el width incluya padding y border?",
+        opciones: [
+          "content-box",
+          "padding-box",
+          "border-box",
+          "inside-box",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "¿Qué pseudo-clase selecciona un enlace ya visitado?",
+        opciones: [
+          "a:hover",
+          "a:visited",
+          "a:active",
+          "a:focus",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué propiedad se usa para redondear las esquinas?",
+        opciones: [
+          "corner-radius",
+          "border-round",
+          "border-radius",
+          "radius-border",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "¿Qué clase de Bootstrap centra horizontalmente un elemento tipo bloque con ancho definido?",
+        opciones: [
+          ".text-center",
+          ".mx-auto",
+          ".center-block",
+          ".align-center",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué clase de Bootstrap se usa para crear una fila de la rejilla?",
+        opciones: [
+          ".col",
+          ".grid",
+          ".row",
+          ".container-row",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "¿Qué declaración suele ir al inicio de un documento XML?",
+        opciones: [
+          "<!DOCTYPE xml>",
+          "<?xml version=\"1.0\" encoding=\"UTF-8\"?>",
+          "<xml version=\"1.0\">",
+          "<?xml html=\"true\"?>",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "En XML, ¿qué caracteriza a las etiquetas respecto a mayúsculas/minúsculas?",
+        opciones: [
+          "No importa (no es sensible)",
+          "Solo importa en atributos",
+          "Es sensible (case-sensitive)",
+          "Solo depende del navegador",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "En DTD, para definir un elemento se utiliza:",
+        opciones: [
+          "<!TAG ...>",
+          "<!ELEMENT ...>",
+          "<!NODE ...>",
+          "<!DEFINE ...>",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "En XSLT, ¿qué etiqueta aplica plantillas a nodos seleccionados?",
+        opciones: [
+          "<xsl:apply-templates>",
+          "<xsl:template-match>",
+          "<xsl:value-of>",
+          "<xsl:for>",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "En XML, ¿qué significa que los nombres son 'case-sensitive'?",
+        opciones: [
+          "Que los atributos van siempre en mayúsculas",
+          "Que no importa si usas mayúsculas o minúsculas",
+          "Que <Alumno> y <alumno> son etiquetas distintas",
+          "Que solo afecta a los valores de atributos",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "¿Cuál es una etiqueta XML correcta?",
+        opciones: [
+          "<1curso>",
+          "<_curso>",
+          "<-curso>",
+          "<.curso>",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "En DTD, ¿cómo se define que un elemento alumno contiene texto (#PCDATA)?",
+        opciones: [
+          "<!ELEMENT alumno (#PCDATA)>",
+          "<!ELEMENT alumno (TEXT)>",
+          "<!ELEMENT alumno (CDATA)>",
+          "<!ELEMENT alumno (#TEXT)>",
+        ],
+        correcta: 0,
+      },
+      {
+        enunciado: "En XSLT, ¿qué etiqueta se usa para recorrer un conjunto de nodos seleccionados?",
+        opciones: [
+          "<xsl:loop>",
+          "<xsl:for-each>",
+          "<xsl:repeat>",
+          "<xsl:each>",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "En XPath/XSLT, ¿cómo se selecciona un atributo llamado id?",
+        opciones: [
+          "id",
+          "#id",
+          "@id",
+          "::id",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "¿Cómo se escribe un comentario de una línea en JavaScript?",
+        opciones: [
+          "<!-- comentario -->",
+          "# comentario",
+          "// comentario",
+          "** comentario **",
+        ],
+        correcta: 2,
+      },
+      {
+        enunciado: "¿Qué muestra typeof \"hola\"?",
+        opciones: [
+          "text",
+          "string",
+          "String",
+          "char",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué método convierte un texto a número entero?",
+        opciones: [
+          "NumberInt()",
+          "parseInt()",
+          "toInteger()",
+          "int()",
+        ],
+        correcta: 1,
+      },
+      {
+        enunciado: "¿Qué imprime console.log(2 - \"2\")?",
+        opciones: [
+          "2",
+          "22",
+          "NaN",
+          "0",
+        ],
+        correcta: 3,
+      },
+      {
+        enunciado: "¿Es verdad que 2 - \"2\" == null + null?",
+        opciones: [
+          "true",
+          "false",
+          "undefined",
+          "null",
+        ],
+        correcta: 0,
+      },
+      ];
       const TOTAL_PREGUNTAS = Math.min(30, preguntas.length);
 
       function mezclarArray(lista) {
@@ -1192,12 +1713,22 @@
       }
 
       function TestInteractivo() {
-        const [preguntasMostradas, setPreguntasMostradas] = React.useState(() => obtenerTestAleatorio());
-        const [respuestas, setRespuestas] = React.useState(() => Array(TOTAL_PREGUNTAS).fill(null));
+        const [preguntasMostradas, setPreguntasMostradas] = React.useState(() =>
+          obtenerTestAleatorio(),
+        );
+        const [respuestas, setRespuestas] = React.useState(() =>
+          Array(TOTAL_PREGUNTAS).fill(null),
+        );
         const [corregido, setCorregido] = React.useState(false);
         const respondidas = respuestas.filter((r) => r !== null).length;
-        const puntaje = respuestas.reduce((acc, r, i) => r === preguntasMostradas[i]?.correcta ? acc + 1 : acc, 0);
-        const porcentaje = preguntasMostradas.length ? Math.round((puntaje / preguntasMostradas.length) * 100) : 0;
+        const puntaje = respuestas.reduce(
+          (acc, r, i) =>
+            r === preguntasMostradas[i]?.correcta ? acc + 1 : acc,
+          0,
+        );
+        const porcentaje = preguntasMostradas.length
+          ? Math.round((puntaje / preguntasMostradas.length) * 100)
+          : 0;
         const seleccionar = (pIndex, rIndex) => {
           const copia = [...respuestas];
           copia[pIndex] = rIndex;
@@ -1208,37 +1739,56 @@
           setPreguntasMostradas(nuevoTest);
           setRespuestas(Array(nuevoTest.length).fill(null));
           setCorregido(false);
-          window.scrollTo({top:0, behavior:'smooth'});
+          window.scrollTo({ top: 0, behavior: "smooth" });
         };
         return (
           <div className="page-shell">
             <div className="test-container">
               <div className="topbar">
-                <a href="../index.html" className="back-link">← Volver al portal</a>
+                <a href="../index.html" className="back-link">
+                  ← Volver al portal
+                </a>
               </div>
-              <section className="hero" style={{padding:'28px 24px'}}>
+              <section className="hero" style={{ padding: "28px 24px" }}>
                 <span className="badge">🌐 Lenguaje de Marcas</span>
                 <h1 className="test-title">Lenguaje de Marcas</h1>
-                <p className="lead">Test interactivo autocorregible con 30 preguntas aleatorias por intento. Al reiniciar, el sistema vuelve a barajar y genera un test distinto.</p>
+                <p className="lead">
+                  Test interactivo autocorregible con 30 preguntas aleatorias
+                  por intento. Al reiniciar, el sistema vuelve a barajar y
+                  genera un test distinto.
+                </p>
                 <div className="stats">
-                  <div className="stat"><b>{preguntasMostradas.length}</b>Preguntas</div>
-                  <div className="stat"><b>{respondidas}</b>Respondidas</div>
-                  <div className="stat"><b>{corregido ? puntaje : '—'}</b>Aciertos</div>
+                  <div className="stat">
+                    <b>{preguntasMostradas.length}</b>Preguntas
+                  </div>
+                  <div className="stat">
+                    <b>{respondidas}</b>Respondidas
+                  </div>
+                  <div className="stat">
+                    <b>{corregido ? puntaje : "—"}</b>Aciertos
+                  </div>
                 </div>
               </section>
-              <div style={{height:'18px'}} />
+              <div style={{ height: "18px" }} />
               {preguntasMostradas.map((p, i) => (
                 <div key={i} className="card">
-                  <h2 className="question-title">{i + 1}. {p.enunciado}</h2>
+                  <h2 className="question-title">
+                    {i + 1}. {p.enunciado}
+                  </h2>
                   {p.opciones.map((op, j) => {
                     const seleccionado = respuestas[i] === j;
                     const esCorrecta = p.correcta === j;
-                    let clases = 'answer-btn';
-                    if (seleccionado) clases += ' answer-selected';
-                    if (corregido && seleccionado && !esCorrecta) clases += ' answer-wrong';
-                    if (corregido && esCorrecta) clases += ' answer-correct';
+                    let clases = "answer-btn";
+                    if (seleccionado) clases += " answer-selected";
+                    if (corregido && seleccionado && !esCorrecta)
+                      clases += " answer-wrong";
+                    if (corregido && esCorrecta) clases += " answer-correct";
                     return (
-                      <button key={j} onClick={() => seleccionar(i, j)} className={clases}>
+                      <button
+                        key={j}
+                        onClick={() => seleccionar(i, j)}
+                        className={clases}
+                      >
                         {op}
                       </button>
                     );
@@ -1247,23 +1797,44 @@
               ))}
               <div className="result-section">
                 <div className="actions">
-                  <button className="btn-correct" onClick={() => setCorregido(true)}>Corregir test</button>
-                  <button className="btn-reset" onClick={reiniciar}>Reiniciar</button>
+                  <button
+                    className="btn-correct"
+                    onClick={() => setCorregido(true)}
+                  >
+                    Corregir test
+                  </button>
+                  <button className="btn-reset" onClick={reiniciar}>
+                    Reiniciar
+                  </button>
                 </div>
                 {corregido && (
                   <>
-                    <p className="result-text">Resultado: {puntaje} / {preguntasMostradas.length} ({porcentaje}%)</p>
-                    <p className="result-sub">Has respondido {respondidas} de {preguntasMostradas.length} preguntas.</p>
-                    <div className="progress"><span style={{width: `${porcentaje}%`}}></span></div>
+                    <p className="result-text">
+                      Resultado: {puntaje} / {preguntasMostradas.length} (
+                      {porcentaje}%)
+                    </p>
+                    <p className="result-sub">
+                      Has respondido {respondidas} de{" "}
+                      {preguntasMostradas.length} preguntas.
+                    </p>
+                    <div className="progress">
+                      <span style={{ width: `${porcentaje}%` }}></span>
+                    </div>
                   </>
                 )}
               </div>
-              <footer>Creado a partir de tus preguntas y preparado para publicación en GitHub Pages.</footer>
+              <footer>
+                Creado a partir de tus preguntas y preparado para publicación en
+                GitHub Pages.
+              </footer>
             </div>
           </div>
         );
       }
-      ReactDOM.createRoot(document.getElementById('root')).render(<TestInteractivo />);
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <TestInteractivo />,
+      );
     </script>
   </body>
 </html>
+
