@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Interactivo Personalizado</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicons/portal.svg" />
+    <script defer src="intro.js"></script>
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <section class="hero">
+        <span class="badge">Test interactivo 1º ASIR</span>
+
+        <h1>Portal de tests autocorregibles</h1>
+
+        <div class="subject-avatars" aria-label="Asignaturas disponibles">
+          <div class="subject-avatar" title="Bases de Datos">
+            <img src="assets/favicons/bbdd.svg" alt="Icono Bases de Datos" />
+          </div>
+          <div class="subject-avatar" title="Fundamentos de Hardware">
+            <img src="assets/favicons/fuhar.svg" alt="Icono Fundamentos de Hardware" />
+          </div>
+          <div class="subject-avatar" title="Implantación de Sistemas Operativos">
+            <img src="assets/favicons/iso.svg" alt="Icono Implantación de Sistemas Operativos" />
+          </div>
+          <div class="subject-avatar" title="Lenguaje de Marcas">
+            <img src="assets/favicons/ldm.svg" alt="Icono Lenguaje de Marcas" />
+          </div>
+          <div class="subject-avatar" title="Redes">
+            <img src="assets/favicons/redes.svg" alt="Icono Redes" />
+          </div>
+          <div class="subject-avatar" title="Cloud">
+            <img src="assets/favicons/cloud.svg" alt="Icono Cloud" />
+          </div>
+          <div class="subject-avatar" title="IPE">
+            <img src="assets/favicons/ipe.svg" alt="Icono IPE" />
+          </div>
+          <div class="subject-avatar" title="ITPE Repaso 1 de Mayo">
+            <img src="assets/favicons/itpe-repaso.svg" alt="Icono ITPE Repaso" />
+          </div>
+                  <div class="subject-avatar" title="Laboratorio de errores">
+            <img src="assets/favicons/laboratorio-errores.svg" alt="Icono Laboratorio de errores" />
+          </div>
+        </div>
+
+        <p class="emoji-line"></p>
+
+        <p class="hero-description">
+          La web genera automáticamente un test de 30 preguntas a partir del
+          banco de preguntas de cada asignatura. Para ello, mezcla las preguntas
+          de forma aleatoria y selecciona 30, por lo que cada intento puede ser
+          diferente. Al corregir, compara las respuestas marcadas con las
+          correctas y calcula aciertos, fallos, preguntas en blanco, y te da una
+          nota basádose en el sitema de puntuación de Prometeo que se muestra en
+          el cuadro de abajo.
+        </p>
+
+        <section class="score-notice" aria-label="Sistema de puntuación">
+          <h2>Sistema de puntuación:</h2>
+          <ul>
+            <li>
+              <span>Respuesta correcta</span><strong>→ +0,33 puntos</strong>
+            </li>
+            <li>
+              <span>Respuesta incorrecta</span><strong>→ -0,11 puntos</strong>
+            </li>
+            <li><span>Respuesta en blanco</span><strong>→ 0 puntos</strong></li>
+          </ul>
+        </section>
+
+        <div class="module-grid">
+          <a class="module-card" href="bbdd/indexbbdd.html">
+            <div class="icon">🗄️</div>
+            <h2>Bases de Datos</h2>
+            <p>Test interactivo.</p>
+            <span class="go">Abrir test</span>
+          </a>
+
+          <a class="module-card" href="fuhar/indexfuhar.html">
+            <div class="icon">🖥️</div>
+            <h2>Fundamentos de Hardware</h2>
+            <p>Test interactivo.</p>
+            <span class="go">Abrir test</span>
+          </a>
+
+          <a class="module-card" href="iso/indexiso.html">
+            <div class="icon">💻</div>
+            <h2>Implantación de Sistemas Operativos</h2>
+            <p>Test interactivo.</p>
+            <span class="go">Abrir test</span>
+          </a>
+
+          <a class="module-card" href="ldm/indexldm.html">
+            <div class="icon">🌐</div>
+            <h2>Lenguaje de Marcas</h2>
+            <p>Test interactivo.</p>
+            <span class="go">Abrir test</span>
+          </a>
+
+          <a class="module-card" href="redes/indexredes.html">
+            <div class="icon">📡</div>
+            <h2>Planificación y Administración de Redes</h2>
+            <p>Test interactivo.</p>
+            <span class="go">Abrir test</span>
+          </a>
+
+          <a class="module-card" href="cloud/index.html">
+            <div class="icon">☁️</div>
+            <h2>Fundamentos de Computación en la Nube</h2>
+            <p>Test interactivo.</p>
+            <span class="go">Abrir test</span>
+          </a>
+
+          <a class="module-card" href="ipe-completo/index.html">
+            <div class="icon">📚</div>
+            <h2>Itinerario Personal para la Empleabilidad</h2>
+            <p>Test interactivo completo.</p>
+            <span class="go">Abrir test</span>
+          </a>
+
+          <a class="module-card" href="itpe-repaso-1-mayo/index.html">
+            <div class="icon">🧠</div>
+            <h2>ITPE Repaso 1 de Mayo</h2>
+            <p>Test interactivo de repaso.</p>
+            <span class="go">Abrir test</span>
+          </a>
+
+          <a class="module-card" href="laboratorio-errores/index.html">
+            <div class="icon">⚗️</div>
+            <h2>Laboratorio de errores</h2>
+            <p>Test generado solo con las preguntas que has fallado.</p>
+            <span class="go">Abrir laboratorio</span>
+          </a>
+        </div>
+      </section>
+
+      <footer class="home-footer">
+        <p>© 2026 · Proyecto educativo ASIR</p>
+      </footer>
+    </div>
+  </body>
+</html>
