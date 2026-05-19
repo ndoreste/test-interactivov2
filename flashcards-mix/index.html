@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flashcards Mix · Estudio Interactivo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicons/portal.svg" />
+    <script src="../assets/flashcards-mix-data.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const TOTAL_FLASHCARDS = 30;
+      const bank = Array.isArray(window.FLASHCARDS_MIX_BANK)
+        ? window.FLASHCARDS_MIX_BANK
+        : [];
+
+      function shuffle(list) {
+        const copy = [...list];
+        for (let i = copy.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      }
+
+      function dedupeQuestions(list) {
+        const seen = new Set();
+        return list.filter((item) => {
+          const key = `${item.subject}||${item.enunciado}`;
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+      }
+
+      function buildRound(source) {
+        const clean = dedupeQuestions(
+          source.filter((item) => item.enunciado && item.respuesta),
+        );
+
+        const bySubject = clean.reduce((acc, item) => {
+          acc[item.subject] ??= [];
+          acc[item.subject].push(item);
+          return acc;
+        }, {});
+
+        const subjects = shuffle(Object.keys(bySubject));
+        const selected = [];
+        const used = new Set();
+
+        for (const subject of subjects) {
+          const options = shuffle(bySubject[subject]);
+          const candidate = options.find(
+            (item) => !used.has(`${item.subject}||${item.enunciado}`),
+          );
+          if (candidate && selected.length < TOTAL_FLASHCARDS) {
+            selected.push(candidate);
+            used.add(`${candidate.subject}||${candidate.enunciado}`);
+          }
+        }
+
+        const remainder = shuffle(clean).filter(
+          (item) => !used.has(`${item.subject}||${item.enunciado}`),
+        );
+
+        while (selected.length < Math.min(TOTAL_FLASHCARDS, clean.length) && remainder.length) {
+          const item = remainder.shift();
+          selected.push(item);
+          used.add(`${item.subject}||${item.enunciado}`);
+        }
+
+        return shuffle(selected);
+      }
+
+      function FlashcardsMix() {
+        const [cards, setCards] = React.useState(() => buildRound(bank));
+        const [index, setIndex] = React.useState(0);
+        const [flipped, setFlipped] = React.useState(false);
+
+        const current = cards[index];
+        const total = cards.length;
+
+        const nextCard = () => {
+          if (!total) return;
+          setFlipped(false);
+          setIndex((prev) => (prev + 1) % total);
+        };
+
+        const prevCard = () => {
+          if (!total) return;
+          setFlipped(false);
+          setIndex((prev) => (prev - 1 + total) % total);
+        };
+
+        const newRound = () => {
+          const round = buildRound(bank);
+          setCards(round);
+          setIndex(0);
+          setFlipped(false);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        return (
+          <div className="page-shell">
+            <div className="test-container flashcards-shell">
+              <div className="topbar">
+                <a href="../index.html" className="back-link back-link-final">
+                  <span className="neon-arrow">←</span> Volver al portal
+                </a>
+              </div>
+
+              <section className="hero flashcards-hero">
+                <span className="badge">🧠 Flashcards Mix</span>
+                <h1 className="test-title">Flashcards Mix</h1>
+                <p className="lead">
+                  30 tarjetas aleatorias mezcladas de todas las asignaturas disponibles.
+                  Delante ves la pregunta, pulsas, y detrás aparece solo la respuesta correcta.
+                </p>
+
+                <div className="flashcards-toolbar">
+                  <div className="stat"><b>{total || 0}</b>Tarjetas</div>
+                </div>
+              </section>
+
+              {!total ? (
+                <div className="card flashcards-empty">
+                  <h2 className="question-title">No se han encontrado preguntas válidas.</h2>
+                  <p>Revisa que el banco incluya enunciados y respuestas correctas.</p>
+                </div>
+              ) : (
+                <>
+                  <div className="flashcard-stage">
+                    <button
+                      className={`flashcard ${flipped ? 'is-flipped' : ''}`}
+                      onClick={() => setFlipped((prev) => !prev)}
+                      type="button"
+                    >
+                      <div className="flashcard-face flashcard-front">
+                        <span className="flashcard-subject">{current.subject}</span>
+                        <span className="flashcard-label">Pregunta</span>
+                        <h2>{current.enunciado}</h2>
+                        <p className="flashcard-hint">Pulsa para ver la respuesta</p>
+                      </div>
+
+                      <div className="flashcard-face flashcard-back">
+                        <span className="flashcard-subject">{current.subject}</span>
+                        <span className="flashcard-label">Respuesta correcta</span>
+                        <h2>{current.respuesta}</h2>
+                        {current.explicacion ? (
+                          <p className="flashcard-explanation">{current.explicacion}</p>
+                        ) : (
+                          <p className="flashcard-hint">Sin explicación adicional</p>
+                        )}
+                      </div>
+                    </button>
+                  </div>
+
+                  <div className="flashcards-nav">
+                    <button className="btn-reset" onClick={prevCard}>Anterior</button>
+                    <div className="flashcards-counter">{index + 1} / {total}</div>
+                    <button className="btn-correct" onClick={nextCard}>Siguiente</button>
+                  </div>
+
+                  <div className="result-section">
+                    <div className="actions actions-center">
+                      <button className="btn-reset" onClick={() => setFlipped((prev) => !prev)}>
+                        {flipped ? 'Volver a la pregunta' : 'Ver respuesta'}
+                      </button>
+                      <button className="btn-correct" onClick={newRound}>
+                        Nueva ronda aleatoria
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              <footer>
+                Banco combinado automáticamente desde todas las asignaturas del proyecto.
+              </footer>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<FlashcardsMix />);
+    </script>
+  </body>
+</html>
