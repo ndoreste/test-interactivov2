@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Simulacro Día del Eaxamen</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../assets/exam-day-data.js"></script>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicons/portal.svg" />
+    <style>
+      .exam-shell { max-width: 1160px; margin: 0 auto; }
+      .exam-layout { display: grid; gap: 22px; }
+      .exam-menu, .exam-summary { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 22px; box-shadow: var(--shadow); }
+      .exam-progress { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 14px 0 20px; }
+      .exam-progress strong { color: var(--text); }
+      .exam-progress-bar { height: 10px; flex: 1; min-width: 220px; border-radius: 999px; background: rgba(255,255,255,0.08); overflow: hidden; border: 1px solid var(--line); }
+      .exam-progress-bar > span { display:block; height:100%; background: linear-gradient(90deg, #22d3ee, #a78bfa); }
+      .module-order { display: grid; gap: 12px; }
+      .module-order-card { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 18px; border-radius:18px; border:1px solid rgba(103,232,249,0.12); background: rgba(9,15,30,0.55); }
+      .module-order-card.done { border-color: rgba(34,197,94,0.35); }
+      .module-order-card.timeout { border-color: rgba(239,68,68,0.35); }
+      .module-main { display:flex; align-items:center; gap:14px; min-width:0; }
+      .module-num { width: 34px; color: var(--muted); text-align:center; font-weight:700; }
+      .module-code { min-width: 54px; text-align:center; padding: 8px 10px; border-radius: 12px; background: rgba(34,211,238,0.12); border:1px solid rgba(34,211,238,0.18); color: #bff6ff; font-weight:800; font-size:0.82rem; }
+      .module-copy h3 { margin:0; font-size:1rem; color:var(--text); }
+      .module-copy p { margin:4px 0 0; color:var(--muted); font-size:0.9rem; }
+      .module-status { min-width: 118px; text-align:center; padding:10px 12px; border-radius: 12px; font-size:0.78rem; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; border:1px solid var(--line); }
+      .status-current,.status-ready { background: rgba(34,197,94,0.12); color:#8ef3af; }
+      .status-locked { background: rgba(148,163,184,0.08); color:#7f90b1; }
+      .status-done { background: rgba(34,197,94,0.14); color:#9bf4b8; }
+      .status-timeout { background: rgba(239,68,68,0.14); color:#ff9ca8; }
+      .exam-summary-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 18px; }
+      .exam-summary-card { padding:16px; border-radius:18px; border:1px solid var(--line); background: rgba(255,255,255,0.04); }
+      .exam-summary-card b { display:block; font-size:1.2rem; color:var(--text); }
+      .exam-summary-card span { color:var(--muted); font-size:0.9rem; display:block; margin-top:6px; }
+      .exam-finish-banner { margin-top:16px; padding:16px 18px; border-radius:18px; border:1px solid rgba(34,197,94,0.25); background: rgba(34,197,94,0.08); color:#d7ffe5; }
+      .exam-lock-msg { color: var(--muted); font-size: 0.92rem; }
+      @media (max-width: 720px) { .module-order-card { align-items:flex-start; } .module-main { align-items:flex-start; } .module-status { width:100%; } }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const STORAGE_KEY = 'openclaw_exam_day_sim_v2';
+      const MODULES = Array.isArray(window.EXAM_DAY_MODULES) ? window.EXAM_DAY_MODULES : [];
+      const QUESTIONS_PER_TEST = 30;
+      function shuffle(list) { const copy = [...list]; for (let i = copy.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [copy[i], copy[j]] = [copy[j], copy[i]]; } return copy; }
+      function buildQuestionSet(questions) { return shuffle(questions).slice(0, Math.min(QUESTIONS_PER_TEST, questions.length)); }
+      function freshModuleState(mod, index) { return { key: mod.key, code: mod.code, title: mod.title, subtitle: mod.subtitle, icon: mod.icon, status: index === 0 ? 'ready' : 'locked', questions: [], answers: [], deadline: null, completedAt: null, result: null }; }
+      function createFreshState() { return { modules: MODULES.map(freshModuleState) }; }
+      function loadState() { try { const raw = localStorage.getItem(STORAGE_KEY); if (!raw) return createFreshState(); const parsed = JSON.parse(raw); if (!parsed || !Array.isArray(parsed.modules) || parsed.modules.length !== MODULES.length) return createFreshState(); return parsed; } catch { return createFreshState(); } }
+      function saveState(state) { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+      function startModule(index) {
+        const state = loadState();
+        const mod = state.modules[index];
+        if (!mod || !['ready','in_progress'].includes(mod.status)) return;
+        if (mod.status === 'ready') {
+          const source = MODULES[index]?.questions || [];
+          mod.questions = buildQuestionSet(source);
+          mod.answers = Array(mod.questions.length).fill(null);
+          mod.deadline = Date.now() + 3600 * 1000;
+          mod.status = 'in_progress';
+          saveState(state);
+        }
+        window.location.href = './test.html?subject=' + encodeURIComponent(mod.key);
+      }
+      function resetAll() { const fresh = createFreshState(); saveState(fresh); window.location.reload(); }
+      function Menu() {
+        const [state, setState] = React.useState(loadState());
+        React.useEffect(() => { const onFocus = () => setState(loadState()); window.addEventListener('focus', onFocus); return () => window.removeEventListener('focus', onFocus); }, []);
+        const completed = state.modules.filter(m => m.status === 'completed' || m.status === 'timed_out');
+        const completedCount = completed.length;
+        const allDone = completedCount === state.modules.length;
+        const globalAverage = completed.length ? (completed.reduce((acc, mod) => acc + (mod.result?.nota10 || 0), 0) / completed.length) : 0;
+        return (
+          <div className="page-shell exam-shell">
+            <div className="topbar"><a href="../index.html" className="back-link back-link-final"><span className="neon-arrow">←</span> Volver al portal</a></div>
+            <section className="hero" style={{ padding: '28px 24px' }}>
+              <span className="badge">⏱️ Simulacro día del eaxamen</span>
+              <h1 className="test-title">Test Simulacro Día del Eaxamen</h1>
+              <p className="lead">Completa las asignaturas en orden. Cada una se abre como un examen propio y al volver podrás continuar con la siguiente.</p>
+              <p className="lead" style={{ marginTop: '10px', fontSize: '0.98rem' }}>El simulacro guarda el progreso automáticamente. Si sales, retomará exactamente donde te quedaste.</p>
+            </section>
+            <div style={{ height: '20px' }}></div>
+            <div className="exam-layout">
+              <section className="exam-menu">
+                <div className="exam-progress"><strong>Progreso: {completedCount} / {state.modules.length} módulos</strong><div className="exam-progress-bar"><span style={{ width: (completedCount / state.modules.length) * 100 + '%' }}></span></div></div>
+                <div className="module-order">
+                  {state.modules.map((mod, index) => {
+                    const statusLabel = mod.status === 'locked' ? 'Bloqueado' : mod.status === 'ready' ? 'Iniciar' : mod.status === 'in_progress' ? 'Reanudar' : mod.status === 'completed' ? 'Completado' : 'Tiempo agotado';
+                    const statusClass = mod.status === 'locked' ? 'status-locked' : (mod.status === 'ready' || mod.status === 'in_progress') ? 'status-current' : mod.status === 'completed' ? 'status-done' : 'status-timeout';
+                    return (
+                      <div key={mod.key} className={`module-order-card ${mod.status === 'completed' ? 'done' : ''} ${mod.status === 'timed_out' ? 'timeout' : ''}`}>
+                        <div className="module-main">
+                          <div className="module-num">{String(index + 1).padStart(2, '0')}</div>
+                          <div className="module-code">{mod.code}</div>
+                          <div className="module-copy"><h3>{mod.title}</h3><p>{mod.subtitle}</p></div>
+                        </div>
+                        <div>
+                          <div className={`module-status ${statusClass}`}>{statusLabel}</div>
+                          {(mod.status === 'ready' || mod.status === 'in_progress') ? <button className="btn-correct" style={{ marginTop: '10px', width: '100%' }} onClick={() => startModule(index)}>{mod.status === 'in_progress' ? 'Reanudar' : 'Iniciar'}</button> : null}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                {!allDone ? <p className="exam-lock-msg" style={{ marginTop: '16px' }}>El botón de reiniciar simulacros aparecerá cuando completes todas las asignaturas. Cada reinicio genera tests distintos usando el banco real de preguntas.</p> : <div className="exam-finish-banner"><strong style={{ display:'block', marginBottom:'8px', fontSize:'1.05rem' }}>Simulacro completado.</strong><div>Nota media global: <strong>{globalAverage.toFixed(2)} / 10</strong></div><div style={{ marginTop:'12px' }}><button className="btn-reset" onClick={resetAll}>Reiniciar simulacros</button></div></div>}
+              </section>
+              <section className="exam-summary">
+                <span className="badge">📋 Estado del simulacro</span>
+                <h2 style={{ margin: '14px 0 8px', fontSize: '1.9rem' }}>Menú de asignaturas del examen</h2>
+                <p className="lead" style={{ textAlign: 'left', margin: 0, maxWidth: '100%' }}>Orden fijado según tu captura: PAR, MPO, BBDD, ISO, LMSGI, FUHAR e IPE.</p>
+                <div className="exam-summary-grid">
+                  {state.modules.map((mod) => (
+                    <div key={mod.key} className="exam-summary-card">
+                      <b>{mod.code}</b>
+                      <span>{mod.status === 'completed' ? 'Completado' : mod.status === 'timed_out' ? 'Tiempo agotado' : mod.status === 'ready' ? 'Listo para iniciar' : mod.status === 'locked' ? 'Bloqueado' : 'En curso'}</span>
+                      {mod.result ? <span>Puntuación: {mod.result.puntaje.toFixed(2)} / {mod.result.maximo.toFixed(2)}</span> : null}
+                      {mod.result ? <span>Nota del examen: {mod.result.nota10.toFixed(2)} / 10</span> : null}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
+          </div>
+        );
+      }
+      ReactDOM.createRoot(document.getElementById('root')).render(<Menu />);
+    </script>
+  </body>
+</html>
