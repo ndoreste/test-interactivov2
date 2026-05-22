@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Repaso Redes · Test Interactivo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../assets/error-lab.js"></script>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicons/redes.svg" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const preguntas = [
+        {
+          enunciado: "¿Cuántos bits tiene un byte?",
+          opciones: ["4", "8", "16", "32"],
+          correcta: 1,
+          explicacion: "Un byte está formado por 8 bits.",
+        },
+        {
+          enunciado: "¿Cuál es el resultado decimal del número binario 101010?",
+          opciones: ["40", "41", "42", "44"],
+          correcta: 2,
+          explicacion: "El número binario 101010 equivale a 42 en decimal.",
+        },
+        {
+          enunciado:
+            "¿Cuál es la conversión correcta del número decimal 22 a binario?",
+          opciones: ["10110", "11010", "10011", "11100"],
+          correcta: 0,
+          explicacion:
+            "El número decimal 22 se representa en binario como 10110.",
+        },
+        {
+          enunciado:
+            "¿Qué modelo incluye las capas Aplicación, Presentación, Sesión, Transporte, Red, Enlace y Física?",
+          opciones: [
+            "Modelo TCP/IP",
+            "Modelo OSI",
+            "Modelo Ethernet",
+            "Modelo IEEE",
+          ],
+          correcta: 1,
+          explicacion: "El modelo OSI se compone de siete capas.",
+        },
+        {
+          enunciado:
+            "En el modelo OSI, ¿qué PDU corresponde a la capa de Aplicación?",
+          opciones: ["Bits", "Trama", "Datos", "Paquete"],
+          correcta: 2,
+          explicacion: "En la capa de Aplicación la PDU son los datos.",
+        },
+        {
+          enunciado:
+            "En el modelo OSI, ¿qué PDU corresponde a la capa de Transporte cuando se usa TCP?",
+          opciones: ["Segmentos", "Datagramas", "Tramas", "Bits"],
+          correcta: 0,
+          explicacion: "TCP trabaja con segmentos en la capa de Transporte.",
+        },
+        {
+          enunciado:
+            "En el modelo OSI, ¿qué PDU corresponde a UDP en la capa de Transporte?",
+          opciones: ["Paquetes", "Datagramas", "Tramas", "Bits"],
+          correcta: 1,
+          explicacion: "UDP trabaja con datagramas en la capa de Transporte.",
+        },
+        {
+          enunciado: "¿Qué PDU corresponde a la capa de Red en el modelo OSI?",
+          opciones: ["Trama", "Segmento", "Paquete", "Bit"],
+          correcta: 2,
+          explicacion: "La capa de Red trabaja con paquetes.",
+        },
+        {
+          enunciado: "¿Qué PDU corresponde a la capa de Enlace?",
+          opciones: ["Datos", "Trama", "Segmento", "Paquete"],
+          correcta: 1,
+          explicacion: "La capa de Enlace trabaja con tramas.",
+        },
+        {
+          enunciado: "¿Qué PDU corresponde a la capa Física?",
+          opciones: ["Bits", "Datos", "Paquetes", "Datagramas"],
+          correcta: 0,
+          explicacion: "La capa Física transmite bits.",
+        },
+        {
+          enunciado: "¿Cuáles son las capas del modelo TCP/IP según el repaso?",
+          opciones: [
+            "Física, Enlace, Red y Transporte",
+            "Aplicación, Transporte, Internet y Acceso a la red",
+            "Aplicación, Sesión, Internet y Física",
+            "Presentación, Transporte, Red y Enlace",
+          ],
+          correcta: 1,
+          explicacion:
+            "El modelo TCP/IP incluye Aplicación, Transporte, Internet y Acceso a la red.",
+        },
+        {
+          enunciado:
+            "¿Qué contiene el tráiler de una trama según el documento?",
+          opciones: [
+            "Solo dirección IP origen",
+            "FCS",
+            "Puerto TCP",
+            "Máscara de subred",
+          ],
+          correcta: 1,
+          explicacion: "El tráiler contiene el FCS, Frame Check Sequence.",
+        },
+        {
+          enunciado: "¿Qué significa FCS?",
+          opciones: [
+            "Fast Cable System",
+            "Frame Control Segment",
+            "Frame Check Sequence",
+            "Fiber Connection Standard",
+          ],
+          correcta: 2,
+          explicacion: "FCS significa Frame Check Sequence.",
+        },
+        {
+          enunciado:
+            "¿En qué capa se calcula el CRC para detectar errores de bits?",
+          opciones: ["Capa 2", "Capa 3", "Capa 4", "Capa 7"],
+          correcta: 0,
+          explicacion: "El CRC se calcula en la capa 2, dentro del tráiler.",
+        },
+        {
+          enunciado: "¿Qué comprueba el checksum IP de capa 3?",
+          opciones: [
+            "Los datos y la cabecera TCP",
+            "Solo la cabecera IP",
+            "Solo la dirección MAC",
+            "La contraseña de red",
+          ],
+          correcta: 1,
+          explicacion: "El checksum IP comprueba solo la cabecera IP.",
+        },
+        {
+          enunciado: "¿Qué comprueba el checksum TCP/UDP de capa 4?",
+          opciones: [
+            "Solo el tráiler",
+            "Solo la MAC destino",
+            "Datos y cabecera",
+            "Solo la máscara de red",
+          ],
+          correcta: 2,
+          explicacion: "El checksum TCP/UDP comprueba datos y cabecera.",
+        },
+        {
+          enunciado: "¿Qué significa WAN?",
+          opciones: [
+            "Wireless Area Network",
+            "Wide Area Network",
+            "Web Access Network",
+            "Wired Automatic Network",
+          ],
+          correcta: 1,
+          explicacion: "WAN significa Wide Area Network.",
+        },
+        {
+          enunciado: "¿Qué tipo de red corresponde a una red de área personal?",
+          opciones: ["PAN", "LAN", "MAN", "CAN"],
+          correcta: 0,
+          explicacion: "PAN significa Personal Area Network.",
+        },
+        {
+          enunciado: "¿Qué significa VLAN?",
+          opciones: [
+            "Very Large Area Network",
+            "Virtual Local Area Network",
+            "Visual LAN",
+            "Verified Local Area Network",
+          ],
+          correcta: 1,
+          explicacion: "VLAN significa Virtual Local Area Network.",
+        },
+        {
+          enunciado: "¿Qué tipo de red representa WLAN?",
+          opciones: [
+            "Red local cableada",
+            "Red metropolitana",
+            "Red local inalámbrica",
+            "Red de área personal",
+          ],
+          correcta: 2,
+          explicacion: "WLAN significa Wireless Local Area Network.",
+        },
+        {
+          enunciado:
+            "¿Cuál de las siguientes opciones es una perturbación de la señal?",
+          opciones: ["Trunking", "Atenuación", "Subnetting", "Encapsulación"],
+          correcta: 1,
+          explicacion:
+            "La atenuación es una perturbación o interferencia de la señal.",
+        },
+        {
+          enunciado: "¿Qué tres perturbaciones aparecen en los apuntes?",
+          opciones: [
+            "Ruido, atenuación y distorsión",
+            "Ruido, cifrado y latencia",
+            "Trama, paquete y segmento",
+            "NAT, PAT y DNS",
+          ],
+          correcta: 0,
+          explicacion:
+            "Las perturbaciones indicadas son ruido, atenuación y distorsión.",
+        },
+        {
+          enunciado:
+            "¿Qué tipo de transmisión permite comunicación en un solo sentido?",
+          opciones: ["Full-duplex", "Half-duplex", "Simplex", "Trunk"],
+          correcta: 2,
+          explicacion: "Simplex permite transmisión en un único sentido.",
+        },
+        {
+          enunciado:
+            "¿Qué tipo de transmisión permite comunicación en ambos sentidos, pero no simultáneamente?",
+          opciones: ["Simplex", "Half-duplex", "Full-duplex", "Multimodo"],
+          correcta: 1,
+          explicacion:
+            "Half-duplex permite comunicación en ambos sentidos, pero por turnos.",
+        },
+        {
+          enunciado:
+            "¿Qué tipo de transmisión permite comunicación simultánea en ambos sentidos?",
+          opciones: ["Full-duplex", "Half-duplex", "Simplex", "Broadcast"],
+          correcta: 0,
+          explicacion: "Full-duplex permite enviar y recibir al mismo tiempo.",
+        },
+        {
+          enunciado: "¿Qué estándar IEEE corresponde a Ethernet?",
+          opciones: ["802.11", "802.15.1", "802.3", "802.16"],
+          correcta: 2,
+          explicacion: "Ethernet corresponde al estándar IEEE 802.3.",
+        },
+        {
+          enunciado: "¿Qué estándar IEEE corresponde a Wi-Fi?",
+          opciones: ["802.11", "802.3", "802.16", "802.1Q"],
+          correcta: 0,
+          explicacion: "Wi-Fi corresponde al estándar IEEE 802.11.",
+        },
+        {
+          enunciado:
+            "¿Qué estándar IEEE corresponde a Bluetooth según el repaso?",
+          opciones: ["802.1Q", "802.15.1", "802.3", "802.16"],
+          correcta: 1,
+          explicacion: "Bluetooth aparece asociado al estándar IEEE 802.15.1.",
+        },
+        {
+          enunciado: "¿Qué estándar IEEE corresponde a WiMAX?",
+          opciones: ["802.11", "802.3", "802.16", "802.15.1"],
+          correcta: 2,
+          explicacion: "WiMAX corresponde al estándar IEEE 802.16.",
+        },
+        {
+          enunciado:
+            "¿Qué estándar se utiliza en enlaces trunk para etiquetado VLAN?",
+          opciones: ["802.11", "802.3", "802.1Q", "802.16"],
+          correcta: 2,
+          explicacion: "Los enlaces trunk usan etiquetado 802.1Q.",
+        },
+        {
+          enunciado: "¿Qué significa dot1Q en el contexto del repaso?",
+          opciones: [
+            "Un tipo de cable de fibra",
+            "Una técnica de cifrado Wi-Fi",
+            "Encapsulación usada en enlaces trunk",
+            "Un protocolo de correo",
+          ],
+          correcta: 2,
+          explicacion:
+            "dot1Q hace referencia a la encapsulación 802.1Q usada en enlaces trunk.",
+        },
+        {
+          enunciado: "¿Cuál de estos cables Ethernet aparece en el documento?",
+          opciones: ["HDMI", "UTP", "VGA", "SATA"],
+          correcta: 1,
+          explicacion: "El repaso menciona UTP, STP, FTP y SFTP.",
+        },
+        {
+          enunciado: "¿Qué categoría Ethernet soporta 100 Mbps según la tabla?",
+          opciones: ["Cat5", "Cat6a", "Cat7", "Cat8"],
+          correcta: 0,
+          explicacion: "Cat5 aparece con una velocidad máxima de 100 Mbps.",
+        },
+        {
+          enunciado:
+            "¿Qué categoría aparece con velocidad de 1 Gbps y ancho de banda de 100 MHz?",
+          opciones: ["Cat5e", "Cat7", "Cat8", "Cat6a"],
+          correcta: 0,
+          explicacion: "Cat5e aparece con 1 Gbps y 100 MHz.",
+        },
+        {
+          enunciado: "¿Qué categoría ofrece 10 Gbps a 100 metros y 500 MHz?",
+          opciones: ["Cat5", "Cat6", "Cat6a", "Cat8"],
+          correcta: 2,
+          explicacion: "Cat6a ofrece 10 Gbps, 500 MHz y 100 metros.",
+        },
+        {
+          enunciado:
+            "¿Qué categoría mínima se indica para soportar 10 Gbps a 100 metros?",
+          opciones: ["Cat5e", "Cat6", "Cat6a", "Cat5"],
+          correcta: 2,
+          explicacion:
+            "Para 10 Gbps a 100 metros, la categoría mínima indicada es Cat6a.",
+        },
+        {
+          enunciado:
+            "¿Qué categoría puede alcanzar 10 Gbps en corto alcance de 55 metros?",
+          opciones: ["Cat5", "Cat5e", "Cat6", "Cat8"],
+          correcta: 2,
+          explicacion:
+            "Cat6 puede alcanzar 10 Gbps en corto alcance, hasta 55 metros.",
+        },
+        {
+          enunciado: "¿Qué categoría Ethernet aparece con 25–40 Gbps?",
+          opciones: ["Cat6", "Cat6a", "Cat7a", "Cat8"],
+          correcta: 3,
+          explicacion: "Cat8 aparece con velocidades de 25–40 Gbps.",
+        },
+        {
+          enunciado:
+            "¿Cuál es la distancia máxima recomendada para Cat8 según la tabla?",
+          opciones: ["100 metros", "55 metros", "30 metros", "300 metros"],
+          correcta: 2,
+          explicacion:
+            "Cat8 aparece con una distancia máxima recomendada de 30 metros.",
+        },
+        {
+          enunciado: "¿Qué ancho de banda tiene Cat7a según la tabla?",
+          opciones: ["100 MHz", "250 MHz", "600 MHz", "1000 MHz"],
+          correcta: 3,
+          explicacion: "Cat7a tiene un ancho de banda de 1000 MHz.",
+        },
+        {
+          enunciado: "¿Qué tipo de cable de fibra usa un solo camino?",
+          opciones: ["Multimodo", "Monomodo", "FTP", "SFTP"],
+          correcta: 1,
+          explicacion: "La fibra monomodo usa un solo camino.",
+        },
+        {
+          enunciado: "¿Qué tipo de fibra es más adecuada para larga distancia?",
+          opciones: ["Multimodo", "Monomodo", "UTP", "Cat6"],
+          correcta: 1,
+          explicacion: "La fibra monomodo se usa para larga distancia.",
+        },
+        {
+          enunciado:
+            "¿Qué tipo de fibra es más barata y se usa en distancias cortas?",
+          opciones: ["Monomodo", "Multimodo", "Cat8", "OS2"],
+          correcta: 1,
+          explicacion:
+            "La fibra multimodo se usa en distancias cortas y es más barata.",
+        },
+        {
+          enunciado:
+            "¿Qué tipo de fibra monomodo se usa en interiores o edificios?",
+          opciones: ["OS1", "OS2", "OM3", "OM5"],
+          correcta: 0,
+          explicacion: "OS1 se usa en interiores o edificios.",
+        },
+        {
+          enunciado:
+            "¿Qué tipo de fibra monomodo se usa en exterior o larga distancia?",
+          opciones: ["OM1", "OM2", "OS2", "OM4"],
+          correcta: 2,
+          explicacion: "OS2 se usa en exterior o larga distancia.",
+        },
+        {
+          enunciado: "¿Qué tipo de fibra multimodo soporta 300 m a 10 Gbps?",
+          opciones: ["OM1", "OM2", "OM3", "OS1"],
+          correcta: 2,
+          explicacion: "OM3 soporta 300 metros a 10 Gbps.",
+        },
+        {
+          enunciado: "¿Qué tipo de fibra multimodo soporta 550 m y 10–40 Gbps?",
+          opciones: ["OM1", "OM2", "OM4", "OS2"],
+          correcta: 2,
+          explicacion: "OM4 soporta 550 metros y velocidades de 10–40 Gbps.",
+        },
+        {
+          enunciado:
+            "¿Qué tipo de fibra multimodo es parecida a OM4 pero más eficiente y puede llegar a 40–100 Gbps?",
+          opciones: ["OM1", "OM2", "OM3", "OM5"],
+          correcta: 3,
+          explicacion:
+            "OM5 es parecida a OM4, pero más eficiente y puede llegar a 40–100 Gbps.",
+        },
+        {
+          enunciado:
+            "¿Qué conector de fibra se describe como redondito antiguo?",
+          opciones: ["LC", "SC", "ST", "RJ45"],
+          correcta: 2,
+          explicacion: "ST se describe como redondito antiguo.",
+        },
+        {
+          enunciado:
+            "¿Qué conector de fibra se describe como cuadrado y a presión?",
+          opciones: ["SC", "LC", "ST", "RJ45"],
+          correcta: 0,
+          explicacion: "SC se describe como cuadrado y a presión.",
+        },
+        {
+          enunciado:
+            "¿Qué conector de fibra se describe como pequeño y tipo clip?",
+          opciones: ["ST", "SC", "LC", "FTP"],
+          correcta: 2,
+          explicacion: "LC se describe como pequeñito y tipo clip.",
+        },
+        {
+          enunciado:
+            "¿Cuál de estos dispositivos aparece como obsoleto en el repaso?",
+          opciones: ["Router", "Switch", "Hub", "AP"],
+          correcta: 2,
+          explicacion: "El hub aparece marcado como obsoleto.",
+        },
+        {
+          enunciado:
+            "¿Cuál de los siguientes dispositivos aparece en la lista de comunicaciones?",
+          opciones: ["Router", "Monitor", "Teclado", "Procesador"],
+          correcta: 0,
+          explicacion: "Router aparece como dispositivo de comunicaciones.",
+        },
+        {
+          enunciado:
+            "¿Qué dispositivo permite trabajar también en capa 3 según la lista?",
+          opciones: ["Hub", "Switch de capa 3", "Tester de red", "Pelacables"],
+          correcta: 1,
+          explicacion:
+            "Los switches de capa 3 aparecen en la lista de dispositivos.",
+        },
+        {
+          enunciado:
+            "¿Cuál de las siguientes es una topología de red mencionada?",
+          opciones: [
+            "Lineal extendida",
+            "Estrella",
+            "Circular dinámica",
+            "Multicast",
+          ],
+          correcta: 1,
+          explicacion: "Estrella aparece como topología de red.",
+        },
+        {
+          enunciado:
+            "¿Qué conjunto contiene únicamente topologías mencionadas en el repaso?",
+          opciones: [
+            "Estrella, árbol, malla, bus y anillo",
+            "TCP, UDP, IP y DNS",
+            "Cat5, Cat6, Cat7 y Cat8",
+            "UTP, STP, FTP y SFTP",
+          ],
+          correcta: 0,
+          explicacion:
+            "Las topologías mencionadas son estrella, árbol, malla, bus y anillo.",
+        },
+        {
+          enunciado:
+            "¿Qué banda Wi-Fi tiene mayor alcance, menor velocidad y más dispositivos?",
+          opciones: ["2.4 GHz", "5 GHz", "6 GHz", "10 GHz"],
+          correcta: 0,
+          explicacion:
+            "La banda de 2.4 GHz tiene mayor alcance, menor velocidad y más dispositivos.",
+        },
+        {
+          enunciado: "¿Qué banda Wi-Fi tiene menor alcance y mayor velocidad?",
+          opciones: ["2.4 GHz", "5 GHz", "900 MHz", "1 GHz"],
+          correcta: 1,
+          explicacion:
+            "La banda de 5 GHz tiene menor alcance y mayor velocidad.",
+        },
+        {
+          enunciado: "¿De qué depende la seguridad Wi-Fi según los apuntes?",
+          opciones: [
+            "De la frecuencia",
+            "Del tipo de cifrado",
+            "Del número de antenas",
+            "Del ancho de banda del cable",
+          ],
+          correcta: 1,
+          explicacion:
+            "La seguridad Wi-Fi depende del tipo de cifrado, no de la frecuencia.",
+        },
+        {
+          enunciado:
+            "¿Cuál de los siguientes es un tipo de cifrado Wi-Fi mencionado?",
+          opciones: ["OSPF", "WPA2", "BGP", "ICMP"],
+          correcta: 1,
+          explicacion: "WPA2 aparece como tipo de cifrado Wi-Fi.",
+        },
+        {
+          enunciado:
+            "¿Cuál de estos protocolos de enrutamiento tiene un máximo de 15 saltos?",
+          opciones: ["OSPF", "BGP", "RIP", "EIGRP"],
+          correcta: 2,
+          explicacion: "RIP tiene un máximo de 15 saltos.",
+        },
+        {
+          enunciado: "¿Qué valor indica unreachable en RIP?",
+          opciones: ["15", "16", "88", "179"],
+          correcta: 1,
+          explicacion: "En RIP, 16 indica unreachable.",
+        },
+        {
+          enunciado: "¿Qué puerto usa RIP según los apuntes?",
+          opciones: ["UDP 520", "TCP 179", "IP 89", "TCP 23"],
+          correcta: 0,
+          explicacion: "RIP usa UDP 520.",
+        },
+        {
+          enunciado: "¿Qué algoritmo se asocia a OSPF?",
+          opciones: ["DUAL", "SPF/Dijkstra", "Three-Way Handshake", "CRC"],
+          correcta: 1,
+          explicacion: "OSPF se asocia al algoritmo SPF/Dijkstra.",
+        },
+        {
+          enunciado: "¿Qué número de protocolo IP usa OSPF según el repaso?",
+          opciones: ["IP 88", "IP 89", "TCP 179", "UDP 520"],
+          correcta: 1,
+          explicacion: "OSPF usa IP 89.",
+        },
+        {
+          enunciado: "¿Qué protocolo se describe como Cisco, híbrido o DUAL?",
+          opciones: ["RIP", "OSPF", "EIGRP", "BGP"],
+          correcta: 2,
+          explicacion: "EIGRP se describe como Cisco, híbrido o DUAL.",
+        },
+        {
+          enunciado: "¿Qué número de protocolo IP utiliza EIGRP?",
+          opciones: ["IP 88", "IP 89", "TCP 179", "UDP 520"],
+          correcta: 0,
+          explicacion: "EIGRP usa IP 88.",
+        },
+        {
+          enunciado: "¿Qué protocolo utiliza peering entre sistemas autónomos?",
+          opciones: ["RIP", "OSPF", "EIGRP", "BGP"],
+          correcta: 3,
+          explicacion: "BGP utiliza peering entre sistemas autónomos.",
+        },
+        {
+          enunciado: "¿Qué puerto utiliza BGP?",
+          opciones: ["TCP 21", "TCP 22", "TCP 179", "UDP 520"],
+          correcta: 2,
+          explicacion: "BGP usa TCP 179.",
+        },
+        {
+          enunciado:
+            "¿Cuál de estos protocolos se clasifica como externo en los apuntes?",
+          opciones: ["RIP", "OSPF", "EIGRP", "BGP"],
+          correcta: 3,
+          explicacion: "BGP aparece como protocolo externo.",
+        },
+        {
+          enunciado: "¿Qué protocolos aparecen como internos en el documento?",
+          opciones: [
+            "RIP, OSPF y EIGRP",
+            "BGP, DNS y HTTP",
+            "NAT, PAT y FTP",
+            "STP, VTP y SMTP",
+          ],
+          correcta: 0,
+          explicacion: "RIP, OSPF y EIGRP aparecen como protocolos internos.",
+        },
+        {
+          enunciado: "¿Qué registro DNS se usa para IPv6?",
+          opciones: ["A", "AAAA", "MX", "CNAME"],
+          correcta: 1,
+          explicacion: "AAAA es el registro DNS usado para IPv6.",
+        },
+        {
+          enunciado: "¿Qué dominio se usa para resolución inversa en IPv4?",
+          opciones: ["ipv6.arpa", "in-addr.arpa", "reverse.dns", "dns.local"],
+          correcta: 1,
+          explicacion: "La resolución inversa en IPv4 usa in-addr.arpa.",
+        },
+        {
+          enunciado: "¿Qué capas se asocian a HTTP(s) en los apuntes?",
+          opciones: [
+            "Red y Enlace",
+            "Transporte y Red",
+            "Aplicación, Presentación y Sesión",
+            "Física y Enlace",
+          ],
+          correcta: 2,
+          explicacion:
+            "HTTP(s) aparece asociado a Aplicación, Presentación y Sesión.",
+        },
+        {
+          enunciado:
+            "¿En qué capa del modelo OSI se sitúa IP según el documento?",
+          opciones: ["Capa 2", "Capa 3", "Capa 4", "Capa 7"],
+          correcta: 1,
+          explicacion: "IP se sitúa en la capa 3, Red.",
+        },
+        {
+          enunciado: "¿Qué protocolo se asocia al comando ping?",
+          opciones: ["ICMP", "FTP", "SMTP", "BGP"],
+          correcta: 0,
+          explicacion: "Ping utiliza ICMP.",
+        },
+        {
+          enunciado: "¿Qué mensajes ICMP se mencionan en el repaso?",
+          opciones: [
+            "SYN y ACK",
+            "Discover y Offer",
+            "Echo Request y Echo Reply",
+            "Request y Acknowledge",
+          ],
+          correcta: 2,
+          explicacion: "ICMP usa mensajes Echo Request y Echo Reply.",
+        },
+        {
+          enunciado: "¿Qué característica tiene ICMP según el documento?",
+          opciones: [
+            "Es orientado a conexión",
+            "No es orientado a conexión",
+            "Usa TCP 179",
+            "Usa UDP 520",
+          ],
+          correcta: 1,
+          explicacion: "ICMP no es orientado a conexión.",
+        },
+        {
+          enunciado: "¿Cuál es el orden correcto del proceso DHCP indicado?",
+          opciones: [
+            "Offer, Discover, Request, Acknowledge",
+            "Discover, Offer, Request, Acknowledge",
+            "Request, Discover, Offer, Acknowledge",
+            "Acknowledge, Offer, Request, Discover",
+          ],
+          correcta: 1,
+          explicacion:
+            "DHCP sigue el proceso DORA: Discover, Offer, Request, Acknowledge.",
+        },
+        {
+          enunciado: "¿Qué puerto utiliza Telnet?",
+          opciones: ["21", "22", "23", "179"],
+          correcta: 2,
+          explicacion: "Telnet usa el puerto 23.",
+        },
+        {
+          enunciado: "¿Qué puerto utiliza SSH?",
+          opciones: ["20", "21", "22", "23"],
+          correcta: 2,
+          explicacion: "SSH usa el puerto 22.",
+        },
+        {
+          enunciado: "¿Qué puerto utiliza FTP según el repaso?",
+          opciones: ["21", "22", "23", "520"],
+          correcta: 0,
+          explicacion: "FTP usa el puerto 21.",
+        },
+        {
+          enunciado: "¿Qué puerto utiliza SFTP según los apuntes?",
+          opciones: ["21", "22", "23", "179"],
+          correcta: 1,
+          explicacion: "SFTP usa el puerto 22.",
+        },
+        {
+          enunciado: "¿Qué secuencia representa el Three-Way Handshake de TCP?",
+          opciones: [
+            "Discover, Offer, Request",
+            "SYN, SYN-ACK, ACK",
+            "Echo Request, Echo Reply, ACK",
+            "DNS, HTTP, TCP",
+          ],
+          correcta: 1,
+          explicacion: "TCP establece conexión con SYN, SYN-ACK y ACK.",
+        },
+        {
+          enunciado: "¿Qué protocolo se describe como ahí lo llevas?",
+          opciones: ["TCP", "UDP", "DNS", "BGP"],
+          correcta: 1,
+          explicacion:
+            "UDP se describe así porque no es orientado a conexión y no garantiza la entrega.",
+        },
+        {
+          enunciado: "¿Cuál es una característica de UDP según el repaso?",
+          opciones: [
+            "Garantiza siempre la entrega",
+            "Es orientado a conexión",
+            "Tiene baja latencia",
+            "Usa three-way handshake",
+          ],
+          correcta: 2,
+          explicacion: "UDP tiene baja latencia, es rápido y poco fiable.",
+        },
+        {
+          enunciado: "¿En qué capa trabaja UDP según los apuntes?",
+          opciones: ["Capa 2", "Capa 3", "Capa 4", "Capa 7"],
+          correcta: 2,
+          explicacion: "UDP trabaja en la capa 4, Transporte.",
+        },
+        {
+          enunciado: "¿Qué protocolo evita bucles entre switches?",
+          opciones: ["VTP", "STP", "BGP", "DHCP"],
+          correcta: 1,
+          explicacion: "STP evita bucles entre switches.",
+        },
+        {
+          enunciado: "¿Qué elemento principal elige STP?",
+          opciones: [
+            "Root Bridge",
+            "Servidor DNS",
+            "Gateway NAT",
+            "Cliente DHCP",
+          ],
+          correcta: 0,
+          explicacion: "STP elige un Root Bridge o switch principal.",
+        },
+        {
+          enunciado: "¿Qué mensajes utiliza STP según el documento?",
+          opciones: ["BPDU", "DORA", "SYN", "MX"],
+          correcta: 0,
+          explicacion: "STP utiliza mensajes BPDU.",
+        },
+        {
+          enunciado: "¿Qué versión rápida de STP aparece en los apuntes?",
+          opciones: ["RSTP 802.1w", "OSPF 89", "dot1Q", "WPA3"],
+          correcta: 0,
+          explicacion: "RSTP aparece como 802.1w.",
+        },
+        {
+          enunciado: "¿Para qué sirve VTP?",
+          opciones: [
+            "Para evitar bucles físicos",
+            "Para crear VLANs automáticas entre switches",
+            "Para traducir IP pública y privada",
+            "Para comprobar errores de bits",
+          ],
+          correcta: 1,
+          explicacion: "VTP permite crear VLANs automáticas entre switches.",
+        },
+        {
+          enunciado: "¿Cuáles son modos de VTP mencionados?",
+          opciones: [
+            "Root, Backup y Forward",
+            "Server, Client y Transparent",
+            "Discover, Offer y Request",
+            "SYN, ACK y FIN",
+          ],
+          correcta: 1,
+          explicacion:
+            "Los modos de VTP mencionados son Server, Client y Transparent.",
+        },
+        {
+          enunciado: "¿Qué hacen NAT/PAT según el repaso?",
+          opciones: [
+            "Cifran la red Wi-Fi",
+            "Traducen entre IP pública e IP privada",
+            "Evitan bucles de switches",
+            "Calculan CRC en la trama",
+          ],
+          correcta: 1,
+          explicacion: "NAT/PAT traducen entre IP pública e IP privada.",
+        },
+        {
+          enunciado: "¿Cuántos puertos posibles se indican para NAT/PAT?",
+          opciones: ["1024", "4096", "32768", "65536"],
+          correcta: 3,
+          explicacion: "El repaso indica 2^16 puertos, es decir, 65536.",
+        },
+        {
+          enunciado: "¿Cuál de estos comandos aparece en el repaso?",
+          opciones: ["chmod", "ping", "mkdir", "nano"],
+          correcta: 1,
+          explicacion:
+            "El documento menciona ping, tracert, ipconfig y netstat.",
+        },
+        {
+          enunciado: "¿Qué herramienta se usa para verificar cableado RJ45?",
+          opciones: ["Tester de red", "OTDR", "Fusionadora", "Puntero láser"],
+          correcta: 0,
+          explicacion: "El tester de red sirve para verificar cableado RJ45.",
+        },
+        {
+          enunciado: "¿Qué herramienta se utiliza para comprobar fibra óptica?",
+          opciones: ["Crimpadora", "OTDR", "Pelacables", "Multímetro"],
+          correcta: 1,
+          explicacion: "El OTDR se usa como tester de fibra.",
+        },
+        {
+          enunciado:
+            "¿Cuántas subredes se obtienen al dividir 192.168.1.0/24 en /26?",
+          opciones: ["2", "4", "6", "8"],
+          correcta: 1,
+          explicacion:
+            "De /24 a /26 se toman 2 bits para subredes: 2² = 4 subredes.",
+        },
+        {
+          enunciado: "¿Cuántos hosts útiles por subred hay en una red /27?",
+          opciones: ["16", "32", "30", "62"],
+          correcta: 2,
+          explicacion:
+            "Una red /27 tiene 32 direcciones totales; quitando red y broadcast quedan 30 hosts útiles.",
+        },
+      ];
+
+      const TOTAL_PREGUNTAS = Math.min(30, preguntas.length);
+
+      function mezclarArray(lista) {
+        const copia = [...lista];
+        for (let i = copia.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copia[i], copia[j]] = [copia[j], copia[i]];
+        }
+        return copia;
+      }
+
+      function obtenerTestAleatorio() {
+        return mezclarArray(preguntas).slice(0, TOTAL_PREGUNTAS);
+      }
+
+      const SUBJECT_NAME = "Repaso Redes";
+
+      function TestInteractivo() {
+        const [preguntasMostradas, setPreguntasMostradas] = React.useState(() =>
+          obtenerTestAleatorio(),
+        );
+
+        const [respuestas, setRespuestas] = React.useState(() =>
+          Array(TOTAL_PREGUNTAS).fill(null),
+        );
+
+        const [corregido, setCorregido] = React.useState(false);
+
+        const respondidas = respuestas.filter((r) => r !== null).length;
+
+        const aciertos = respuestas.reduce(
+          (acc, r, i) =>
+            r !== null && r === preguntasMostradas[i]?.correcta ? acc + 1 : acc,
+          0,
+        );
+
+        const fallos = respuestas.reduce(
+          (acc, r, i) =>
+            r !== null && r !== preguntasMostradas[i]?.correcta ? acc + 1 : acc,
+          0,
+        );
+
+        const enBlanco = preguntasMostradas.length - respondidas;
+
+        const puntaje = (aciertos * 0.33 - fallos * 0.11).toFixed(2);
+
+        const puntuacionMaxima = preguntasMostradas.length * 0.33;
+
+        const porcentaje = puntuacionMaxima
+          ? Math.max(0, Math.round((Number(puntaje) / puntuacionMaxima) * 100))
+          : 0;
+
+        const seleccionar = (pIndex, rIndex) => {
+          if (corregido) return;
+          const copia = [...respuestas];
+          copia[pIndex] = rIndex;
+          setRespuestas(copia);
+        };
+
+        const corregirTest = () => {
+          if (
+            window.ErrorLab &&
+            typeof window.ErrorLab.recordFailures === "function"
+          ) {
+            window.ErrorLab.recordFailures(
+              SUBJECT_NAME,
+              preguntasMostradas,
+              respuestas,
+            );
+          }
+          setCorregido(true);
+        };
+
+        const reiniciar = () => {
+          const nuevoTest = obtenerTestAleatorio();
+          setPreguntasMostradas(nuevoTest);
+          setRespuestas(Array(nuevoTest.length).fill(null));
+          setCorregido(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        return (
+          <div className="page-shell">
+            <div className="test-container">
+              <div className="topbar">
+                <a href="../index.html" className="back-link back-link-final">
+                  <span className="neon-arrow">←</span> Volver al portal
+                </a>
+              </div>
+
+              <section className="hero" style={{ padding: "28px 24px" }}>
+                <span className="badge">
+                  🌐 Planificación y Administración de Redes
+                </span>
+
+                <h1 className="test-title">Repaso Redes</h1>
+
+                <p className="lead">
+                  Test interactivo autocorregible con 30 preguntas aleatorias
+                  por intento. Al reiniciar, el sistema vuelve a barajar y
+                  genera un test distinto.
+                </p>
+
+                <p
+                  className="lead"
+                  style={{ marginTop: "10px", fontSize: "0.98rem" }}
+                >
+                  Sistema de puntuación: correcta +0,33, incorrecta -0,11, en
+                  blanco 0.
+                </p>
+
+                <div className="stats">
+                  <div className="stat">
+                    <b>{preguntasMostradas.length}</b>Preguntas
+                  </div>
+
+                  <div className="stat">
+                    <b>{respondidas}</b>Respondidas
+                  </div>
+
+                  <div className="stat">
+                    <b>{corregido ? puntaje : "—"}</b>Puntos
+                  </div>
+                </div>
+              </section>
+
+              <div style={{ height: "18px" }} />
+
+              {preguntasMostradas.map((p, i) => (
+                <div
+                  key={i}
+                  className={`card${corregido && respuestas[i] === null ? " card-blank" : ""}`}
+                >
+                  <h2 className="question-title">
+                    {i + 1}. {p.enunciado}
+                  </h2>
+
+                  {p.opciones.map((op, j) => {
+                    const seleccionado = respuestas[i] === j;
+                    const esCorrecta = p.correcta === j;
+
+                    let clases = "answer-btn";
+
+                    if (seleccionado) clases += " answer-selected";
+
+                    if (
+                      corregido &&
+                      respuestas[i] !== null &&
+                      seleccionado &&
+                      !esCorrecta
+                    ) {
+                      clases += " answer-wrong";
+                    }
+
+                    if (corregido && respuestas[i] !== null && esCorrecta) {
+                      clases += " answer-correct";
+                    }
+
+                    if (corregido && respuestas[i] === null && esCorrecta) {
+                      clases += " answer-correct";
+                    }
+
+                    return (
+                      <button
+                        key={j}
+                        onClick={() => seleccionar(i, j)}
+                        className={clases}
+                      >
+                        {op}
+                      </button>
+                    );
+                  })}
+
+                  {corregido && (
+                    <div
+                      style={{
+                        marginTop: "14px",
+                        padding: "12px 14px",
+                        borderRadius: "14px",
+                        background: "rgba(20, 184, 166, 0.10)",
+                        border: "1px solid rgba(20, 184, 166, 0.25)",
+                        fontSize: "0.95rem",
+                        lineHeight: "1.5",
+                      }}
+                    >
+                      <strong>Respuesta correcta:</strong>{" "}
+                      {String.fromCharCode(65 + p.correcta)}){" "}
+                      {p.opciones[p.correcta]}
+                      <br />
+                      <strong>Explicación:</strong> {p.explicacion}
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              <div className="result-section">
+                <div className="actions">
+                  <a href="../index.html" className="back-link back-link-final">
+                    <span className="neon-arrow">←</span> Volver al portal
+                  </a>
+
+                  <button className="btn-correct" onClick={corregirTest}>
+                    Corregir test
+                  </button>
+
+                  <button className="btn-reset" onClick={reiniciar}>
+                    Reiniciar
+                  </button>
+                </div>
+
+                {corregido && (
+                  <>
+                    <p className="result-text">Puntuación: {puntaje} puntos</p>
+
+                    <p className="result-sub">
+                      {aciertos} correctas, {fallos} incorrectas y {enBlanco} en
+                      blanco.
+                    </p>
+
+                    <div className="progress">
+                      <span style={{ width: `${porcentaje}%` }}></span>
+                    </div>
+                  </>
+                )}
+              </div>
+
+              <footer>
+                Creado a partir de tus preguntas de repaso y preparado para
+                publicación en GitHub Pages.
+              </footer>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <TestInteractivo />,
+      );
+    </script>
+  </body>
+</html>
