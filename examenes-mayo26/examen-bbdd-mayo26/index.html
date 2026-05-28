@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BBDD · Examen Mayo 2026 · Examen Mayo 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../assets/error-lab.js"></script>
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicons/bbdd.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const preguntas = [
+  {
+    "enunciado": "¿Cuál es el objetivo principal de una restricción CHECK?",
+    "opciones": [
+      "Crear relaciones",
+      "Validar condiciones sobre los datos",
+      "Acelerar consultas",
+      "Eliminar duplicados"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Un atributo como 'email' que es único pero no es la clave principal, ¿cómo se clasifica?",
+    "opciones": [
+      "Clave primaria",
+      "Clave foránea",
+      "Clave alterna",
+      "Clave compuesta"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué ocurre al ejecutar DROP TABLE?",
+    "opciones": [
+      "Solo se borran los datos",
+      "Se borra estructura y datos",
+      "Solo se borran columnas",
+      "No ocurre nada"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué devuelve LIKE 'M%'?",
+    "opciones": [
+      "Valores que terminan en M",
+      "Valores que empiezan por M",
+      "Valores que contienen M",
+      "Valores iguales a M"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Para qué sirve una clave primaria en una tabla?",
+    "opciones": [
+      "Para relacionar dos tablas diferentes",
+      "Para permitir valores duplicados",
+      "Para ordenar automáticamente los datos",
+      "Para identificar de forma única cada registro dentro de la tabla"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Cuál describe mejor qué es una base de datos?",
+    "opciones": [
+      "Un programa que permite ejecutar consultas sobre datos",
+      "Un conjunto organizado de información estructurada que puede almacenarse y recuperarse fácilmente",
+      "Un sistema operativo especializado en el almacenamiento de archivos",
+      "Un lenguaje de programación utilizado para gestionar datos"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Al transformar un modelo E-R en relacional, cada entidad se convierte en...",
+    "opciones": [
+      "Una tabla",
+      "Una clave",
+      "Un índice",
+      "Una consulta"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Cuál es la diferencia fundamental entre DDL y DML?",
+    "opciones": [
+      "DDL consulta datos y DML los elimina",
+      "DDL define la estructura y DML manipula los datos",
+      "DDL inserta datos y DML crea tablas",
+      "No hay diferencia real"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cómo se representa una relación N:M en una base de datos relacional?",
+    "opciones": [
+      "Eliminando una tabla",
+      "Con una clave primaria",
+      "Con un índice",
+      "Con una tabla intermedia"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué comando usarías para dar permisos a un usuario?",
+    "opciones": [
+      "CREATE",
+      "GRANT",
+      "SELECT",
+      "DELETE"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuál es la principal diferencia entre integridad de entidad e integridad referencial?",
+    "opciones": [
+      "No hay diferencia",
+      "Ambas se refieren únicamente a los tipos de datos de las columnas",
+      "Ambas se aplican exclusivamente a las consultas",
+      "La primera se refiere a claves primarias y la segunda a claves foráneas"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué garantiza la integridad referencial?",
+    "opciones": [
+      "Que no haya duplicados",
+      "Que las FK apunten a valores existentes",
+      "Que no existan nulos",
+      "Que no existan relaciones"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En SQL, ¿qué ocurre si se utiliza LIKE '%abc%'?",
+    "opciones": [
+      "Selecciona valores que contienen 'abc' en cualquier posición",
+      "Selecciona valores que empiezan por 'abc'",
+      "Selecciona valores que terminan en 'abc'",
+      "Selecciona valores exactamente iguales a 'abc'"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué exige la Primera Forma Normal (1FN)?",
+    "opciones": [
+      "Claves compuestas",
+      "Valores atómicos en cada celda",
+      "Sin claves foráneas",
+      "Sin relaciones entre tablas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué caracteriza a la Forma Normal de Boyce-Codd (BCNF)?",
+    "opciones": [
+      "Es menos estricta que 3FN",
+      "Es igual que 3FN",
+      "Es más estricta que 3FN",
+      "No se utiliza en la práctica"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Si una clave foránea no encuentra valor en la tabla padre:",
+    "opciones": [
+      "Se inserta igualmente",
+      "Se produce un error de integridad referencial",
+      "Se crea automáticamente el valor",
+      "Se ignora el error"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "El cambio más importante al pasar de sistemas de archivos a SGBD fue:",
+    "opciones": [
+      "Mayor uso de hardware",
+      "Centralización y control de datos",
+      "Eliminación del software",
+      "Reducción del número de usuarios"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "El modelo relacional se convirtió en estándar porque...",
+    "opciones": [
+      "Usa gráficos",
+      "Evita consultas",
+      "Es más intuitivo al organizar datos en tablas",
+      "No necesita claves"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "En una relación 1:N (Profesor-Asignatura), ¿dónde se coloca la clave foránea?",
+    "opciones": [
+      "En la tabla Profesor",
+      "En la tabla Asignatura",
+      "En ambas tablas",
+      "En ninguna tabla"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Por qué un INNER JOIN puede 'ocultar' datos?",
+    "opciones": [
+      "Porque solo muestra registros con coincidencias en ambas tablas",
+      "Porque elimina columnas",
+      "Porque modifica los datos",
+      "Porque crea duplicados"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Para filtrar solo alumnos mayores de 18 años, ¿qué cláusula debes usar?",
+    "opciones": [
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "GROUP BY"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué operador permite combinar condiciones obligatorias en SQL?",
+    "opciones": [
+      "OR",
+      "LIKE",
+      "AND",
+      "IN"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Un analista que solo debe consultar datos, ¿qué permiso necesita?",
+    "opciones": [
+      "INSERT",
+      "SELECT",
+      "UPDATE",
+      "ALL"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Al transformar E-R a relacional, ¿cómo se representa una entidad fuerte?",
+    "opciones": [
+      "Como una relación entre tablas",
+      "Como una tabla con columnas que representan sus atributos",
+      "Como una clave foránea",
+      "Como una vista"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué garantiza la integridad de entidad?",
+    "opciones": [
+      "Que las claves foráneas sean válidas",
+      "Que las claves primarias no sean nulas ni repetidas",
+      "Que los datos cumplan su tipo",
+      "Que las consultas sean correctas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué es una vista (VIEW) en SQL?",
+    "opciones": [
+      "Una tabla física que almacena datos",
+      "Un duplicado de una tabla",
+      "Una consulta almacenada que se comporta como tabla",
+      "Un índice"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué garantiza una transacción en bases de datos?",
+    "opciones": [
+      "Que los datos no se repitan",
+      "Que todas las operaciones se ejecuten completamente o ninguna",
+      "Que las claves foráneas sean válidas",
+      "Que las consultas sean rápidas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuál es la diferencia entre COMMIT y ROLLBACK?",
+    "opciones": [
+      "COMMIT elimina datos y ROLLBACK los guarda",
+      "COMMIT y ROLLBACK hacen lo mismo",
+      "COMMIT solo funciona en SELECT",
+      "COMMIT guarda los cambios y ROLLBACK los deshace"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "En una relación muchos a muchos (N:M), ¿cómo se implementa en el modelo relacional?",
+    "opciones": [
+      "Con una clave foránea en una sola tabla",
+      "Con una tabla intermedia con dos claves foráneas",
+      "No se puede implementar",
+      "Duplicando datos en ambas tablas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué JOIN es útil para detectar registros sin relación ('huérfanos')?",
+    "opciones": [
+      "INNER JOIN",
+      "LEFT JOIN",
+      "CROSS JOIN",
+      "FULL JOIN"
+    ],
+    "correcta": 1
+  }
+];
+
+      const SUBJECT_NAME = "BBDD Examen Mayo 26";
+
+      function TestInteractivo() {
+        const [respuestas, setRespuestas] = React.useState(() => Array(preguntas.length).fill(null));
+        const [corregido, setCorregido]   = React.useState(false);
+
+        const respondidas = respuestas.filter(r => r !== null).length;
+        const aciertos = respuestas.reduce((acc,r,i) => r!==null && r===preguntas[i]?.correcta ? acc+1 : acc, 0);
+        const fallos   = respuestas.reduce((acc,r,i) => r!==null && r!==preguntas[i]?.correcta ? acc+1 : acc, 0);
+        const enBlanco = preguntas.length - respondidas;
+        const puntaje  = ((aciertos*0.33)-(fallos*0.11)).toFixed(2);
+        const puntuacionMaxima = preguntas.length * 0.33;
+        const porcentaje = puntuacionMaxima ? Math.max(0,Math.round((Number(puntaje)/puntuacionMaxima)*100)) : 0;
+
+        const seleccionar = (pIndex, rIndex) => {
+          if (corregido) return;
+          const copia = [...respuestas];
+          copia[pIndex] = copia[pIndex] === rIndex ? null : rIndex;
+          setRespuestas(copia);
+        };
+
+        const corregirTest = () => {
+          window.ErrorLab.recordFailures(SUBJECT_NAME, preguntas, respuestas);
+          setCorregido(true);
+        };
+
+        const reiniciar = () => {
+          setRespuestas(Array(preguntas.length).fill(null));
+          setCorregido(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        return (
+          <div className="page-shell">
+            <div className="test-container">
+              <div className="topbar">
+                <a href="../../index.html" className="back-link back-link-final">
+                  <span className="neon-arrow">←</span> Volver al portal
+                </a>
+              </div>
+              <section className="hero" style={{ padding: "28px 24px" }}>
+                <span className="badge">🗄️ Bases de Datos</span>
+                <h1 className="test-title">BBDD · Examen Mayo 2026</h1>
+                <p className="lead">30 preguntas del examen oficial de Bases de Datos de mayo 2026.</p>
+                <p className="lead" style={{ marginTop:"10px", fontSize:"0.95rem" }}>
+                  Puntuación: correcta +0,33 · incorrecta −0,11 · en blanco 0.
+                </p>
+                <div className="stats">
+                  <div className="stat"><b>{preguntas.length}</b>Preguntas</div>
+                  <div className="stat"><b>{respondidas}</b>Respondidas</div>
+                  <div className="stat"><b>{corregido ? puntaje : "—"}</b>Puntos</div>
+                </div>
+              </section>
+              <div style={{ height:"18px" }} />
+              {preguntas.map((p,i) => (
+                <div key={i} className={`card${corregido && respuestas[i]===null ? " card-blank" : ""}`}>
+                  <h2 className="question-title">{i+1}. {p.enunciado}</h2>
+                  {p.opciones.map((op,j) => {
+                    const sel = respuestas[i]===j;
+                    const ok  = p.correcta===j;
+                    let cl = "answer-btn";
+                    if (sel) cl += " answer-selected";
+                    if (corregido && sel && !ok) cl += " answer-wrong";
+                    if (corregido && ok)         cl += " answer-correct";
+                    return <button key={j} onClick={()=>seleccionar(i,j)} className={cl}>
+                      {"ABCD"[j]}) {op}
+                    </button>;
+                  })}
+                </div>
+              ))}
+              <div className="result-section">
+                <div className="actions">
+                  <a href="../../index.html" className="back-link back-link-final">
+                    <span className="neon-arrow">←</span> Volver al portal
+                  </a>
+                  <button className="btn-correct" onClick={corregirTest}>Corregir test</button>
+                  <button className="btn-reset"   onClick={reiniciar}>Reiniciar</button>
+                </div>
+                {corregido && (
+                  <>
+                    <p className="result-text">Puntuación: {puntaje} puntos</p>
+                    <p className="result-sub">{aciertos} correctas · {fallos} incorrectas · {enBlanco} en blanco</p>
+                    <div className="progress"><span style={{ width:`${porcentaje}%` }}></span></div>
+                  </>
+                )}
+              </div>
+              <footer>BBDD · Examen Mayo 2026 · Examen Mayo 2026 · 1º ASIR</footer>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+    </script>
+  </body>
+</html>

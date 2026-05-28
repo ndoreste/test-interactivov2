@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LMSGI · Examen Mayo 2026 · Examen Mayo 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../assets/error-lab.js"></script>
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicons/ldm.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const preguntas = [
+  {
+    "enunciado": "¿Qué etiqueta define el título que aparece en la pestaña del navegador?",
+    "opciones": [
+      "<title>",
+      "<header>",
+      "<h1>",
+      "<meta>"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué parte del documento contiene información técnica para el navegador y no se ve como contenido?",
+    "opciones": [
+      "<body>",
+      "<footer>",
+      "<head>",
+      "<main>"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuál es la diferencia correcta entre <div> y <span>?",
+    "opciones": [
+      "<div> es en línea y <span> es en bloque",
+      "<div> es en bloque y <span> es en línea",
+      "Ambas son siempre en bloque",
+      "Ambas son siempre en línea"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué conjunto define los encabezados HTML?",
+    "opciones": [
+      "<p> a <p6>",
+      "<head1> a <head6>",
+      "<t1> a <t6>",
+      "<h1> a <h6>"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué valor de target abre el enlace en una nueva pestaña/ventana?",
+    "opciones": [
+      "_self",
+      "_parent",
+      "_top",
+      "_blank"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué etiqueta se usa para listas no ordenadas?",
+    "opciones": [
+      "<ol>",
+      "<li>",
+      "<dl>",
+      "<ul>"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué etiqueta agrupa campos de un formulario?",
+    "opciones": [
+      "<input>",
+      "<select>",
+      "<form>",
+      "<label>"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "En tablas HTML, ¿qué etiqueta define una fila?",
+    "opciones": [
+      "<td>",
+      "<tr>",
+      "<th>",
+      "<table>"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué regla de diseño se destaca como fundamental en el desarrollo web?",
+    "opciones": [
+      "Separar el contenido del estilo",
+      "Unir estilo y contenido para reducir archivos",
+      "Escribir todo con etiquetas semánticas HTML5",
+      "Usar siempre estilos inline por claridad"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué selector CSS aplica estilo a un enlace SOLO cuando el puntero está encima?",
+    "opciones": [
+      "a:active",
+      "a:visited",
+      "a:link",
+      "a:hover"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué formato se recomienda como habitual para colores en CSS?",
+    "opciones": [
+      "Nombres de color (red, blue...)",
+      "RGB porcentual",
+      "RGB hexadecimal (ej. #476280)",
+      "HSL únicamente"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué valor de text-transform pone TODO el texto en mayúsculas?",
+    "opciones": [
+      "capitalize",
+      "uppercase",
+      "lowercase",
+      "inherit"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué valor de overflow muestra barras de desplazamiento SOLO si hacen falta?",
+    "opciones": [
+      "scroll",
+      "hidden",
+      "visible",
+      "auto"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué valor de visibility oculta un elemento pero manteniendo su espacio en el layout?",
+    "opciones": [
+      "hidden",
+      "none",
+      "collapse",
+      "invisible"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué regla de media query apunta a pantallas con ancho máximo de 768px?",
+    "opciones": [
+      "@media screen and (max-width: 768px)",
+      "@media screen and (min-width: 768px)",
+      "@media print and (max-width: 768px)",
+      "@media all and (min-height: 768px)"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "La propiedad abreviada gap en CSS Grid...",
+    "opciones": [
+      "Puede establecer row-gap y column-gap (en ese orden)",
+      "Solo afecta a columnas",
+      "Solo afecta a filas",
+      "Sustituye a padding"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Qué propiedad CSS permite nombrar áreas de la rejilla Grid?",
+    "opciones": [
+      "grid-area",
+      "grid-template-areas",
+      "grid-names",
+      "template-areas"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué valor de flex-direction coloca los elementos en fila en orden inverso?",
+    "opciones": [
+      "row-inverse",
+      "reverse-row",
+      "row-reverse",
+      "invert-row"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Qué propiedad de Flexbox cambia el orden visual de un elemento sin modificar el HTML?",
+    "opciones": [
+      "z-index",
+      "position",
+      "order",
+      "float"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Todo documento XML debe tener...",
+    "opciones": [
+      "Dos elementos raíz",
+      "Ningún elemento padre",
+      "Solo atributos, sin etiquetas",
+      "Un único elemento raíz"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "Los valores de los atributos XML pueden ir...",
+    "opciones": [
+      "Con comillas dobles o simples",
+      "Sin comillas",
+      "Solo con comillas dobles",
+      "Solo entre paréntesis"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Cuál es la forma correcta de un elemento XML vacío?",
+    "opciones": [
+      "<foto> </foto/>",
+      "</foto>",
+      "<foto/>",
+      "<foto>"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuál de estos nombres de etiqueta XML es válido como primer carácter?",
+    "opciones": [
+      "<2alumnos>",
+      "<_alumno>",
+      "<-alumno>",
+      "<.alumno>"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En DTD, ¿qué se usa para definir atributos?",
+    "opciones": [
+      "<!ATTR>",
+      "<!ATTRIBUTE>",
+      "<!ELEMENTS>",
+      "<!ATTLIST>"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Cómo se selecciona un atributo en xsl:value-of?",
+    "opciones": [
+      "select=\"año\"",
+      "select=\"#año\"",
+      "select=\"::año\"",
+      "select=\"@año\""
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué clase Bootstrap crea un contenedor que ocupa el 100% del ancho disponible?",
+    "opciones": [
+      ".container-fluid",
+      ".container",
+      ".container-sm",
+      ".w-75"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Cuántas columnas tiene la rejilla de Bootstrap por defecto?",
+    "opciones": [
+      "10",
+      "12",
+      "16",
+      "Depende del navegador"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué clase Bootstrap se usa para añadir relleno (padding)?",
+    "opciones": [
+      "m-*",
+      "pd-*",
+      "p-*",
+      "g-*"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "En JavaScript, ¿cuál es la forma correcta de declarar una variable que puede cambiar su valor?",
+    "opciones": [
+      "let nombre = \"Ana\";",
+      "const nombre = \"Ana\";",
+      "define nombre = \"Ana\";",
+      "var: nombre = \"Ana\";"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "En JavaScript, ¿qué resultado devuelve console.log(\"5\" - 2)?",
+    "opciones": [
+      "\"52\"",
+      "\"3\"",
+      "52",
+      "3"
+    ],
+    "correcta": 3
+  }
+];
+
+      const SUBJECT_NAME = "LMSGI Examen Mayo 26";
+
+      function TestInteractivo() {
+        const [respuestas, setRespuestas] = React.useState(() => Array(preguntas.length).fill(null));
+        const [corregido, setCorregido]   = React.useState(false);
+
+        const respondidas = respuestas.filter(r => r !== null).length;
+        const aciertos = respuestas.reduce((acc,r,i) => r!==null && r===preguntas[i]?.correcta ? acc+1 : acc, 0);
+        const fallos   = respuestas.reduce((acc,r,i) => r!==null && r!==preguntas[i]?.correcta ? acc+1 : acc, 0);
+        const enBlanco = preguntas.length - respondidas;
+        const puntaje  = ((aciertos*0.33)-(fallos*0.11)).toFixed(2);
+        const puntuacionMaxima = preguntas.length * 0.33;
+        const porcentaje = puntuacionMaxima ? Math.max(0,Math.round((Number(puntaje)/puntuacionMaxima)*100)) : 0;
+
+        const seleccionar = (pIndex, rIndex) => {
+          if (corregido) return;
+          const copia = [...respuestas];
+          copia[pIndex] = copia[pIndex] === rIndex ? null : rIndex;
+          setRespuestas(copia);
+        };
+
+        const corregirTest = () => {
+          window.ErrorLab.recordFailures(SUBJECT_NAME, preguntas, respuestas);
+          setCorregido(true);
+        };
+
+        const reiniciar = () => {
+          setRespuestas(Array(preguntas.length).fill(null));
+          setCorregido(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        return (
+          <div className="page-shell">
+            <div className="test-container">
+              <div className="topbar">
+                <a href="../../index.html" className="back-link back-link-final">
+                  <span className="neon-arrow">←</span> Volver al portal
+                </a>
+              </div>
+              <section className="hero" style={{ padding: "28px 24px" }}>
+                <span className="badge">🌐 Lenguajes de Marcas</span>
+                <h1 className="test-title">LMSGI · Examen Mayo 2026</h1>
+                <p className="lead">30 preguntas del examen oficial de Lenguajes de Marcas de mayo 2026.</p>
+                <p className="lead" style={{ marginTop:"10px", fontSize:"0.95rem" }}>
+                  Puntuación: correcta +0,33 · incorrecta −0,11 · en blanco 0.
+                </p>
+                <div className="stats">
+                  <div className="stat"><b>{preguntas.length}</b>Preguntas</div>
+                  <div className="stat"><b>{respondidas}</b>Respondidas</div>
+                  <div className="stat"><b>{corregido ? puntaje : "—"}</b>Puntos</div>
+                </div>
+              </section>
+              <div style={{ height:"18px" }} />
+              {preguntas.map((p,i) => (
+                <div key={i} className={`card${corregido && respuestas[i]===null ? " card-blank" : ""}`}>
+                  <h2 className="question-title">{i+1}. {p.enunciado}</h2>
+                  {p.opciones.map((op,j) => {
+                    const sel = respuestas[i]===j;
+                    const ok  = p.correcta===j;
+                    let cl = "answer-btn";
+                    if (sel) cl += " answer-selected";
+                    if (corregido && sel && !ok) cl += " answer-wrong";
+                    if (corregido && ok)         cl += " answer-correct";
+                    return <button key={j} onClick={()=>seleccionar(i,j)} className={cl}>
+                      {"ABCD"[j]}) {op}
+                    </button>;
+                  })}
+                </div>
+              ))}
+              <div className="result-section">
+                <div className="actions">
+                  <a href="../../index.html" className="back-link back-link-final">
+                    <span className="neon-arrow">←</span> Volver al portal
+                  </a>
+                  <button className="btn-correct" onClick={corregirTest}>Corregir test</button>
+                  <button className="btn-reset"   onClick={reiniciar}>Reiniciar</button>
+                </div>
+                {corregido && (
+                  <>
+                    <p className="result-text">Puntuación: {puntaje} puntos</p>
+                    <p className="result-sub">{aciertos} correctas · {fallos} incorrectas · {enBlanco} en blanco</p>
+                    <div className="progress"><span style={{ width:`${porcentaje}%` }}></span></div>
+                  </>
+                )}
+              </div>
+              <footer>LMSGI · Examen Mayo 2026 · Examen Mayo 2026 · 1º ASIR</footer>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+    </script>
+  </body>
+</html>

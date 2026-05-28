@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IPE · Examen Mayo 2026 · Examen Mayo 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../assets/error-lab.js"></script>
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicons/ipe.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const preguntas = [
+  {
+    "enunciado": "¿Qué se considera una ENFERMEDAD LABORAL?",
+    "opciones": [
+      "Lauren ha tenido un accidente de trabajo cuando ha ido a trabajar",
+      "Dimitri sufre desgaste de cadera severo (artrosis) fruto de las constantes posturas forzadas en su trabajo",
+      "Dilan contrae una bacteria en el hospital en el que estaba siendo operado de una luxación de hombro que sufrió mientras trabajaba",
+      "Arnold tuvo un accidente de paracaidismo que lesionó su columna. Esta lesión se ha acentuado por una caída sufrida en el trabajo"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué significado tienen las siglas PAS?",
+    "opciones": [
+      "Prevenir, Avisar y Salvar",
+      "Potenciar, Advertir y Solucionar",
+      "Pasividad, Advertencia y Seguridad",
+      "Proteger, Avisar y Socorrer"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "La evaluación primaria tiene entre sus fines:",
+    "opciones": [
+      "Verificar la conciencia de la víctima",
+      "Verificar si el accidentado presenta fracturas",
+      "Verificar la respiración del accidentado",
+      "Verificar si el tórax o la columna vertebral de la víctima presenta lesiones"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Selecciona el principio de la prevención de riesgos laborales INCORRECTO.",
+    "opciones": [
+      "Combatir los riesgos cuando ocurran",
+      "Evitar los riesgos",
+      "Tener en cuenta la evolución de la técnica",
+      "Adopción de medidas que antepongan la protección colectiva a la individual"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Estás practicando la reanimación cardiopulmonar a una persona. ¿Qué frecuencia de compresiones y respiraciones debes aplicar?",
+    "opciones": [
+      "Treinta compresiones, dos respiraciones",
+      "Cincuenta compresiones, veinte respiraciones",
+      "Entre 280 compresiones y respiraciones de forma combinada por minuto",
+      "120 respiraciones"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Te encuentras en un accidente múltiple. Han colocado tarjetas en los distintos accidentados. ¿Qué significado tienen las tarjetas negras?",
+    "opciones": [
+      "Se asigna a accidentados con pérdidas de sangre o fracturas graves. Son los que se evacuarán en segundo lugar",
+      "Se asigna a los accidentados que han fallecido o tienen pocas posibilidades de sobrevivir. Serán los últimos en ser atendidos",
+      "Se asigna a los accidentados con heridas o quemaduras leves que pueden caminar. Ocupan el tercer lugar en la evacuación",
+      "Se asigna a los heridos que habría que evacuar en primer lugar"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuál de las siguientes NO es una característica propia de los contratos de trabajo?",
+    "opciones": [
+      "Ajenidad",
+      "Voluntariedad",
+      "Personalidad",
+      "Gratuidad"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "Ruperto tiene reconocido en su convenio colectivo un mes y medio de vacaciones, mientras que en el ET la cantidad es inferior. ¿Cuál se le aplicaría?",
+    "opciones": [
+      "El Estatuto de los Trabajadores por ser la norma jerárquicamente superior",
+      "El convenio colectivo",
+      "Cualquiera de esas dos normas a elección de Ruperto",
+      "Lo que establezca el comité de empresa en sus reuniones trimestrales"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Mercedes tiene pensado estar dada de alta sin trabajar, simplemente para conseguir la cotización suficiente para poder jubilarse. ¿Faltaría algún elemento esencial del contrato?",
+    "opciones": [
+      "No, cumple los requisitos",
+      "Sí, el consentimiento",
+      "Sí, el objeto",
+      "Sí, la causa"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "Un convenio colectivo establece un periodo de prueba de un mes y el ET indica seis meses. ¿Qué periodo se aplicaría según el principio de norma más favorable?",
+    "opciones": [
+      "Un mes",
+      "Seis meses",
+      "La media entre ambos",
+      "No habrá periodo de prueba por contradicción"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿A qué situación se aplicaría el contrato de relevo?",
+    "opciones": [
+      "Necesidad de cubrir a un trabajador jubilado parcialmente",
+      "Necesidad de cubrir el puesto de un trabajador que está disfrutando de una excedencia voluntaria",
+      "Necesidad de cubrir a una madre en excedencia por cuidado de hijos durante el primer año",
+      "Necesidad de dar respuesta a un incremento imprevisto de trabajo"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Harry tiene 19 años. ¿Qué descanso tendrá, como mínimo, entre semana y semana de trabajo?",
+    "opciones": [
+      "Dos días",
+      "Día y medio",
+      "Tres días",
+      "Un día"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Hasta cuándo puede una trabajadora disfrutar de una reducción de jornada por lactancia?",
+    "opciones": [
+      "Hasta que el hijo tenga 9 meses",
+      "Hasta que el hijo tenga 6 meses",
+      "Hasta que el hijo tenga 12 meses",
+      "No existe la posibilidad de reducir jornada por lactancia"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Lucía ha trabajado diez horas extras. Su convenio no dice nada sobre cómo se retribuirán. Selecciona la respuesta correcta:",
+    "opciones": [
+      "Se le debe dar descanso durante los cuatro meses siguientes",
+      "Se le deben pagar al doble de lo que cobra ordinariamente",
+      "Se le deben pagar al menos al mismo precio que una hora normal en el plazo de un mes",
+      "No tendrá derecho a que se le remuneren ni en descanso ni en dinero"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Cuál será el límite de las retribuciones en especie que puede recibir el trabajador?",
+    "opciones": [
+      "10%",
+      "20%",
+      "30%",
+      "100%"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Tras una boda por todo lo alto Lucas te pregunta cuántos días le corresponderían de permiso.",
+    "opciones": [
+      "15 días naturales",
+      "30 días naturales",
+      "10 días naturales",
+      "12 días naturales"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "La nómina de Rocío: Salario base 5.000€, Antigüedad 200€, Prorrateo pagas extras 500€, Horas extras 50€. ¿Cuál sería su BCCP?",
+    "opciones": [
+      "5.200 €",
+      "200 €",
+      "5.050 €",
+      "5.750 €"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "Francisco solicita una excedencia voluntaria. ¿Cuánto tiempo debería pasar desde que disfrutó la anterior excedencia para poder solicitarla de nuevo?",
+    "opciones": [
+      "La que decida el trabajador",
+      "Un año",
+      "Cuatro meses",
+      "Cuatro años"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Cuánto tiempo tiene que demorarse el pago de una nómina para que se considere que el empresario ha incurrido en retraso?",
+    "opciones": [
+      "Quince días",
+      "Doce días",
+      "Tres días",
+      "Diez días"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "En caso de despido improcedente la indemnización será de:",
+    "opciones": [
+      "33 días por cada año trabajado con un máximo de 24 mensualidades",
+      "15 días por año trabajado con un máximo de 12 mensualidades",
+      "12 días por año trabajado con un máximo de 10 mensualidades",
+      "10 días por año trabajado con un máximo de 10 mensualidades"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Adolfo ha sido despedido por su orientación sexual. ¿Cómo debería calificar el juez dicho despido?",
+    "opciones": [
+      "Procedente",
+      "Improcedente",
+      "Nulo",
+      "Subsanable"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cómo se denomina la situación de un trabajador en la que no puede desarrollar ninguna actividad laboral como consecuencia de padecer algún problema de salud?",
+    "opciones": [
+      "Incapacidad permanente total",
+      "Incapacidad permanente absoluta",
+      "Incapacidad permanente parcial",
+      "Invalidez parcial perpetua"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Alberto se torció el tobillo jugando al fútbol después del trabajo. ¿Cuál será la prestación que recibiría el día n.º 34 de su baja?",
+    "opciones": [
+      "El 60% de su base reguladora, a cargo de la empresa",
+      "El 75% de su base reguladora, a cargo de la Seguridad Social o la mutua",
+      "El 60% de su base reguladora, a cargo de la mutua o la Seguridad Social",
+      "Los 19 primeros días de la baja no percibirá cantidad alguna"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "Selecciona la respuesta correcta respecto al permiso por nacimiento de hijo.",
+    "opciones": [
+      "Dura 20 semanas. Las cinco primeras son obligatorias y el resto en periodos semanales",
+      "Dura 8 semanas. Las dos primeras son obligatorias y el resto en periodos semanales",
+      "Dura 10 semanas. Las cuatro primeras son obligatorias y el resto en periodos semanales",
+      "Dura 19 semanas. Las seis primeras son obligatorias y el resto de forma flexible"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué titulación es necesaria para acceder a un Ciclo Formativo de Grado Medio? (SELECCIONA LA RESPUESTA INCORRECTA)",
+    "opciones": [
+      "ESO o Formación profesional básica o bachillerato",
+      "Grado medio, bachillerato o prueba de acceso",
+      "Bachillerato o ESO",
+      "Ciclo formativo de grado elemental"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "El método de acceso a la función pública basado únicamente en una prueba de conocimientos objetiva se denomina:",
+    "opciones": [
+      "Oposición",
+      "Concurso",
+      "Concurso-Oposición",
+      "Libre Designación"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Cómo se denomina el término por el que un trabajador debe actualizar constantemente sus conocimientos?",
+    "opciones": [
+      "Lifelong Learning",
+      "Conocimiento activo",
+      "Vida contemplativa",
+      "Knowledge passion"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "En caso de despido nulo:",
+    "opciones": [
+      "El jefe decide si el empleado es readmitido o indemnizado",
+      "El trabajador debe ser indemnizado en un plazo de cinco días",
+      "El trabajador decidirá, en cinco días, si es readmitido o indemnizado",
+      "El trabajador deberá ser readmitido"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Cuánto es lo máximo que un trabajador puede reducir su jornada por cuidado de un familiar hasta el segundo grado?",
+    "opciones": [
+      "1/2",
+      "1/5",
+      "1/3",
+      "1/8"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "¿Cuál de las siguientes modificaciones sustanciales de las condiciones laborales NO da derecho al trabajador a poner fin a su contrato con indemnización?",
+    "opciones": [
+      "A Andy le quieren bajar el sueldo, por 'política de empresa'",
+      "A Lucas le han comunicado que tiene que cambiar de turno, ahora trabajará de noches",
+      "María Ruiz va a tener que comenzar a trabajar con ordenadores. No tiene ni idea de cómo se enciende un cacharro de esos",
+      "Pedro: le van a reducir su jornada de trabajo aunque él no lo ha pedido en ningún momento"
+    ],
+    "correcta": 3
+  }
+];
+
+      const SUBJECT_NAME = "IPE Examen Mayo 26";
+
+      function TestInteractivo() {
+        const [respuestas, setRespuestas] = React.useState(() => Array(preguntas.length).fill(null));
+        const [corregido, setCorregido]   = React.useState(false);
+
+        const respondidas = respuestas.filter(r => r !== null).length;
+        const aciertos = respuestas.reduce((acc,r,i) => r!==null && r===preguntas[i]?.correcta ? acc+1 : acc, 0);
+        const fallos   = respuestas.reduce((acc,r,i) => r!==null && r!==preguntas[i]?.correcta ? acc+1 : acc, 0);
+        const enBlanco = preguntas.length - respondidas;
+        const puntaje  = ((aciertos*0.33)-(fallos*0.11)).toFixed(2);
+        const puntuacionMaxima = preguntas.length * 0.33;
+        const porcentaje = puntuacionMaxima ? Math.max(0,Math.round((Number(puntaje)/puntuacionMaxima)*100)) : 0;
+
+        const seleccionar = (pIndex, rIndex) => {
+          if (corregido) return;
+          const copia = [...respuestas];
+          copia[pIndex] = copia[pIndex] === rIndex ? null : rIndex;
+          setRespuestas(copia);
+        };
+
+        const corregirTest = () => {
+          window.ErrorLab.recordFailures(SUBJECT_NAME, preguntas, respuestas);
+          setCorregido(true);
+        };
+
+        const reiniciar = () => {
+          setRespuestas(Array(preguntas.length).fill(null));
+          setCorregido(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        return (
+          <div className="page-shell">
+            <div className="test-container">
+              <div className="topbar">
+                <a href="../../index.html" className="back-link back-link-final">
+                  <span className="neon-arrow">←</span> Volver al portal
+                </a>
+              </div>
+              <section className="hero" style={{ padding: "28px 24px" }}>
+                <span className="badge">📋 IPE / FOL</span>
+                <h1 className="test-title">IPE · Examen Mayo 2026</h1>
+                <p className="lead">30 preguntas del examen oficial de Itinerario Personal para la Empleabilidad de mayo 2026.</p>
+                <p className="lead" style={{ marginTop:"10px", fontSize:"0.95rem" }}>
+                  Puntuación: correcta +0,33 · incorrecta −0,11 · en blanco 0.
+                </p>
+                <div className="stats">
+                  <div className="stat"><b>{preguntas.length}</b>Preguntas</div>
+                  <div className="stat"><b>{respondidas}</b>Respondidas</div>
+                  <div className="stat"><b>{corregido ? puntaje : "—"}</b>Puntos</div>
+                </div>
+              </section>
+              <div style={{ height:"18px" }} />
+              {preguntas.map((p,i) => (
+                <div key={i} className={`card${corregido && respuestas[i]===null ? " card-blank" : ""}`}>
+                  <h2 className="question-title">{i+1}. {p.enunciado}</h2>
+                  {p.opciones.map((op,j) => {
+                    const sel = respuestas[i]===j;
+                    const ok  = p.correcta===j;
+                    let cl = "answer-btn";
+                    if (sel) cl += " answer-selected";
+                    if (corregido && sel && !ok) cl += " answer-wrong";
+                    if (corregido && ok)         cl += " answer-correct";
+                    return <button key={j} onClick={()=>seleccionar(i,j)} className={cl}>
+                      {"ABCD"[j]}) {op}
+                    </button>;
+                  })}
+                </div>
+              ))}
+              <div className="result-section">
+                <div className="actions">
+                  <a href="../../index.html" className="back-link back-link-final">
+                    <span className="neon-arrow">←</span> Volver al portal
+                  </a>
+                  <button className="btn-correct" onClick={corregirTest}>Corregir test</button>
+                  <button className="btn-reset"   onClick={reiniciar}>Reiniciar</button>
+                </div>
+                {corregido && (
+                  <>
+                    <p className="result-text">Puntuación: {puntaje} puntos</p>
+                    <p className="result-sub">{aciertos} correctas · {fallos} incorrectas · {enBlanco} en blanco</p>
+                    <div className="progress"><span style={{ width:`${porcentaje}%` }}></span></div>
+                  </>
+                )}
+              </div>
+              <footer>IPE · Examen Mayo 2026 · Examen Mayo 2026 · 1º ASIR</footer>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ITPE Repaso 2 · Test Interactivo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../assets/error-lab.js"></script>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicons/ipe.svg" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const preguntas = [
+  { enunciado: "Según la OMS, la salud implica", opciones: ["Tener empleo estable", "Ausencia total de enfermedades", "Bienestar físico, psíquico y social", "Solo bienestar físico"], correcta: 2 },
+  { enunciado: "¿Qué artículo de la Constitución Española vela por la seguridad e higiene en el trabajo?", opciones: ["Artículo 27", "Artículo 56", "Artículo 40.2 CE", "Artículo 14"], correcta: 2 },
+  { enunciado: "La Ley de Prevención de Riesgos Laborales es", opciones: ["Ley 31/1995", "Ley 14/1990", "Ley 40/2015", "Ley 39/2015"], correcta: 0 },
+  { enunciado: "La cultura preventiva en la empresa busca", opciones: ["Eliminar vacaciones", "Integrar la prevención en la actividad diaria", "Reducir salarios", "Aumentar la producción sin límites"], correcta: 1 },
+  { enunciado: "Un accidente in itinere es", opciones: ["El ocurrido durante una huelga", "El ocurrido al ir o volver del trabajo", "El ocurrido fuera del horario laboral", "El ocurrido en vacaciones"], correcta: 1 },
+  { enunciado: "¿Cuál es el principal objetivo de la prevención de riesgos laborales?", opciones: ["Aumentar la jornada laboral", "Reducir descansos", "Promover la seguridad y salud de los trabajadores", "Sancionar trabajadores"], correcta: 2 },
+  { enunciado: "Los poderes públicos deben organizar y tutelar la salud pública según el", opciones: ["Artículo 41 CE", "Artículo 10 CE", "Artículo 43 CE", "Artículo 33 CE"], correcta: 2 },
+  { enunciado: "La participación de los trabajadores en prevención", opciones: ["Está prohibida", "Solo existe en grandes empresas", "Solo corresponde al empresario", "Es un principio recogido en la LPRL"], correcta: 3 },
+  { enunciado: "La prevención pretende", opciones: ["Eliminar o disminuir riesgos derivados del trabajo", "Reducir salarios", "Aumentar sanciones", "Eliminar convenios colectivos"], correcta: 0 },
+  { enunciado: "La salud laboral incluye", opciones: ["Solo la ausencia de lesiones", "Aspectos físicos, psíquicos y sociales", "Solo la seguridad física", "Solo la salud mental"], correcta: 1 },
+  { enunciado: "¿Cuál de estas condiciones de trabajo puede generar riesgos?", opciones: ["Físicas", "Químicas", "Biológicas", "Todas las anteriores"], correcta: 3 },
+  { enunciado: "El principio preventivo \"evitar los riesgos en su origen\" implica", opciones: ["Ignorar el riesgo", "Combatir el riesgo desde la causa inicial", "Aumentar controles médicos", "Trasladar al trabajador"], correcta: 1 },
+  { enunciado: "La ergonomía estudia", opciones: ["Los contratos laborales", "La adaptación del trabajo a la persona", "Los salarios", "Los despidos"], correcta: 1 },
+  { enunciado: "La higiene industrial se centra principalmente en", opciones: ["Relaciones laborales", "Riesgos ambientales del trabajo", "Nóminas", "Convenios colectivos"], correcta: 1 },
+  { enunciado: "La gravedad y probabilidad sirven para", opciones: ["Hacer contratos", "Evaluar riesgos", "Organizar vacaciones", "Calcular salarios"], correcta: 1 },
+  { enunciado: "La psicosociología analiza", opciones: ["Factores organizativos y psicológicos", "Riesgos eléctricos", "Accidentes de tráfico", "Riesgos químicos exclusivamente"], correcta: 0 },
+  { enunciado: "Adaptar el trabajo a la persona es", opciones: ["Un derecho sindical", "Un principio preventivo", "Una sanción", "Un tipo de contrato"], correcta: 1 },
+  { enunciado: "Los riesgos organizativos pueden provocar", opciones: ["Estrés laboral", "Fatiga", "Burnout", "Todas las anteriores"], correcta: 3 },
+  { enunciado: "Las técnicas de prevención sirven para", opciones: ["Reducir vacaciones", "Incrementar riesgos", "Combatir riesgos laborales", "Eliminar descansos"], correcta: 2 },
+  { enunciado: "La actualización según la evolución técnica implica", opciones: ["Ignorar innovaciones", "Mejorar medidas preventivas con avances técnicos", "Reducir formación", "Mantener maquinaria antigua"], correcta: 1 },
+  { enunciado: "El Real Decreto 393/2007 regula", opciones: ["La Norma Básica de Autoprotección", "Los contratos laborales", "Los convenios colectivos", "Las nóminas"], correcta: 0 },
+  { enunciado: "Uno de los pilares del plan de emergencia es", opciones: ["Despido disciplinario", "Nómina", "Convenio colectivo", "Evaluación de riesgos"], correcta: 3 },
+  { enunciado: "La señalización en emergencias sirve para", opciones: ["Sustituir simulacros", "Reducir salarios", "Decorar instalaciones", "Guiar y advertir ante riesgos"], correcta: 3 },
+  { enunciado: "Los medios de protección incluyen", opciones: ["Equipos de primeros auxilios", "Detección y alarma", "Medios de extinción", "Todas las anteriores"], correcta: 3 },
+  { enunciado: "El método PAS significa", opciones: ["Proteger, ayudar y salir", "Proteger, avisar y socorrer", "Parar, avisar y salir", "Prevenir, actuar y salvar"], correcta: 1 },
+  { enunciado: "La posición lateral de seguridad se utiliza", opciones: ["Para apagar fuego", "En personas inconscientes que respiran", "En incendios", "En fracturas abiertas"], correcta: 1 },
+  { enunciado: "El objetivo principal de la RCP es", opciones: ["Curar fracturas", "Mantener circulación y respiración", "Aplicar medicamentos", "Reducir estrés"], correcta: 1 },
+  { enunciado: "Los simulacros sirven para", opciones: ["Eliminar riesgos químicos", "Reducir salarios", "Entrenar actuaciones de emergencia", "Cambiar horarios"], correcta: 2 },
+  { enunciado: "El jefe de intervención forma parte de", opciones: ["La organización interna del plan de emergencia", "La Seguridad Social", "La nómina empresarial", "El convenio colectivo"], correcta: 0 },
+  { enunciado: "La evaluación de riesgos analiza", opciones: ["Vacaciones y permisos", "Salarios y nóminas", "Probabilidad y severidad", "Horarios nocturnos"], correcta: 2 },
+  { enunciado: "La principal norma laboral en España es", opciones: ["El Código Penal", "La Constitución", "El Estatuto de los Trabajadores", "El Código Civil"], correcta: 2 },
+  { enunciado: "El Derecho del Trabajo regula", opciones: ["Solo relaciones mercantiles", "Delitos laborales", "Relaciones entre empresarios y trabajadores", "Impuestos"], correcta: 2 },
+  { enunciado: "Una relación laboral implica", opciones: ["Trabajo voluntario retribuido", "Trabajo obligatorio", "Trabajo sin salario", "Trabajo autónomo exclusivamente"], correcta: 0 },
+  { enunciado: "El trabajador presta servicios", opciones: ["Gratuitamente", "Por cuenta propia", "Por cuenta ajena", "Sin organización empresarial"], correcta: 2 },
+  { enunciado: "Las relaciones laborales especiales", opciones: ["Son ilegales", "Nunca existen", "Se regulan de manera específica", "No tienen salario"], correcta: 2 },
+  { enunciado: "El convenio colectivo es", opciones: ["Una sentencia judicial", "Una norma pactada entre representantes", "Un reglamento municipal", "Un contrato individual"], correcta: 1 },
+  { enunciado: "La jerarquía normativa implica", opciones: ["Que unas normas prevalecen sobre otras", "Que el contrato siempre supera la ley", "Que todas las normas valen igual", "Que no existen límites legales"], correcta: 0 },
+  { enunciado: "El empresario puede ser", opciones: ["Solo autónomo", "Persona física o jurídica", "Solo sociedad anónima", "Solo persona física"], correcta: 1 },
+  { enunciado: "El Estatuto de los Trabajadores fue aprobado mediante", opciones: ["Decreto-Ley 1/2020", "Ley Orgánica", "Ley 31/1995", "Real Decreto Legislativo 2/2015"], correcta: 3 },
+  { enunciado: "El salario es", opciones: ["Una donación", "Una sanción", "Un impuesto", "La retribución por los servicios prestados"], correcta: 3 },
+];
+
+      const TOTAL_PREGUNTAS = Math.min(30, preguntas.length);
+
+      function mezclarArray(lista) {
+        const copia = [...lista];
+        for (let i = copia.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copia[i], copia[j]] = [copia[j], copia[i]];
+        }
+        return copia;
+      }
+
+      function obtenerTestAleatorio() {
+        return mezclarArray(preguntas).slice(0, TOTAL_PREGUNTAS);
+      }
+
+      const SUBJECT_NAME = 'ITPE Repaso 2';
+
+      function TestInteractivo() {
+        const [preguntasMostradas, setPreguntasMostradas] = React.useState(() =>
+          obtenerTestAleatorio(),
+        );
+        const [respuestas, setRespuestas] = React.useState(() =>
+          Array(TOTAL_PREGUNTAS).fill(null),
+        );
+        const [corregido, setCorregido] = React.useState(false);
+
+        const respondidas = respuestas.filter((r) => r !== null).length;
+        const aciertos = respuestas.reduce(
+          (acc, r, i) => r !== null && r === preguntasMostradas[i]?.correcta ? acc + 1 : acc, 0,
+        );
+        const fallos = respuestas.reduce(
+          (acc, r, i) => r !== null && r !== preguntasMostradas[i]?.correcta ? acc + 1 : acc, 0,
+        );
+        const enBlanco = preguntasMostradas.length - respondidas;
+        const puntaje = ((aciertos * 0.33) - (fallos * 0.11)).toFixed(2);
+        const puntuacionMaxima = preguntasMostradas.length * 0.33;
+        const porcentaje = puntuacionMaxima
+          ? Math.max(0, Math.round((Number(puntaje) / puntuacionMaxima) * 100))
+          : 0;
+
+        const seleccionar = (pIndex, rIndex) => {
+          if (corregido) return;
+          const copia = [...respuestas];
+          copia[pIndex] = copia[pIndex] === rIndex ? null : rIndex;
+          setRespuestas(copia);
+        };
+
+        const corregirTest = () => {
+          if (window.ErrorLab && typeof window.ErrorLab.recordFailures === 'function') {
+            window.ErrorLab.recordFailures(SUBJECT_NAME, preguntasMostradas, respuestas);
+          }
+          setCorregido(true);
+        };
+
+        const reiniciar = () => {
+          const nuevoTest = obtenerTestAleatorio();
+          setPreguntasMostradas(nuevoTest);
+          setRespuestas(Array(nuevoTest.length).fill(null));
+          setCorregido(false);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        return (
+          <div className="page-shell">
+            <div className="test-container">
+              <div className="topbar">
+                <a href="../index.html" className="back-link back-link-final">
+                  <span className="neon-arrow">←</span> Volver al portal
+                </a>
+              </div>
+
+              <section className="hero" style={{ padding: '28px 24px' }}>
+                <span className="badge">📚 ITPE Repaso 2</span>
+                <h1 className="test-title">ITPE Repaso 2</h1>
+                <p className="lead">
+                  Test interactivo autocorregible con preguntas aleatorias por intento.
+                  Al reiniciar, el sistema vuelve a barajar y genera un test distinto.
+                </p>
+                <p className="lead" style={{ marginTop: '10px', fontSize: '0.98rem' }}>
+                  Sistema de puntuación: correcta +0,33, incorrecta -0,11, en blanco 0.
+                </p>
+                <div className="stats">
+                  <div className="stat"><b>{preguntasMostradas.length}</b>Preguntas</div>
+                  <div className="stat"><b>{respondidas}</b>Respondidas</div>
+                  <div className="stat"><b>{corregido ? puntaje : '—'}</b>Puntos</div>
+                </div>
+              </section>
+
+              <div style={{ height: '18px' }} />
+
+              {preguntasMostradas.map((p, i) => (
+                <div key={i} className={`card${corregido && respuestas[i] === null ? ' card-blank' : ''}`}>
+                  <h2 className="question-title">{i + 1}. {p.enunciado}</h2>
+                  {p.opciones.map((op, j) => {
+                    const seleccionado = respuestas[i] === j;
+                    const esCorrecta = p.correcta === j;
+                    let clases = 'answer-btn';
+                    if (seleccionado) clases += ' answer-selected';
+                    if (corregido && respuestas[i] !== null && seleccionado && !esCorrecta) clases += ' answer-wrong';
+                    if (corregido && respuestas[i] !== null && esCorrecta) clases += ' answer-correct';
+                    return (
+                      <button key={j} onClick={() => seleccionar(i, j)} className={clases}>{op}</button>
+                    );
+                  })}
+                </div>
+              ))}
+
+              <div className="result-section">
+                <div className="actions">
+                  <a href="../index.html" className="back-link back-link-final">
+                    <span className="neon-arrow">←</span> Volver al portal
+                  </a>
+                  <button className="btn-correct" onClick={corregirTest}>Corregir test</button>
+                  <button className="btn-reset" onClick={reiniciar}>Reiniciar</button>
+                </div>
+                {corregido && (
+                  <>
+                    <p className="result-text">Puntuación: {puntaje} puntos</p>
+                    <p className="result-sub">{aciertos} correctas, {fallos} incorrectas y {enBlanco} en blanco.</p>
+                    <div className="progress"><span style={{ width: `${porcentaje}%` }}></span></div>
+                  </>
+                )}
+              </div>
+
+              <footer>Creado a partir de tus preguntas y preparado para publicación en GitHub Pages.</footer>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<TestInteractivo />);
+    </script>
+  </body>
+</html>

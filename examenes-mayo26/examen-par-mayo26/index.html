@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PAR · Examen Mayo 2026 · Examen Mayo 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../assets/error-lab.js"></script>
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicons/redes.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const preguntas = [
+  {
+    "enunciado": "¿Cuántos bits componen un byte?",
+    "opciones": [
+      "8",
+      "1",
+      "16",
+      "32"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "En el esquema de encapsulación, la PDU de TCP se denomina:",
+    "opciones": [
+      "Trama",
+      "Paquete",
+      "Segmento",
+      "Datagrama"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "En direcciones IPv4 con clase, los dos bits más significativos '10' identifican:",
+    "opciones": [
+      "Clase A",
+      "Clase B",
+      "Clase C",
+      "Clase D"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Cuántos hosts utilizables tiene una subred /28?",
+    "opciones": [
+      "6",
+      "30",
+      "62",
+      "14"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "Para 14 subredes válidas en clase C, una máscara típica sería:",
+    "opciones": [
+      "255.255.255.240",
+      "255.255.255.0",
+      "255.255.255.128",
+      "255.255.255.248"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Para 1000 hosts por subred, el número de bits de host mínimo es:",
+    "opciones": [
+      "8",
+      "9",
+      "11",
+      "10"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "La abreviación de direcciones IPv6 requiere además:",
+    "opciones": [
+      "Eliminar todos los ceros de cualquier bloque",
+      "Mantener al menos un cero por bloque abreviado",
+      "Quitar ceros a la izquierda en cada bloque",
+      "No usar nunca la doble tilde ::"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cuál es la forma abreviada correcta de 2001:0db8:0000:0000:0000:00ab:0000:0001?",
+    "opciones": [
+      "2001:db8: ab:0:1",
+      "2001:db8:0:0:0:ab:0:1",
+      "2001:db8::ab:1",
+      "2001:db8ab::1"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "En fibra óptica, ¿qué tipo es idóneo para decenas de km?",
+    "opciones": [
+      "Multimodo (MMF)",
+      "Monomodo (SMF)",
+      "UTP",
+      "Coaxial"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Un switch de capa 2:",
+    "opciones": [
+      "Divide dominios de broadcast",
+      "Solo repite señales",
+      "Enruta paquetes IP",
+      "Aprende MACs y reduce dominios de colisión"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "¿Qué estándar define Ethernet?",
+    "opciones": [
+      "IEEE 802.11",
+      "IEEE 802.1Q",
+      "IEEE 802.3",
+      "IEEE 802.10"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "¿Cómo se posiciona WiMAX frente a Wi-Fi?",
+    "opciones": [
+      "WiMAX sustituye a Wi-Fi en interiores",
+      "Ambos son idénticos",
+      "WiMAX es para acceso metropolitano/rural; Wi-Fi para LAN locales",
+      "Wi-Fi reemplaza a WiMAX en backhaul"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "VTP sirve para:",
+    "opciones": [
+      "Evitar bucles L2",
+      "Balancear enlaces",
+      "Descubrir vecinos",
+      "Propagar VLANs entre switches Cisco"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "La banda Wi-Fi con mayor alcance pero más interferencias es:",
+    "opciones": [
+      "5 GHz",
+      "2.4 GHz",
+      "6 GHz",
+      "60 GHz"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "¿Qué flag TCP señala el inicio de la conexión?",
+    "opciones": [
+      "FIN",
+      "ACK",
+      "SYN",
+      "URG"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "ICMP se utiliza para:",
+    "opciones": [
+      "Diagnóstico y mensajes de error",
+      "Transferir archivos",
+      "Autenticación de usuarios",
+      "Cifrado de datos"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "ICMP viaja encapsulado dentro de:",
+    "opciones": [
+      "TCP",
+      "IP",
+      "UDP",
+      "ARP"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "En el proceso DHCP (DORA), ¿qué significa la 'O'?",
+    "opciones": [
+      "Open",
+      "Operate",
+      "Override",
+      "Offer"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "Un ataque de envenenamiento ARP (ARP spoofing) permite:",
+    "opciones": [
+      "Man-in-the-Middle en la LAN",
+      "Cifrar ICMP",
+      "Eliminar DHCP",
+      "Crear VLANs"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "La VLAN nativa en 802.1Q transporta:",
+    "opciones": [
+      "Tráfico sin etiquetar en el trunk",
+      "Tráfico etiquetado",
+      "Solo BPDUs",
+      "Solo voz"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Router-on-a-stick requiere en el router:",
+    "opciones": [
+      "Interfaces físicas por VLAN",
+      "Subinterfaces con encapsulation dot1Q",
+      "Desactivar STP",
+      "NAT64"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "Un ISP de nivel Tier 1 se caracteriza por:",
+    "opciones": [
+      "No tener clientes",
+      "Ser solo local",
+      "Alcanzar cualquier red sin pagar tránsito",
+      "Usar exclusivamente Wi-Fi"
+    ],
+    "correcta": 2
+  },
+  {
+    "enunciado": "RIP considera inalcanzable a partir de:",
+    "opciones": [
+      "10 saltos",
+      "15 saltos (16 = inalcanzable)",
+      "20 saltos (21 = inalcanzable)",
+      "32 saltos"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "PAT también es conocido como:",
+    "opciones": [
+      "NAT64 (traducción de direcciones IPv6 a IPv4)",
+      "DNAT (dinámico)",
+      "SNAT (estático)",
+      "NAT Overload (sobrecarga) o NAPT"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "El intercambio de rutas entre sistemas autónomos se hace con:",
+    "opciones": [
+      "RIP",
+      "BGP",
+      "OSPF",
+      "ARP"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "La resolución inversa en IPv4 usa el dominio:",
+    "opciones": [
+      "in-addr.arpa",
+      "ip6.arpa",
+      "reverse.dns",
+      "arpa.ipv4"
+    ],
+    "correcta": 0
+  },
+  {
+    "enunciado": "Una ACL extendida en Cisco puede filtrar por:",
+    "opciones": [
+      "Solo IP origen",
+      "Origen, destino, protocolo y puertos",
+      "MAC origen",
+      "Solo ICMP"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "El algoritmo usado por OSPF para calcular rutas es:",
+    "opciones": [
+      "Bellman-Ford",
+      "DUAL",
+      "Floyd-Warshall",
+      "Dijkstra (SPF)"
+    ],
+    "correcta": 3
+  },
+  {
+    "enunciado": "RIP usa como transporte por defecto:",
+    "opciones": [
+      "TCP 520",
+      "UDP 520",
+      "TCP 179",
+      "UDP 179"
+    ],
+    "correcta": 1
+  },
+  {
+    "enunciado": "La relación 'peering' en BGP se refiere a:",
+    "opciones": [
+      "Cliente-proveedor siempre",
+      "Solo dentro del mismo AS",
+      "Enlace entre AS pares para intercambio local",
+      "Solo para multicast"
+    ],
+    "correcta": 2
+  }
+];
+
+      const SUBJECT_NAME = "PAR Examen Mayo 26";
+
+      function TestInteractivo() {
+        const [respuestas, setRespuestas] = React.useState(() => Array(preguntas.length).fill(null));
+        const [corregido, setCorregido]   = React.useState(false);
+
+        const respondidas = respuestas.filter(r => r !== null).length;
+        const aciertos = respuestas.reduce((acc,r,i) => r!==null && r===preguntas[i]?.correcta ? acc+1 : acc, 0);
+        const fallos   = respuestas.reduce((acc,r,i) => r!==null && r!==preguntas[i]?.correcta ? acc+1 : acc, 0);
+        const enBlanco = preguntas.length - respondidas;
+        const puntaje  = ((aciertos*0.33)-(fallos*0.11)).toFixed(2);
+        const puntuacionMaxima = preguntas.length * 0.33;
+        const porcentaje = puntuacionMaxima ? Math.max(0,Math.round((Number(puntaje)/puntuacionMaxima)*100)) : 0;
+
+        const seleccionar = (pIndex, rIndex) => {
+          if (corregido) return;
+          const copia = [...respuestas];
+          copia[pIndex] = copia[pIndex] === rIndex ? null : rIndex;
+          setRespuestas(copia);
+        };
+
+        const corregirTest = () => {
+          window.ErrorLab.recordFailures(SUBJECT_NAME, preguntas, respuestas);
+          setCorregido(true);
+        };
+
+        const reiniciar = () => {
+          setRespuestas(Array(preguntas.length).fill(null));
+          setCorregido(false);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        return (
+          <div className="page-shell">
+            <div className="test-container">
+              <div className="topbar">
+                <a href="../../index.html" className="back-link back-link-final">
+                  <span className="neon-arrow">←</span> Volver al portal
+                </a>
+              </div>
+              <section className="hero" style={{ padding: "28px 24px" }}>
+                <span className="badge">🔌 Redes (PAR)</span>
+                <h1 className="test-title">PAR · Examen Mayo 2026</h1>
+                <p className="lead">30 preguntas del examen oficial de Redes/PAR de mayo 2026.</p>
+                <p className="lead" style={{ marginTop:"10px", fontSize:"0.95rem" }}>
+                  Puntuación: correcta +0,33 · incorrecta −0,11 · en blanco 0.
+                </p>
+                <div className="stats">
+                  <div className="stat"><b>{preguntas.length}</b>Preguntas</div>
+                  <div className="stat"><b>{respondidas}</b>Respondidas</div>
+                  <div className="stat"><b>{corregido ? puntaje : "—"}</b>Puntos</div>
+                </div>
+              </section>
+              <div style={{ height:"18px" }} />
+              {preguntas.map((p,i) => (
+                <div key={i} className={`card${corregido && respuestas[i]===null ? " card-blank" : ""}`}>
+                  <h2 className="question-title">{i+1}. {p.enunciado}</h2>
+                  {p.opciones.map((op,j) => {
+                    const sel = respuestas[i]===j;
+                    const ok  = p.correcta===j;
+                    let cl = "answer-btn";
+                    if (sel) cl += " answer-selected";
+                    if (corregido && sel && !ok) cl += " answer-wrong";
+                    if (corregido && ok)         cl += " answer-correct";
+                    return <button key={j} onClick={()=>seleccionar(i,j)} className={cl}>
+                      {"ABCD"[j]}) {op}
+                    </button>;
+                  })}
+                </div>
+              ))}
+              <div className="result-section">
+                <div className="actions">
+                  <a href="../../index.html" className="back-link back-link-final">
+                    <span className="neon-arrow">←</span> Volver al portal
+                  </a>
+                  <button className="btn-correct" onClick={corregirTest}>Corregir test</button>
+                  <button className="btn-reset"   onClick={reiniciar}>Reiniciar</button>
+                </div>
+                {corregido && (
+                  <>
+                    <p className="result-text">Puntuación: {puntaje} puntos</p>
+                    <p className="result-sub">{aciertos} correctas · {fallos} incorrectas · {enBlanco} en blanco</p>
+                    <div className="progress"><span style={{ width:`${porcentaje}%` }}></span></div>
+                  </>
+                )}
+              </div>
+              <footer>PAR · Examen Mayo 2026 · Examen Mayo 2026 · 1º ASIR</footer>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<TestInteractivo />);
+    </script>
+  </body>
+</html>
