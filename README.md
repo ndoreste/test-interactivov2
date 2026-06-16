@@ -1,20 +1,38 @@
-# Test interactivo personalizado
+# Interactive Test Platform
 
-Contenido listo para subir tal cual a GitHub Pages o Netlify.
+## Descripción
 
-## Estructura
+Interactive web platform for modular test practice, focused on usability, structure and frontend presentation.
 
-- `index.html` → portal principal
-- `style.css` → estilos compartidos
-- `bbdd/index.html`
-- `fuhar/index.html`
-- `iso/index.html`
-- `ldm/index.html`
-- `redes/index.html`
+## Tecnologías
 
-## Publicarlo en GitHub Pages
+- HTML
+- CSS
+- JavaScript
 
-1. Sube esta carpeta al repositorio.
-2. En GitHub, entra en **Settings > Pages**.
-3. En **Source**, elige la rama y la carpeta raíz (`/root`).
-4. GitHub generará el enlace público.
+## Objetivo
+
+Practicar una interfaz interactiva con lógica básica y buena presentación visual.
+
+## Funcionalidades
+
+- Interfaz para test interactivo
+- Estructura modular
+- Estilos personalizados
+- Base para futuras mejoras con JavaScript
+
+## Aprendizajes
+
+Práctica de interacción, organización de contenido y experiencia de usuario.
+
+## Mejoras futuras
+
+Mejorar accesibilidad, persistencia de resultados y despliegue público.
+
+## Demo
+
+Pendiente de añadir enlace de despliegue.
+
+## Captura
+
+Pendiente de añadir captura del proyecto.
